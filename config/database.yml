@@ -19,7 +19,7 @@ development:
   encoding: unicode
   database: findfood_development
   pool: 5
-  username: findfood
+  username: aaronfosterbresley
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -48,7 +48,7 @@ test:
   encoding: unicode
   database: findfood_test
   pool: 5
-  username: findfood
+  username: aaronfosterbresley
   password:
 
 production:
@@ -56,5 +56,5 @@ production:
   encoding: unicode
   database: findfood_production
   pool: 5
-  username: findfood
+  username: aaronfosterbresley
   password:
