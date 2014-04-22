@@ -4,13 +4,13 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		user = User.find_by_email_and_password(
+		user = User.find_by_credentials(
 			params[:user][:email],
 			params[:user][:password]
 		)
 		if user
 			sign_in(user)
-			# redirect_to 'somewhere'
+			redirect_to user_url(user)
 		else
 			flash[:errors] = ["Invalid email or password"]
 			render :new
@@ -21,6 +21,5 @@ class SessionsController < ApplicationController
 		sign_out
 		redirect_to new_session_url
 	end
-
 
 end

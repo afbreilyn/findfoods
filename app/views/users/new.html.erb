@@ -2,37 +2,41 @@
 
 <%= render "layouts/errors" %>
 
-<form action="<%= session_url %>" method="post">
+<form action="<%= users_url %>" method="post">
 
 	<input type="hidden"
 		name="authenticity_token"
-		value="form_authenticity_token" >
+		value="<%= form_authenticity_token %>" >
 
 	<label>Name
 		<input type='text' name="user[fname]" value="">
 		<input type='text' name="user[mname]" value="">
 		<input type='text' name="user[lname]" value="">
 	</label>
-
+	<br>
 	<label>
 		Email
 		<input type='text' name="user[email]" value="">
 	</label>
+	<br>
 
 	<label>
 		City
 		<input type='text' name="user[city]" value="">
 	</label>
+	<br>
 
 	<label>
 		State
 		<input type='text' name="user[state]" value="">
 	</label>
+	<br>
 
 	<label>
 		Password
 		<input type='text' name="user[password]" value="">
 	</label>
+	<br>
 
 	<input type="submit" value="Sign In">
 </form>

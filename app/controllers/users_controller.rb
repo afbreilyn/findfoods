@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 	def new
-		@user = User.new
+		render :new
 	end
 
 	def create
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
 		if @user.save 
 			sign_in(@user)
-			redirect_to session_url
+			redirect_to user_url(@user)
 		else
 			flash[:errors] = @user.errors.full_messages
 			render :new
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find_by(:id)
+		@user = User.find(params[:id])
 	end
 
 	def edit

@@ -1,7 +1,7 @@
 Findfood::Application.routes.draw do
 
-resources :users, :only => [:new]
-resource :session
+resources :users, :only => [:new, :edit, :show, :destroy, :create]
+resource :session, :only => [:new, :index, :show, :create, :destroy]
 
 root to: "sessions#new"
 

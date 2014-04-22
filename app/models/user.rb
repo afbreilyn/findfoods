@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
 	validates :password_digest, :presence => true
 	#validates :password, :length => { :minimum => 6, :allow_bil => true }
-	validates :sesion_token, :presence => true, :uniqueness => true
+	validates :session_token, :presence => true, :uniqueness => true
 	validates :email, :presence => true, :uniqueness => true
 	validates :fname, :presence => true
 	validates :lname, :presence => true
