@@ -1,9 +1,9 @@
 Findfood::Application.routes.draw do
 
-resources :users
+resources :users, :only => [:new]
 resource :session
 
-root to: "session#new"
+root to: "sessions#new"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

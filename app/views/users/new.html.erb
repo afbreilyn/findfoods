@@ -1,0 +1,38 @@
+<h2>Sign Up</h2>
+
+<%= render "layouts/errors" %>
+
+<form action="<%= session_url %>" method="post">
+
+	<input type="hidden"
+		name="authenticity_token"
+		value="form_authenticity_token" >
+
+	<label>Name
+		<input type='text' name="user[fname]" value="">
+		<input type='text' name="user[mname]" value="">
+		<input type='text' name="user[lname]" value="">
+	</label>
+
+	<label>
+		Email
+		<input type='text' name="user[email]" value="">
+	</label>
+
+	<label>
+		City
+		<input type='text' name="user[city]" value="">
+	</label>
+
+	<label>
+		State
+		<input type='text' name="user[state]" value="">
+	</label>
+
+	<label>
+		Password
+		<input type='text' name="user[password]" value="">
+	</label>
+
+	<input type="submit" value="Sign In">
+</form>

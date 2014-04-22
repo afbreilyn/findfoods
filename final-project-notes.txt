@@ -53,6 +53,7 @@ owner signin/sighout and auth
 
 user auth
 owner auth
+tags
 email validation
 search results
 search filters
@@ -61,4 +62,9 @@ comments on comments
 following people/restaurants
 notifications
 weekly email with info about restaurants in your area
+
+
+tuesday:	models and controllers. finish auth and tests.
+				get rid of rvm
+wednesday:	email verification and css layout.
 

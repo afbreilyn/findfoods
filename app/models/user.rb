@@ -4,16 +4,12 @@ class User < ActiveRecord::Base
 
 	validates :password_digest, :presence => true
 	#validates :password, :length => { :minimum => 6, :allow_bil => true }
-	validates :sesion_token, :presence => true
-	validates :email, :presence => true
+	validates :sesion_token, :presence => true, :uniqueness => true
+	validates :email, :presence => true, :uniqueness => true
 	validates :fname, :presence => true
 	validates :lname, :presence => true
 	validates :city, :presence => true
 	validates :state, :presence => true
-
-	def self.generate_session_token
-		self.session_token = SecureRandom.urlsafe_base64(16)
-	end
 
 	def self.find_by_credentials(email, password)
 		user = User.find_by_email(email)

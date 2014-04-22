@@ -1,5 +1,5 @@
-class SessionController < ApplicationController
-
+class SessionsController < ApplicationController
+	
 	def new
 	end
 
@@ -8,19 +8,19 @@ class SessionController < ApplicationController
 			params[:user][:email],
 			params[:user][:password]
 		)
-	end
-
-	if user
-		sign_in(user)
-		# redirect_to 'somewhere'
-	else
-		flash[:errors] = ["Invalid email or password"]
-		render :new
+		if user
+			sign_in(user)
+			# redirect_to 'somewhere'
+		else
+			flash[:errors] = ["Invalid email or password"]
+			render :new
+		end
 	end
 
 	def destroy
 		sign_out
 		redirect_to new_session_url
 	end
-	
+
+
 end

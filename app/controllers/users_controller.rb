@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
 	def new
 		@user = User.new
@@ -9,7 +9,7 @@ class UserController < ApplicationController
 
 		if @user.save 
 			sign_in(@user)
-			redirect_to #somewhere??
+			redirect_to session_url
 		else
 			flash[:errors] = @user.errors.full_messages
 			render :new
