@@ -30,6 +30,7 @@ user signin/signout and auth
 		edit
 		delete
 
+NO OWNER! just restaurant - and it belongs to a user
 
 owner signin/sighout and auth 
 	schema:

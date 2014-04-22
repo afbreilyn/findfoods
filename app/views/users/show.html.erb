@@ -1,3 +1,7 @@
-show page 
+<h3>show page</h3>
 
-"<%= @user.fname %> <%= @user.lname %>"
+<%= @user.fname %> <%= @user.mname %> <%= @user.lname %>
+<br>
+<%=  link_to "Edit Your Info", edit_user_url%>
+<br>
+<%= button_to "Delete Your Account", user_url(@user), method: :delete %>
