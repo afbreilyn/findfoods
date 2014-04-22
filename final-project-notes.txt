@@ -1,0 +1,64 @@
+pages:
+
+	main page (changes for signed in/ not signed in)
+	user show prof
+	restaurant show
+	write a review 
+	search result page
+
+features: 
+
+user signin/signout and auth
+	schema: 
+		-fname 		(req)
+		-mname
+		-lname 		(req)
+		-city 		(req)
+		-state 		(req)
+		-id
+		-password digest
+		-picture??
+			later:
+			-good
+			-funny
+			-inaccurate
+	model:
+		validations
+	controller:
+		new
+		show
+		edit
+		delete
+
+
+owner signin/sighout and auth 
+	schema:
+		-restaurant name 	(req)
+		-address line 1
+		-city 				(req)
+		-state 				(req)
+		-zip 				(req)
+			later:
+			-stars
+			-tags (as an array?)
+	model:
+		validations
+	controller:
+		new
+		show
+		edit
+		delete
+
+
+
+user auth
+owner auth
+email validation
+search results
+search filters
+comments
+comments on comments
+following people/restaurants
+notifications
+weekly email with info about restaurants in your area
+
