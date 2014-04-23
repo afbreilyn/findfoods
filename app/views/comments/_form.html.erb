@@ -6,9 +6,7 @@
 <form action="<%= action %>" method="post">
 	<input type="hidden" name="_method" value="<%= method %>">
 
-	<input type="hidden"
-		name="authenticity_token"
-		value="<%= form_authenticity_token %>" >
+	<%= auth_token %>
 
 		<input type="hidden" name="comment[user_id" 
 																		value="<%= current_user.id %>">
@@ -18,13 +16,14 @@
 
 		<div class="input">
 			<label for="comment-body">Body</label>
-			<input type='text' name="comment[body]" value="<%= comment.body %>">
+			<input type='textarea' name="comment[body]" 
+																				value="<%= comment.body %>">
 		</div>
 
 		<% if params[:parent_comment_id] %>
 			<input type="hidden" name="comment[parent_comment_id]" 
 															value="<%= params[parent_comment_id]%>">  
 		<% end %>
-		
+
 		<input type="submit" value="<%= restaurant.persisted? ? 'Update' : 'Create'%>">
 </form>

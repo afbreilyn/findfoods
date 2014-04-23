@@ -27,7 +27,8 @@ class CommentsController < ApplicationController
 			flash.now[:errors] = @user.errors.full_messages
 			render #somewhere
 		end
-
+	end
+	
 	private
 		def comment_params
 			params.require(:comment).permits(:body, :user_id, :restaurant_id, :body)

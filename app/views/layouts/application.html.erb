@@ -7,10 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<!-- <img src="Users/Harold/Desktop/findfood/images.jpg"> -->
+	
 <% if signed_in? %>
-<!-- 	a = "<%= current_user.fname %> <%= current_user.mname %>  <%= current_user.lname %>"
-	fail -->
 	<%= link_to current_user.fname + ' ' + current_user.mname + ' ' + current_user.lname, user_url(current_user) %>
 	<%= button_to "Sign Out", session_url, method: :delete %>
 <% else %>

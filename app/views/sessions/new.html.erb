@@ -4,9 +4,7 @@
 
 <form action="<%= session_url %>" method="post">
 
-	<input type="hidden"
-		name="authenticity_token"
-		value="<%= form_authenticity_token %>" >
+	<%= auth_token %>
 
 	<label>
 		Email
@@ -15,7 +13,7 @@
 
 	<label>
 		Password
-		<input type='text' name="user[password]" value="">
+		<input type='password' name="user[password]" value="">
 	</label>
 
 	<input type="submit" value="Sign In">

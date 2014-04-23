@@ -6,9 +6,8 @@
 <form action="<%= action %>" method="post">
 	<input type="hidden" name="_method" value="<%= method %>">
 
-	<input type="hidden"
-		name="authenticity_token"
-		value="<%= form_authenticity_token %>" >
+	<%= auth_token %>
+
 
 		<div class="input">
 			<label for="restaurant-name">Name</label>

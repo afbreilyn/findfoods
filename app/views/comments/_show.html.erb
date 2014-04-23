@@ -1,7 +1,7 @@
 
 <ul class="comment-list">
 
-	<% comments.each do |parent_comment| %>
+	<% @restaurant.comments.each do |parent_comment| %>
 		<li class="parent-comment"><%= parent_comment.body %></li>
 
 		<ul class= "sub-comment-list">
@@ -10,7 +10,20 @@
 			<% end %>
 		</ul>
 
-		</ul>
+			Reply to this Review:
+			<form action="<%= restaurant_comments_url(@restaurant) %>" 
+																														method="POST">
+			<input type="hidden" name="comment[parent_comment_id]" 
+																		value="<%= parent_comment.id %>">
+
+				
+			</form>
+
+		</li>
 	<% end %>
-	
+
 </ul>
+
+
+
+

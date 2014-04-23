@@ -12,10 +12,7 @@
 <%= render "comments/show" %>
 
 
-
-<% if current_user %>
-	<% if current_user.id == @restaurant.owner_id %>
+	<% if current_user == @restaurant.owner %>
 		<%=  link_to "Edit Your Info", edit_user_restaurant_url(current_user.id, @restaurant) %>
 		<%= button_to "Destroy this restaurant", user_restaurant_url(current_user.id, @restaurant), method: :delete %>
 	<% end %>
-<% end %>

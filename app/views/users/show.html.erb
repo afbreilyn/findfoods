@@ -5,14 +5,21 @@
 
 
 
+<% if current_user == @user %>
+	<%=  link_to "Edit Your Info", edit_user_url %>
 
-<% if current_user %>
+	<%= button_to "Delete Your Account", user_url(@user), 
+																						method: :delete %>
 
-	<% if current_user.id == @user.id %>
-		<%=  link_to "Edit Your Info", edit_user_url%>
+	<%= link_to "Register A Restaurant", new_user_restaurant_url(@user) %>
 
-		<%= button_to "Delete Your Account", user_url(@user), method: :delete %>
-
-		<%= link_to "Register A Restaurant", new_user_restaurant_url(@user) %>
-	<% end %>
+	<ul class="your-restaurant-list">
+		<% @user.restaurants.each do |restaurant| %>
+			<li>
+				<a href="<%= restaurant_url(restaurant) %>">
+					<%= restaurant.name %>
+				</a>
+			</li>
+		<% end %>
+	</ul>
 <% end %>
