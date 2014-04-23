@@ -1,11 +1,7 @@
 class Restaurant < ActiveRecord::Base
 
-	validates :name, presence: true
-	validates :street1, presence: true
-	validates :city, presence: true
+	validates :name, :street1, :city, :zip, :owner_id, presence: true
 	validates :state, presence: true, length: { maximum: 2 }
-	validates :zip, presence: true
-	validates :owner_id, presence: true
 
 	belongs_to(
 		:owner,
@@ -14,6 +10,16 @@ class Restaurant < ActiveRecord::Base
 		primary_key: :id
 	)
 
-	has_many :comments, inverse_of: :restaurant
+	has_many :comments, inverse_of: :restaurant, dependent: :destroy
 	
+	def comments_by_parent
+		comments_by_parent = Hash.new { |hash, key| hash[key] = [] }
+		comments.each do |comment|
+			comments_by_parent[comment.parent_comment_id] << comment
+		end
+		
+		comments_by_parent
+	end
+
+	 
 end

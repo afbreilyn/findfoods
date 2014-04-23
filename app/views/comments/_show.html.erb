@@ -1,0 +1,16 @@
+
+<ul class="comment-list">
+
+	<% comments.each do |parent_comment| %>
+		<li class="parent-comment"><%= parent_comment.body %></li>
+
+		<ul class= "sub-comment-list">
+			<% comments_by_parent[parent_comment.id].each do |child_comment| %>
+				<li class="sub-comment"><%= child_comment.body %></li>
+			<% end %>
+		</ul>
+
+		</ul>
+	<% end %>
+	
+</ul>

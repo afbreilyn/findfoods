@@ -4,13 +4,9 @@ class User < ActiveRecord::Base
 
 	before_validation :ensure_session_token
 
-	validates :password_digest, :presence => true
+	validates :password_digest, :fname, :lname, :city, :presence => true
 	validates :password, length: { minimum: 6, allow_nil: true }
-	validates :session_token, presence: true, uniqueness: true
-	validates :email, presence: true, uniqueness: true
-	validates :fname, presence: true
-	validates :lname, presence: true
-	validates :city, presence: true
+	validates :session_token, :email, presence: true, uniqueness: true
 	validates :state, presence: true, length: { maximum: 2 }
 
 	has_many(
@@ -20,7 +16,7 @@ class User < ActiveRecord::Base
 		primary_key: :id
 	)
 
-	has_many :comments, inverse_of: :user
+	has_many :comments, inverse_of: :user, dependent: :destroy
 
 	def self.find_by_credentials(email, password)
 		user = User.find_by_email(email)
