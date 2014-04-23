@@ -1,7 +1,10 @@
 Findfood::Application.routes.draw do
 
-resources :users, :only => [:new, :create, :edit, :update, :show, :destroy]
-resource :session, :only => [:new, :create, :destroy]
+resources :users, only: [:new, :create, :edit, :update, :show, :destroy] do
+  resources :restaurants, only: [:new, :create, :edit, :update, :destroy]
+end
+resources :restaurants, only: [:show]
+resource :session, only: [:new, :create, :destroy]
 
 root to: "sessions#new"
 

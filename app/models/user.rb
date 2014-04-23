@@ -5,13 +5,13 @@ class User < ActiveRecord::Base
 	before_validation :ensure_session_token
 
 	validates :password_digest, :presence => true
-	validates :password, :length => { :minimum => 6, :allow_bil => true }
-	validates :session_token, :presence => true, :uniqueness => true
-	validates :email, :presence => true, :uniqueness => true
-	validates :fname, :presence => true
-	validates :lname, :presence => true
-	validates :city, :presence => true
-	validates :state, :presence => true, :length => { :maximum => 2 }
+	validates :password, length: { minimum: 6, allow_nil: true }
+	validates :session_token, presence: true, uniqueness: true
+	validates :email, presence: true, uniqueness: true
+	validates :fname, presence: true
+	validates :lname, presence: true
+	validates :city, presence: true
+	validates :state, presence: true, length: { maximum: 2 }
 
 	has_many(
 		:restaurants,
@@ -44,8 +44,8 @@ class User < ActiveRecord::Base
 
 	private
 
-	def ensure_session_token
-		self.session_token ||= SecureRandom.urlsafe_base64(16)
-	end
+		def ensure_session_token
+			self.session_token ||= SecureRandom.urlsafe_base64(16)
+		end
 
 end
