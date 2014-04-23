@@ -9,9 +9,11 @@
 	<%= @restaurant.zip %>
 </span>
 
-<%= render partial: "comments/show", locals: {restaurant: @restaurant} %>
-
-<%= render partial: "comments/newform", locals: {comment: @restaurant.comments.new, restaurant: @restaurant} %>
+<%#= render partial: "comments/comments", locals: { 
+			comment_parent_comment_id: nil, 
+			commentable_id: @restaurant.id, 
+			commentable_type: "Restaurant", 
+			comments: @restaurant.comments.where(comment_parent_comment_id: nil) } %>
 
 
 <% if current_user == @restaurant.owner %>
@@ -20,15 +22,16 @@
 <% end %>
 
 
-<!-- 
-<h2>Comments</h2>
-<%#= link_to "Comment on this link!", new_restaurant_comment_url(params[:id]) %><br><br>
-
 <ul>
   <% comments_by_parent = @restaurant.comments_by_parent %>
   <% comments_by_parent[nil].each do |top_level_comments| %>
     <li>
-      <%#= comment_partial(top_level_comments, comments_by_parent) %>
+    	<%= top_level_comments.body %>
+    	<%= render partial: "comments/form", locals: {
+    												comment_parent_comment_id: top_level_comments.comment_parent_comment_id,
+														commentable_id: top_level_comments.commentable_id, 
+														commentable_type: top_level_comments.commentable_type } %>
+       <%= comment_partial(top_level_comments, comments_by_parent) %>
     </li>
   <% end %>
-</ul> -->
+</ul>

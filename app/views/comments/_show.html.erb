@@ -1,27 +1,9 @@
+<!-- 
+<% restaurant.comments.each do |parent_comment| %>
 
-<ul class="comment-list">
+	<%= parent_comment.body %>
+	comment on this review
+	<%#= render "comments/form", commentable_id: parent_comment.id, commentable_type: "Comment"%>
 
-	<% restaurant.comments.each do |parent_comment| %>
-		<li class="parent-comment"><%= parent_comment.body %></li>
-			<%= button_to "Delete This Review (temp)", restaurant_comment_url(restaurant, parent_comment.id), method: :delete %>
-			<ul class= "sub-comment-list">
-				<% restaurant.comments_by_parent.each do |child_comment| %>
-																										<%#= fail %>
-					<li class="sub-comment">
-						<% if restaurant.comments_by_parent %>
-							<% restaurant.comments_by_parent[child_comment].each do |body| %>
-								<%= body %>
-							<% end %>
-						<% end %>
-					</li>
-				<% end %>
-			</ul>
-
-			<%= parent_comment.id %>
-			<%= render partial: "comments/subform", locals: 
-							{comment: parent_comment.child_comments.new, restaurant: @restaurant, parent_comment: parent_comment} %>
-			
-		</li>
-	<% end %>
-
-</ul>
+<% end %>
+<br> -->

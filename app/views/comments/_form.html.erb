@@ -1,29 +1,17 @@
-<% action = (comment.persisted? ? 
-				restaurant_comment_url(restaurant) : restaurants_comments_url) %>
-<% method = (restaurant.persisted? ? :put : :post) %>
-
-
-<form action="<%= action %>" method="post">
-	<input type="hidden" name="_method" value="<%= method %>">
+<form action="<%= comments_url %>" method="post">
 
 	<%= auth_token %>
 
-		<input type="hidden" name="comment[user_id" 
-																		value="<%= current_user.id %>">
+	<div class="input">
+		<label for="comment-body">Body</label>
+		<textarea name="comment[body]"></textarea>
+	</div>
 
-		<input type="hidden" name="comment[restaurant_id]" 
-																		value="<%= @restaurant.id %>">																		
+	<input type="hidden" name="comment[comment_parent_comment_id]" 
+																								value="<%= comment_parent_comment_id %>">
+	<input type="hidden" name="comment[commentable_type]" value="<%= commentable_type %>">
+	<input type="hidden" name="comment[commentable_id]" value="<%= commentable_id %>">
 
-		<div class="input">
-			<label for="comment-body">Body</label>
-			<input type='textarea' name="comment[body]" 
-																				value="<%= comment.body %>">
-		</div>
+	<input type="submit" value="Submit Restaurant Review">
 
-		<% if params[:parent_comment_id] %>
-			<input type="hidden" name="comment[parent_comment_id]" 
-															value="<%= params[parent_comment_id]%>">  
-		<% end %>
-
-		<input type="submit" value="<%= restaurant.persisted? ? 'Update' : 'Create'%>">
 </form>

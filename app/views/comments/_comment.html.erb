@@ -1,9 +1,26 @@
-<!-- <p>
-  <%#= link_to comment.body, restaurant_comments_url(comment.restaurant.id) %>
-</p>
+
+<!-- <li class="comment">
+	<article><%= comment.body %></article>
+
+	<%#= render partial: "comments/comments", locals: { 
+			comment_parent_comment_id: comment.id, 
+			commentable_id: commentable_id, 
+			commentable_type: commentable_type, 
+			comments: comment.child_comments } %>
+
+</li> -->
+
 
 <ul>
   <% comments_by_parent[comment.id].each do |child_comment| %>
-    <li><%= comment_partial(child_comment, comments_by_parent) %></li>
+    <li>
+    	<%= child_comment.body %>
+    	<%= render partial: "comments/form", locals: {
+    														comment_parent_comment_id: child_comment.comment_parent_comment_id, 
+																commentable_id: child_comment.commentable_id, 
+																commentable_type: child_comment.commentable_type } %>
+			 <%= comment_partial(child_comment, comments_by_parent) %>
+
+    </li>
   <% end %>
-</ul> -->
+</ul>
