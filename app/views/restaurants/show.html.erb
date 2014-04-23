@@ -11,8 +11,9 @@
 </span>
 
 
-<%	if @current_user == nil  %>
-	<%=  %>
-<% elsif @current_user.id == @restaurant.owner_id %>
-	<%=  link_to "Edit Your Info", edit_user_restaurant_url(current_user.id, @restaurant) %>
+<% if current_user %>
+	<% if current_user.id == @restaurant.owner_id %>
+		<%=  link_to "Edit Your Info", edit_user_restaurant_url(current_user.id, @restaurant) %>
+		<%= button_to "Destroy this restaurant", user_restaurant_url(current_user.id, @restaurant), method: :delete %>
+	<% end %>
 <% end %>

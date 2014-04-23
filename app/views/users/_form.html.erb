@@ -9,35 +9,40 @@
 		name="authenticity_token"
 		value="<%= form_authenticity_token %>" >
 
-	<label>Name
-		<input type='text' name="user[fname]" value="<%= user.fname %>">
-		<input type='text' name="user[mname]" value="<%= user.mname %>">
-		<input type='text' name="user[lname]" value="<%= user.lname %>">
-	</label>
-	<br>
-	<label>
-		Email
-		<input type='text' name="user[email]" value="<%= user.email %>">
-	</label>
-	<br>
+		<div class="input">
+			<label for="user-fname">First Name</label>
+			<input type='text' name="user[fname]" value="<%= user.fname %>">
+		</div>
 
-	<label>
-		City
-		<input type='text' name="user[city]" value="<%= user.city %>">
-	</label>
-	<br>
+		<div class="input">
+			<label for="user-mname">Middle Name</label>
+			<input type='text' name="user[mname]" value="<%= user.mname %>">
+		</div>
 
-	<label>
-		State
-		<input type='text' name="user[state]" value="<%= user.state %>">
-	</label>
-	<br>
+		<div class="input">
+			<label for="user-lname">Last Name</label>
+			<input type='text' name="user[lname]" value="<%= user.lname %>">
+		</div>
 
-	<label>
-		Password
-		<input type='text' name="user[password]" value="">
-	</label>
-	<br>
+		<div class="input">
+			<label for="user-city">City</label>
+			<input type='text' name="user[city]" value="<%= user.city %>">
+		</div>
+
+		<div class="input">
+			<label for="user-state">State</label>
+			<input type='text' name="user[state]" value="<%= user.state %>">
+		</div>
+
+		<div class="input">
+			<label for="user-email">Email</label>
+			<input type='text' name="user[email]" value="<%= user.email %>">
+		</div>
+
+		<div class="input">
+			<label for="user-password">Password</label>
+			<input type='password' name="user[password]" value="<%= user.password %>">
+		</div>
 
 	<input type="submit" value="<%= user.persisted? ? 'Update' : 'Create'%>">
 </form>

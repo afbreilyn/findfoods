@@ -3,10 +3,16 @@
 <%= @user.fname %> <%= @user.mname %> <%= @user.lname %>
 <br>
 
-<%=  link_to "Edit Your Info", edit_user_url%>
-<br>
 
-<%= button_to "Delete Your Account", user_url(@user), method: :delete %>
-<br>
 
-<%= link_to "Register A Restaurant", new_user_restaurant_url(@user) %>
+
+<% if current_user %>
+
+	<% if current_user.id == @user.id %>
+		<%=  link_to "Edit Your Info", edit_user_url%>
+
+		<%= button_to "Delete Your Account", user_url(@user), method: :delete %>
+
+		<%= link_to "Register A Restaurant", new_user_restaurant_url(@user) %>
+	<% end %>
+<% end %>
