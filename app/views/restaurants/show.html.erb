@@ -1,0 +1,18 @@
+<h2> <%= @restaurant.name %> </h2>
+
+<span class="restaurant-address">
+	<%= @restaurant.street1 %> 
+	<% if @restaurant.street2 != nil %>
+		<%= @restaurant.street2 %>
+	<% end  %>
+	<%= @restaurant.city %>, 	<%= @restaurant.state %>
+	<%= @restaurant.zip %>
+
+</span>
+
+
+<%	if @current_user == nil  %>
+	<%=  %>
+<% elsif @current_user.id == @restaurant.owner_id %>
+	<%=  link_to "Edit Your Info", edit_user_restaurant_url(current_user.id, @restaurant) %>
+<% end %>

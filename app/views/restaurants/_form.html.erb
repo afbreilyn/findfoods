@@ -1,0 +1,50 @@
+<% action = (restaurant.persisted? ? 
+						user_restaurant_url(current_user, restaurant) : user_restaurants_url) %>
+<% method = (restaurant.persisted? ? :put : :post) %>
+
+
+<form action="<%= action %>" method="post">
+	<input type="hidden" name="_method" value="<%= method %>">
+
+	<input type="hidden"
+		name="authenticity_token"
+		value="<%= form_authenticity_token %>" >
+
+		<div class="input">
+			<label for="restaurant-name">Name</label>
+			<input type='text' name="restaurant[name]" value="<%= restaurant.name %>">
+		</div>
+
+		<div class="input">
+			<label for="restaurant-street">Street Address (line 1)</label>
+			<input type='text' name="restaurant[street1]" value="<%= restaurant.street1 %>">
+		</div>
+
+		<div class="input">
+			<label for="restaurant-street">Street Address (line 2)</label>
+			<input type='text' name="restaurant[street2]" value="<%= restaurant.street2 %>">
+		</div>
+
+		<div class="input">
+			<label for="restaurant-city">City</label>
+			<input type='text' name="restaurant[city]" value="<%= restaurant.city %>">
+		</div>
+
+		<div class="input">
+			<label for="restaurant-state">State</label>
+			<input type='text' name="restaurant[state]" value="<%= restaurant.state %>">
+		</div>
+
+		<div class="input">
+			<label for="restaurant-zip">Zipcode</label>
+			<input type='text' name="restaurant[zip]" value="<%= restaurant.street1 %>">
+		</div>
+
+		<div class="input">
+			<label for="restaurant-owner_id"></label>
+			<input type='hidden' name="restaurant[owner]" value="<%= current_user.id %>">
+		</div>
+
+	<input type="submit" value="<%= restaurant.persisted? ? 'Update' : 'Create'%>">
+</form>
+

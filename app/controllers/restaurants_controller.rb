@@ -16,13 +16,17 @@ class RestaurantsController < ApplicationController
 		end
 	end
 
+	def show
+		@restaurant = Restaurant.find(params[:id])
+	end
+
 	def edit
-		@restaurant = current_user.restaurant.find(params[:id])
+		@restaurant = current_user.restaurants.find(params[:id])
 		render :edit
 	end
 
 	def update
-		@restaurant = current_user.restaurant.find(params[:id])
+		@restaurant = current_user.restaurants.find(params[:id])
 		if @restaurant.update_attributes(restaurant_params)
 			redirect_to restaurant_url(@restaurant)
 		else
@@ -32,9 +36,9 @@ class RestaurantsController < ApplicationController
 	end
 
 	def destroy
-		@restaurant = current_user.restaurant.find(params[:id])
+		@restaurant = current_user.restaurants.find(params[:id])
 		@restaurant.destroy
-		redirect_to :user_url(current_user)
+		redirect_to user_url(current_user)
 	end
 
 
