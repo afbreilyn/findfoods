@@ -22,16 +22,12 @@
 <% end %>
 
 
-<ul>
-  <% comments_by_parent = @restaurant.comments_by_parent %>
-  <% comments_by_parent[nil].each do |top_level_comments| %>
-    <li>
-    	<%= top_level_comments.body %>
-    	<%= render partial: "comments/form", locals: {
-    												comment_parent_comment_id: top_level_comments.comment_parent_comment_id,
-														commentable_id: top_level_comments.commentable_id, 
-														commentable_type: top_level_comments.commentable_type } %>
-       <%= comment_partial(top_level_comments, comments_by_parent) %>
-    </li>
-  <% end %>
-</ul>
+<%= render partial: "comments/form", locals: {
+    												comment_parent_comment_id: nil,
+														commentable_id: @restaurant.id, 
+														commentable_type: "Restaurant" } %>
+
+
+<% comments_by_parent = @restaurant.comments_by_parent %>
+
+<%= comment_partial(nil, comments_by_parent) %>

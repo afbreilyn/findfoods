@@ -1,0 +1,6 @@
+
+<% if current_user %>
+	<% if current_user.id == comment_type.user_id %>
+		<%= button_to "Delete Comment", comment_url(comment_type.id), method: :delete %>
+	<% end  %>
+<% end %>

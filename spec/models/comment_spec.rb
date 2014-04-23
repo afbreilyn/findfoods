@@ -7,7 +7,7 @@ describe Comment do
 			body: "man - what great foods!",
 			user_id: 1,
 			restaurant_id: 2,
-			id: 13
+			id: 13)
 	end
 
 	it { should validate_presence_of(:body) }

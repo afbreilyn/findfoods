@@ -5,27 +5,27 @@ class CommentsController < ApplicationController
 	end
 
 	def create
+		restaurant = Restaurant.find(params[:comment][:commentable_id])
+		unless params[:comment][:body] == "" || !current_user
+			if params[:comment][:commentable_type] == "Restaurant" 
+				restaurant = Restaurant.find(params[:comment][:commentable_id])
 
-		if params[:comment][:commentable_type] == "Restaurant" 
-			restaurant = Restaurant.find(params[:comment][:commentable_id])
-
-			comment = restaurant.comments.new(comment_params)
-			comment.user_id = current_user.id
-
-			comment.save!
-			redirect_to restaurant 
-			return 
+				comment = restaurant.comments.new(comment_params)
+				comment.user_id = current_user.id
+				comment.save!
+				redirect_to restaurant 
+				return 
+			end
 		end
-		
-		redirect_to root_url
+		redirect_to restaurant
 	end
 
 	def edit
-		@comment = Restaurant.comments.find(params[:id])
+		@comment = Comments.find(params[:id])
 	end
 
 	def update
-		@comment = Restaurant.comments.find(params[:id])
+		@comment = Comments.find(params[:id])
 		if @comment.update_attributes(comment_params)
 			redirect_to #somewhere
 		else
@@ -35,10 +35,10 @@ class CommentsController < ApplicationController
 	end
 
 	def destroy
-		@restaurant = Restaurant.find(params[:restaurant_id])
-		@comment = @restaurant.comments.find(params[:id])
+		@comment = Comment.find(params[:id])
+		restaurant = Restaurant.find(@comment.commentable_id)
 		@comment.destroy
-		redirect_to restaurant_url(@comment.restaurant_id)
+		redirect_to restaurant 
 	end
 
 	private
