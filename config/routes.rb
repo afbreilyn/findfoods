@@ -8,6 +8,10 @@ resources :restaurants, only: [:show] do
   resources :comments, only: [:new, :create, :edit, :update, :show, :destroy]
 end
 
+resources :comments, only: [] do
+  resources :comments, only: [:create]
+end
+
 resource :session, only: [:new, :create, :destroy]
 
 root to: "sessions#new"

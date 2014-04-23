@@ -10,7 +10,7 @@ class Restaurant < ActiveRecord::Base
 		primary_key: :id
 	)
 
-	has_many :comments, inverse_of: :restaurant, dependent: :destroy
+	has_many :comments, as: :commentable, dependent: :destroy
 	
 	def comments_by_parent
 		comments_by_parent = Hash.new { |hash, key| hash[key] = [] }

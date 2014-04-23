@@ -1,9 +1,9 @@
 class Comment < ActiveRecord::Base
 
-	validates :body, :user_id, presence: true
+	belongs_to :commentable, polymorphic: true
+	has_many :comments, as: :commentable
 
-	belongs_to :restaurant, inverse_of: :comments
-	belongs_to :user, inverse_of: :comments
+	validates :body, :user_id, presence: true
 
 	has_many(
 		:child_comments,

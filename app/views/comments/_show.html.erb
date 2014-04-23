@@ -8,7 +8,7 @@
 				<% restaurant.comments_by_parent.each do |child_comment| %>
 																										<%#= fail %>
 					<li class="sub-comment">
-						<% if restaurant.comments_by_parent[child_comment] %>
+						<% if restaurant.comments_by_parent %>
 							<% restaurant.comments_by_parent[child_comment].each do |body| %>
 								<%= body %>
 							<% end %>
@@ -17,7 +17,7 @@
 				<% end %>
 			</ul>
 
-
+			<%= parent_comment.id %>
 			<%= render partial: "comments/subform", locals: 
 							{comment: parent_comment.child_comments.new, restaurant: @restaurant, parent_comment: parent_comment} %>
 			
