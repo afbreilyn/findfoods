@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
 
-	validates :body, :user_id, :restaurant_id, presence: true
+	validates :body, :user_id, presence: true
 
 	belongs_to :restaurant, inverse_of: :comments
 	belongs_to :user, inverse_of: :comments

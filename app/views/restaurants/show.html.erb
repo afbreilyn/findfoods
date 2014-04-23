@@ -18,3 +18,17 @@
 	<%=  link_to "Edit Your Info", edit_user_restaurant_url(current_user.id, @restaurant) %>
 	<%= button_to "Destroy this restaurant", user_restaurant_url(current_user.id, @restaurant), method: :delete %>
 <% end %>
+
+
+<!-- 
+<h2>Comments</h2>
+<%#= link_to "Comment on this link!", new_restaurant_comment_url(params[:id]) %><br><br>
+
+<ul>
+  <% comments_by_parent = @restaurant.comments_by_parent %>
+  <% comments_by_parent[nil].each do |top_level_comments| %>
+    <li>
+      <%#= comment_partial(top_level_comments, comments_by_parent) %>
+    </li>
+  <% end %>
+</ul> -->

@@ -1,13 +1,18 @@
-<% action = (comment.persisted? ? 
-		restaurant_comment_url(restaurant, comment.id) : restaurant_comments_url) %>
-
-<% method = (comment.persisted? ? :put : :post) %>
-
-<form action="<%= action %>" method="post">
+<form action="<%= restaurant_comments_url(restaurant.id) %>" method="post">
 	<%= auth_token %>
 
-	<input type="hidden" name="comment[parent_comment_id]" 
-																value="<%= parent_comment.id %>">
+	<input type="hidden" name="comment[parent_comment_id]" value="<%= parent_comment.id %>"> 
+	<input type="hidden" name="comment[restaurant_id]" value="<%= restaurant.id %>"> 
+	<input type="hidden" name="comment[user_id]" value="<%= current_user.id %>">
+	<input type="hidden" name="comment[parent_comment_id]" value="nil">  
 
+	<div class="input">
+		<label for="comment-body">Comment on this Review:</label>
+		<input type='textarea' name="comment[body]" value="">
+	</div>
+
+
+		<input type="submit" value="Post Subcomment" >
+</form>
 
 </form>
