@@ -5,10 +5,11 @@ class CommentsController < ApplicationController
 	end
 
 	def create
-		@comment = restaurant.comments.new(comment_params)
+		@restaurant = Restaurant.find(params[:restaurant_id])
+		@comment = @restaurant.comments.build(comment_params)
 
 		if @comment.save 
-			redirect_to #somewhere
+			redirect_to restaurant_url(@restaurant)
 		else
 			flash[:errors] = @comment.errors.full_messages
 			render :new
@@ -16,11 +17,11 @@ class CommentsController < ApplicationController
 	end
 
 	def edit
-		@comment = restaurant.comments.find(params[:id])
+		@comment = Restaurant.comments.find(params[:id])
 	end
 
 	def update
-		@comment = restaurant.comments.find(params[:id])
+		@comment = Restaurant.comments.find(params[:id])
 		if @comment.update_attributes(comment_params)
 			redirect_to #somewhere
 		else
@@ -28,9 +29,9 @@ class CommentsController < ApplicationController
 			render #somewhere
 		end
 	end
-	
+
 	private
 		def comment_params
-			params.require(:comment).permits(:body, :user_id, :restaurant_id, :body)
+			params.require(:comment).permit(:body, :user_id, :restaurant_id, :body)
 		end
 end

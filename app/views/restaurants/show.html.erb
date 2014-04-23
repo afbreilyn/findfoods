@@ -9,10 +9,12 @@
 	<%= @restaurant.zip %>
 </span>
 
-<%= render "comments/show" %>
+<%= render partial: "comments/show", locals: {restaurant: @restaurant} %>
+
+<%= render partial: "comments/newform", locals: {comment: @restaurant.comments.new, restaurant: @restaurant} %>
 
 
-	<% if current_user == @restaurant.owner %>
-		<%=  link_to "Edit Your Info", edit_user_restaurant_url(current_user.id, @restaurant) %>
-		<%= button_to "Destroy this restaurant", user_restaurant_url(current_user.id, @restaurant), method: :delete %>
-	<% end %>
+<% if current_user == @restaurant.owner %>
+	<%=  link_to "Edit Your Info", edit_user_restaurant_url(current_user.id, @restaurant) %>
+	<%= button_to "Destroy this restaurant", user_restaurant_url(current_user.id, @restaurant), method: :delete %>
+<% end %>

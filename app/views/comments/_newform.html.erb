@@ -1,0 +1,16 @@
+<form action="<%= restaurant_comments_url(restaurant.id) %>" method="post">
+
+	<%= auth_token %>
+
+	<input type="hidden" name="comment[user_id]" value="<%= current_user.id %>">
+	<input type="hidden" name="comment[restaurant_id]" value="<%= restaurant.id %>">
+	<input type="hidden" name="comment[parent_comment_id]" value="">  
+
+	<div class="input">
+		<label for="comment-body">Write a Review:</label>
+		<input type='textarea' name="comment[body]" value="">
+	</div>
+
+
+		<input type="submit" value="Post Review">
+</form>

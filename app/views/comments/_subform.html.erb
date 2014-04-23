@@ -1,0 +1,13 @@
+<% action = (comment.persisted? ? 
+		restaurant_comment_url(restaurant, comment.id) : restaurant_comments_url) %>
+
+<% method = (comment.persisted? ? :put : :post) %>
+
+<form action="<%= action %>" method="post">
+	<%= auth_token %>
+
+	<input type="hidden" name="comment[parent_comment_id]" 
+																value="<%= parent_comment.id %>">
+
+
+</form>
