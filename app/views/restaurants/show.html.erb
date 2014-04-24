@@ -15,14 +15,12 @@
 <% end %>
 
 <%= render partial: "tags/new", locals: { restaurant: @restaurant }%>
-
 <%= render partial: "tags/show", locals: { restaurant: @restaurant }%>
 
 <%= render partial: "comments/form", locals: {
     												parent_comment_id: nil,
 														commentable_id: @restaurant.id, 
 														commentable_type: "Restaurant" } %>
-
 
 <% comments_by_parent = @restaurant.comments_by_parent %>
 <%= comment_partial(nil, comments_by_parent) %>

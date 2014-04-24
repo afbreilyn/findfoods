@@ -27,14 +27,25 @@ describe Tag do
 			id: 1,
 			owner_id: 1)
 
+	user = FactoryGirl.build(:user,
+			fname: 'sennacy',
+			lname: 'tambouer',
+			email: 'st@email.com',
+			city: 'outside of Amsterdam',
+			state: 'NH',
+			password: "good_password",
+			id: 1)
+
 
 	describe "#notify_owner!" do
+		before { user.save }
 		before { restaurant.save }
 		before { tag.save }
 
 
+
 		it "sends a notification to the restaurant owner" do 
-			expect(tag.notifications. ).to eq(restaurant.owner_id)
+			expect(tag.notifications.first.user.id).to eq(restaurant.owner_id)
 		end
 	end
 

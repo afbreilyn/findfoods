@@ -29,6 +29,8 @@ class Notification < ActiveRecord::Base
 
 		when :were_tagged
 			source_tag = Tag.find(notifiable_id)
+			restaurant = source_tag.restaurant
+			reviewer = source_tag.author	
 			return "Your restaurant, #{ restaurant.name }, was tagged by #{ reviewer.fname }."
 			
 		end
