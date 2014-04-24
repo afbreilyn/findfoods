@@ -10,6 +10,15 @@ class Tag < ActiveRecord::Base
 		primary_key: :id
 	) 
 	
-	has_many :notifications, as: :notifiable
+	has_many :notifications, as: :notifiable, dependent: :destroy
+
+	after_save :notify_owner
+
+	def notify_owner
+			self.notifications.create(
+				user_id: Restaurant.find(restaurant_id).owner_id,
+				event_id: 3
+			)
+	end
 
 end
