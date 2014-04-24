@@ -13,8 +13,9 @@ class Restaurant < ActiveRecord::Base
 	has_many :tags
 	
 	has_many :comments, as: :commentable, dependent: :destroy
-	
 	has_many :notifications, as: :notifiable
+	
+	has_many :ratings
 
 	def comments_by_parent
 		comments_by_parent = Hash.new { |hash, key| hash[key] = [] }
@@ -25,5 +26,16 @@ class Restaurant < ActiveRecord::Base
 		comments_by_parent
 	end
 
+	def average_rating
+		average_rating = 0.0
+		tot_rating = 0.0
+
+		ratings.each do |rate|
+			average_rating += rate.rating.to_f
+			tot_rating += 1
+		end
+
+		average_rating = average_rating/tot_rating
+	end
 	 
 end

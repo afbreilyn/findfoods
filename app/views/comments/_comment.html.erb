@@ -8,7 +8,7 @@
     	<%= render partial: "comments/form", locals: {
     												parent_comment_id: child_comment.id, 
 														commentable_id: child_comment.commentable_id,  
-														commentable_type: child_comment.commentable_type } %> 
+														commentable_type: child_comment.class.to_s } %> 
 
 			<%= comment_partial(child_comment.id, comments_by_parent) %>
 

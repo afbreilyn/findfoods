@@ -4,7 +4,9 @@ resources :users, only: [:new, :create, :edit, :update, :show, :destroy] do
   resources :restaurants, only: [:new, :create, :edit, :update, :destroy]
 end
 
-resources :restaurants, only: [:show, :index]
+resources :restaurants, only: [:show, :index] do
+  resources :comments, only: [:create]
+end
 
 resources :comments 
 

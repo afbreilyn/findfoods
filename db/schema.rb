@@ -11,23 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424181629) do
+ActiveRecord::Schema.define(version: 20140424212301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: true do |t|
-    t.text     "body",              null: false
-    t.integer  "user_id",           null: false
+    t.text     "body",                                      null: false
+    t.integer  "user_id",                                   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "commentable_id"
     t.string   "commentable_type"
     t.integer  "parent_comment_id"
+    t.decimal  "stars",             precision: 5, scale: 4
   end
 
   add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
   add_index "comments", ["parent_comment_id"], name: "index_comments_on_parent_comment_id", using: :btree
+  add_index "comments", ["stars"], name: "index_comments_on_stars", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "notifications", force: true do |t|
@@ -42,6 +44,18 @@ ActiveRecord::Schema.define(version: 20140424181629) do
 
   add_index "notifications", ["notifiable_id"], name: "index_notifications_on_notifiable_id", using: :btree
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
+
+  create_table "rating_models", force: true do |t|
+  end
+
+  create_table "ratings", force: true do |t|
+    t.integer "rating"
+    t.integer "restaurant_id"
+    t.integer "user_id"
+  end
+
+  add_index "ratings", ["rating"], name: "index_ratings_on_rating", using: :btree
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id", using: :btree
 
   create_table "restaurants", force: true do |t|
     t.string   "name",       null: false
