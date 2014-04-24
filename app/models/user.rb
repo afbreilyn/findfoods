@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 		foreign_key: :owner_id,
 		primary_key: :id
 	)
-
+	has_many :tags
 	has_many :comments, as: :commentable, dependent: :destroy
 
 	def self.find_by_credentials(email, password)

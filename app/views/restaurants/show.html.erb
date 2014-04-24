@@ -10,10 +10,10 @@
 </span>
 
 <%#= render partial: "comments/comments", locals: { 
-			comment_parent_comment_id: nil, 
+			parent_comment_id: nil, 
 			commentable_id: @restaurant.id, 
 			commentable_type: "Restaurant", 
-			comments: @restaurant.comments.where(comment_parent_comment_id: nil) } %>
+			comments: @restaurant.comments.where(parent_comment_id: nil) } %>
 
 
 <% if current_user == @restaurant.owner %>
@@ -23,7 +23,7 @@
 
 
 <%= render partial: "comments/form", locals: {
-    												comment_parent_comment_id: nil,
+    												parent_comment_id: nil,
 														commentable_id: @restaurant.id, 
 														commentable_type: "Restaurant" } %>
 

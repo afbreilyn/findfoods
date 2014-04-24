@@ -6,7 +6,7 @@
     	<%= render partial: "comments/delete", locals: { comment_type: child_comment } %>
 
     	<%= render partial: "comments/form", locals: {
-    												comment_parent_comment_id: child_comment.id, 
+    												parent_comment_id: child_comment.id, 
 														commentable_id: child_comment.commentable_id, 
 														commentable_type: child_comment.commentable_type } %>
 
