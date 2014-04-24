@@ -1,0 +1,10 @@
+<h3>Existing Tags</h3>
+
+<span class="restaurant-tags">
+
+	<% restaurant.tags.each do |tag| %>
+			<%= tag.body %>
+			<%= render partial: "tags/delete", locals: {restaurant: restaurant, tag: tag} %>
+	<% end %>
+
+</span>

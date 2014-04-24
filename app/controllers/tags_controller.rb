@@ -7,9 +7,8 @@ class TagsController < ApplicationController
 
 	def create
 		restaurant = Restaurant.find(params[:tag][:restaurant_id])
-
-		unless params[:comment][:body] == "" || !current_user
-			user = User.find(params[:tag][:user_id])
+		unless params[:tag][:body] == "" || !current_user
+			user = User.find(params[:tag][:author_id])
 			@tag = user.tags.new(tag_params)
 			@tag.restaurant_id = restaurant.id
 
@@ -21,8 +20,8 @@ class TagsController < ApplicationController
 		redirect_to restaurant
 	end
 
-	def delete
-		@tag = Comment.find(params[:id])
+	def destroy
+		@tag = Tag.find(params[:id])
 		restaurant = Restaurant.find(@tag.restaurant_id)
 		@tag.destroy
 		redirect_to restaurant 

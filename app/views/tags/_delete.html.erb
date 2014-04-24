@@ -1,0 +1,5 @@
+<% if current_user %>	
+	<% if current_user.id == tag.author_id %>
+		<%= button_to "Delete Tag", tag_url(tag.id), method: :delete %>
+	<% end %>
+<% end %>

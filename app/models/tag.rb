@@ -1,7 +1,14 @@
 class Tag < ActiveRecord::Base
-	validates :user_id, :body, :restaurant_id, presence: true
+	validates :author_id, :body, :restaurant_id, presence: true
 
 	belongs_to :restaurant
-	belongs_to :user
+
+	belongs_to(
+		:author,
+		class_name: "User",
+		foreign_key: :author_id,
+		primary_key: :id
+	) 
+	
 
 end

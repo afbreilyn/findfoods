@@ -1,0 +1,15 @@
+<h3>Create a Tag</h3>
+
+<form action="<%= tags_url %>" method="post">
+	<%= auth_token %>
+
+<div class="input">
+		<label for="tag-body">Tag:</label>
+		<input type="text" name="tag[body]" value="">
+	</div>
+		<input type="hidden" name="tag[restaurant_id]" value="<%= restaurant.id %>">
+		<input type="hidden" name="tag[author_id]" value="<%= current_user.id %>">
+
+	<input type="submit" value="Tag Away!">
+</form>
+

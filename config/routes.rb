@@ -8,6 +8,8 @@ resources :restaurants, only: [:show]
 
 resources :comments 
 
+resources :tags, only: [:new, :create, :destroy]
+
 resource :session, only: [:new, :create, :destroy]
 
 root to: "sessions#new"

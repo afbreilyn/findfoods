@@ -9,18 +9,14 @@
 	<%= @restaurant.zip %>
 </span>
 
-<%#= render partial: "comments/comments", locals: { 
-			parent_comment_id: nil, 
-			commentable_id: @restaurant.id, 
-			commentable_type: "Restaurant", 
-			comments: @restaurant.comments.where(parent_comment_id: nil) } %>
-
-
 <% if current_user == @restaurant.owner %>
 	<%=  link_to "Edit Your Info", edit_user_restaurant_url(current_user.id, @restaurant) %>
 	<%= button_to "Destroy this restaurant", user_restaurant_url(current_user.id, @restaurant), method: :delete %>
 <% end %>
 
+<%= render partial: "tags/new", locals: { restaurant: @restaurant }%>
+
+<%= render partial: "tags/show", locals: { restaurant: @restaurant }%>
 
 <%= render partial: "comments/form", locals: {
     												parent_comment_id: nil,
@@ -29,5 +25,4 @@
 
 
 <% comments_by_parent = @restaurant.comments_by_parent %>
-
 <%= comment_partial(nil, comments_by_parent) %>
