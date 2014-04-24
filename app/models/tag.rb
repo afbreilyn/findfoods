@@ -10,5 +10,6 @@ class Tag < ActiveRecord::Base
 		primary_key: :id
 	) 
 	
+	has_many :notifications, as: :notifiable
 
 end

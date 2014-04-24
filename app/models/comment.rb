@@ -18,4 +18,23 @@ class Comment < ActiveRecord::Base
 		primary_key: :id
 	)
 
+	has_many :notifications, as: :notifiable
+
+	after_save :notify_owner
+
+	def notify_owner
+		if self.parent_comment == nil
+
+			self.notifications.create(
+				user_id: Restaurant.find(commentable_id).owner_id,
+				event_id: 1
+			)
+		else
+			self.notifications.create(
+				user_id: Comment.find(parent_comment_id).user_id,
+				event_id: 2
+			)
+		end
+	end
+
 end

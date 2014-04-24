@@ -11,8 +11,11 @@ class Restaurant < ActiveRecord::Base
 	)
 
 	has_many :tags
+	
 	has_many :comments, as: :commentable, dependent: :destroy
 	
+	has_many :notifications, as: :notifiable
+
 	def comments_by_parent
 		comments_by_parent = Hash.new { |hash, key| hash[key] = [] }
 		comments.each do |comment|

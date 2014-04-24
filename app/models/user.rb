@@ -25,6 +25,9 @@ class User < ActiveRecord::Base
 
 	has_many :comments, as: :commentable, dependent: :destroy
 
+	has_many :notifications
+
+
 	def self.find_by_credentials(email, password)
 		user = User.find_by_email(email)
 		user.try(:is_password?, password) ? user : nil
