@@ -1,0 +1,16 @@
+hello there
+
+<% @restaurants.each do |restaurant| %>
+	<a href="<%= restaurant_url(restaurant.id) %>">
+		<%= restaurant.name %>
+		<span class="restaurant-address">
+			<%= restaurant.street1 %> 
+			<% if restaurant.street2 != nil %>
+				<%= restaurant.street2 %>
+			<% end  %>
+			<%= restaurant.city %>, <%= restaurant.state %>
+			<%= restaurant.zip %>
+		</span>
+	</a>
+
+<% end %>

@@ -7,13 +7,15 @@ describe Notification do
 			notifiable_id: 1,
 			notifiable_type: "Comment",
 			user_id: 1,
-			event_id: 1)
+			event_id: 1,
+			read: false)
 	end
 
 	it { should validate_presence_of(:notifiable_id) }
 	it { should validate_presence_of(:notifiable_type) }
 	it { should validate_presence_of(:event_id) }
 	it { should validate_presence_of(:user_id) }
+	# it { should validate_presence_of(:read) }
 
 	it { should belong_to(:notifiable) }
 	it { should belong_to(:user) }

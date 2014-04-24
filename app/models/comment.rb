@@ -23,15 +23,17 @@ class Comment < ActiveRecord::Base
 	after_save :notify_owner
 
 	def notify_owner
-		if self.parent_comment == nil
+		if self.parent_comment
 			self.notifications.create(
-				user_id: self.commentable.owner.id,
-				event_id: NOTIFICATION_EVENTS_IDS[:received_review]
+				user_id: Comment.find(parent_comment_id).user_id,
+				event_id: NOTIFICATION_EVENTS_IDS[:received_comment],
+				read: false
 			)
 		else
 			self.notifications.create(
-				user_id: Comment.find(parent_comment_id).user_id,
-				event_id: NOTIFICATION_EVENTS_IDS[:received_comment]
+				read: false,
+				user_id: self.commentable.owner.id,
+				event_id: NOTIFICATION_EVENTS_IDS[:received_review]
 			)
 		end
 	end

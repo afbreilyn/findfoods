@@ -42,8 +42,6 @@ describe Tag do
 		before { restaurant.save }
 		before { tag.save }
 
-
-
 		it "sends a notification to the restaurant owner" do 
 			expect(tag.notifications.first.user.id).to eq(restaurant.owner_id)
 		end

@@ -1,5 +1,10 @@
 class RestaurantsController < ApplicationController
 
+	def index
+		@restaurants = Restaurant.all
+		render :index
+	end
+
 	def new
 		@restaurant = Restaurant.new
 		render :new
@@ -24,6 +29,7 @@ class RestaurantsController < ApplicationController
 		@restaurant = current_user.restaurants.find(params[:id])
 		render :edit
 	end
+
 
 	def update
 		@restaurant = current_user.restaurants.find(params[:id])

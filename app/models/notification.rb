@@ -8,6 +8,14 @@ class Notification < ActiveRecord::Base
 	belongs_to :user
 
 	def url
+		case self.event_name
+		when :received_review
+			url_path()
+		when :received_comment
+			url_path
+		when :were_tagged
+			url_path()
+		end
 	end
 
 	def event_name
@@ -18,7 +26,7 @@ class Notification < ActiveRecord::Base
 		case self.event_name
 		when :received_review
 			source_comment = Comment.find(notifiable_id)
-			reviewer = User.find(source_comment.user_id) #assosiations....
+			reviewer = User.find(source_comment.user_id)
 			restaurant = source_comment.commentable
 			return "Your restaurant, #{ restaurant.name }, was reviewed by #{ reviewer.fname }."
 			
@@ -35,4 +43,9 @@ class Notification < ActiveRecord::Base
 			
 		end
 	end
+
+	def read! 
+		self.update(read: true)
+	end
+
 end

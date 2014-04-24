@@ -4,7 +4,7 @@ resources :users, only: [:new, :create, :edit, :update, :show, :destroy] do
   resources :restaurants, only: [:new, :create, :edit, :update, :destroy]
 end
 
-resources :restaurants, only: [:show]
+resources :restaurants, only: [:show, :index]
 
 resources :comments 
 
@@ -12,7 +12,9 @@ resources :tags, only: [:new, :create, :destroy]
 
 resource :session, only: [:new, :create, :destroy]
 
-root to: "sessions#new"
+root to: "restaurants#index"
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

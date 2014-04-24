@@ -37,7 +37,6 @@ describe Comment do
 			password: "good_password",
 			id: 1)
 
-
 	describe "#notify_owner!" do
 		before { user.save }
 		before { restaurant.save }
@@ -47,7 +46,4 @@ describe Comment do
 			expect(comment.notifications.first.user.id).to eq(restaurant.owner_id)
 		end
 	end
-
-
-
 end
