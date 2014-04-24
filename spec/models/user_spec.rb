@@ -20,6 +20,10 @@ describe User do
 	it { should ensure_length_of(:password).is_at_least(6) }
 
 	it { should have_many(:restaurants) }
+	it { should have_many(:tags) }
+	it { should have_many(:comments) }
+	it { should have_many(:notifications) }
+
 
 	it "creates a password_digest when a password is given" do
 		expect(user.password_digest).to_not be_nil

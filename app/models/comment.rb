@@ -25,15 +25,16 @@ class Comment < ActiveRecord::Base
 	def notify_owner
 		if self.parent_comment == nil
 			self.notifications.create(
-				user_id: Restaurant.find(commentable_id).owner_id,
-				event_id: 1
+				user_id: self.commentable.owner.id,
+				event_id: NOTIFICATION_EVENTS_IDS[:received_review]
 			)
 		else
 			self.notifications.create(
 				user_id: Comment.find(parent_comment_id).user_id,
-				event_id: 2
+				event_id: NOTIFICATION_EVENTS_IDS[:received_comment]
 			)
 		end
 	end
 
 end
+

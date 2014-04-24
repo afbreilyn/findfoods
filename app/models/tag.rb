@@ -16,8 +16,8 @@ class Tag < ActiveRecord::Base
 
 	def notify_owner
 			self.notifications.create(
-				user_id: Restaurant.find(restaurant_id).owner_id,
-				event_id: 3
+				user_id: self.restaurant.owner.id,
+				event_id: NOTIFICATION_EVENTS_IDS[:were_tagged]
 			)
 	end
 
