@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
-	
+	# before_action :require_! only: [:destroy] 
+	# before_action :require_current_user! only: [:destroy] 
+
 	def new
 	end
 
@@ -13,13 +15,13 @@ class SessionsController < ApplicationController
 			redirect_to user_url(user)
 		else
 			flash[:errors] = ["Invalid email or password"]
-			render :new
+			render root_url
 		end
 	end
 
 	def destroy
 		sign_out
-		redirect_to new_session_url
+		redirect_to root_url
 	end
 
 end
