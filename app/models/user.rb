@@ -26,7 +26,13 @@ class User < ActiveRecord::Base
 	has_many :comments, as: :commentable, dependent: :destroy
   has_many :notifications, inverse_of: :user, dependent: :destroy
 	has_many :ratings, dependent: :destroy
-
+	
+	has_many(
+		:searches,
+		class_name: "Search",
+		foreign_key: :user_id,
+		primary_key: :id
+	)
 
 
 	def self.find_by_credentials(email, password)
