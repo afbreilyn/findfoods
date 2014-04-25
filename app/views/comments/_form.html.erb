@@ -9,8 +9,8 @@
 
 	<% if commentable_type == "Restaurant" %>
 		<div class="input">
-			<label for="comment-rating"></label>
-			<input type="number" name="rating" value="">
+			<label for="comment-rating">Rating, between 0 and 7</label>
+			<input type="number" min="0" max="7" step="1" name="rating" value="">
 		</div>
 	<% end %>
 

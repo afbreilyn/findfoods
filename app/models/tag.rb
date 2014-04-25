@@ -18,7 +18,7 @@ class Tag < ActiveRecord::Base
 			self.notifications.create(
 				user_id: self.restaurant.owner.id,
 				event_id: NOTIFICATION_EVENTS_IDS[:were_tagged],
-				read: false
+				is_read: false
 			)
 	end
 

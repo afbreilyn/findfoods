@@ -20,7 +20,7 @@ class Comment < ActiveRecord::Base
 
 	has_many :notifications, as: :notifiable, dependent: :destroy
 
-	has_one :rating
+	has_one :rating, dependent: :destroy
 
 	after_save :notify_owner
 
@@ -29,11 +29,11 @@ class Comment < ActiveRecord::Base
 			self.notifications.create(
 				user_id: Comment.find(parent_comment_id).user_id,
 				event_id: NOTIFICATION_EVENTS_IDS[:received_comment],
-				read: false
+				is_read: false
 			)
 		else
 			self.notifications.create(
-				read: false,
+				is_read: false,
 				user_id: self.commentable.owner.id,
 				event_id: NOTIFICATION_EVENTS_IDS[:received_review]
 			)

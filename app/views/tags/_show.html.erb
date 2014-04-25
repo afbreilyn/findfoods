@@ -1,10 +1,12 @@
 <h3>Existing Tags</h3>
 
-<span class="restaurant-tags">
+<ul class="restaurant-tags">
 
 	<% restaurant.tags.each do |tag| %>
-			<%= tag.body %>
-			<%= render partial: "tags/delete", locals: {restaurant: restaurant, tag: tag} %>
+	<li>
+		<%= tag.body %>
+		<%= render partial: "tags/delete", locals: {restaurant: restaurant, tag: tag} %>
+	</li>
 	<% end %>
 
-</span>
+</ul>
