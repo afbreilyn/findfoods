@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@user.notifications.each(&:read!)
+		# @user.notifications.each(&:read!)
 	end
 
 	def edit

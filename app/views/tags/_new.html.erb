@@ -8,7 +8,8 @@
 		<input type="text" name="tag[body]" value="">
 	</div>
 		<input type="hidden" name="tag[restaurant_id]" value="<%= restaurant.id %>">
-		<input type="hidden" name="tag[author_id]" value="<%= current_user.id %>">
+		<input type="hidden" name="tag[author_id]" 
+													value="<%= current_user ? current_user.id : nil %>">
 
 	<input type="submit" value="Tag Away!">
 </form>

@@ -10,6 +10,20 @@
 	
 <% if signed_in? %>
 	<%= link_to current_user.fname + ' ' + current_user.mname + ' ' + current_user.lname, user_url(current_user) %>
+
+	<li>
+    <a href="<%= notifications_url %>">Notifications</a>
+
+    <% unless current_user.notifications.empty? %>
+      <strong><%= current_user.notifications.unread.size %></strong>
+      <ul>
+        <%= render partial: "notifications/notification", collection: current_user.notifications.unread %>
+      </ul>
+    <% end %>
+  </li>
+
+
+	
 	<%= button_to "Sign Out", session_url, method: :delete %>
 <% else %>
 	<%=  link_to "Sign In", new_session_url%>

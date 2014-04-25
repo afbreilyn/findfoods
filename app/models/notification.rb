@@ -2,19 +2,21 @@ class Notification < ActiveRecord::Base
 
 	include Rails.application.routes.url_helpers
 
-	validates :notifiable_id, :notifiable_type, :user_id, :is_read, :event_id, presence: true
-	
+  validates :event_id, inclusion: { in: NOTIFICATION_EVENTS.keys }
+  validates :is_read, inclusion: { in: [true, false] }
+  validates :notifiable, :user, presence: true
+
 	belongs_to :notifiable, polymorphic: true
-	belongs_to :user
+  belongs_to :user, inverse_of: :notifications, counter_cache: true
 
 	def url
 		case self.event_name
 		when :received_review
-			url_path()
+			fail
 		when :received_comment
-			url_path
+			
 		when :were_tagged
-			url_path()
+			
 		end
 	end
 
@@ -47,5 +49,13 @@ class Notification < ActiveRecord::Base
 	def read! 
 		self.update(is_read: true)
 	end
+
+
+
+  def default_url_options
+    options = {}
+    options[:host] = Rails.env.production? ? "http://afbfindfood.herokuapp.com" : "localhost:3000"
+    options
+  end
 
 end

@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
 	)
 
 	has_many :comments, as: :commentable, dependent: :destroy
-	has_many :notifications
+  has_many :notifications, inverse_of: :user, dependent: :destroy
 	has_many :ratings, dependent: :destroy
 
 

@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
 
 		rating = restaurant.ratings.new(rating: params[:rating], 
 														restaurant_id: params[:restaurant_id], 
-														user_id: current_user.id)
+														user_id: current_user ? current_user.id : nil)
 
 		unless (params[:comment][:body] == "" || !current_user)
 			restaurant = Restaurant.find(params[:comment][:commentable_id])

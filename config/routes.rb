@@ -14,6 +14,8 @@ resources :tags, only: [:new, :create, :destroy]
 
 resource :session, only: [:new, :create, :destroy]
 
+resources :notifications, only: [:index, :show]
+
 root to: "restaurants#index"
 
 
