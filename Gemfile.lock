@@ -231,7 +231,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   launchy
-  paperclip
+  paperclip (~> 4.1)
   pg
   rails (= 4.0.2)
   rails_12factor
