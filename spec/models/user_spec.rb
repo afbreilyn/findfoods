@@ -24,6 +24,8 @@ describe User do
 	it { should have_many(:comments) }
 	it { should have_many(:notifications) }
 	it { should have_many(:ratings) }
+	it { should have_many(:searches) }
+
 
 
 	it "creates a password_digest when a password is given" do

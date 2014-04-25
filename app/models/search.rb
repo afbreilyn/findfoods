@@ -1,5 +1,8 @@
 class Search < ActiveRecord::Base
 
+
+	validates :search_params, :start_location, :presence => true
+
 	belongs_to(
 		:user,
 		class_name: "User",

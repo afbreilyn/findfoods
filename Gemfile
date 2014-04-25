@@ -56,6 +56,12 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
+gem "paperclip", "~> 4.1"
+gem 'aws-sdk'
+gem 'figaro'
+
+gem 'rails_12factor', group: :production
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
