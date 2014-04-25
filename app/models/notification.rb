@@ -9,14 +9,23 @@ class Notification < ActiveRecord::Base
 	belongs_to :notifiable, polymorphic: true
   belongs_to :user, inverse_of: :notifications, counter_cache: true
 
+  scope :read, -> { where(is_read: true) }
+  scope :unread, -> { where(is_read: false) }
+  scope :event, ->(event_name) { where(event_id: EVENT_IDS[event_name]) }
+
 	def url
 		case self.event_name
 		when :received_review
-			fail
+			comment = self.notifiable
+			restaurant = comment.commentable
+			restaurant_url(restaurant.id)
 		when :received_comment
-			
+			comment = self.notifiable
+			restaurant = comment.commentable
+			restaurant_url(restaurant.id)
 		when :were_tagged
-			
+			tag = self.notifiable
+			restaurant_url(tag.restaurant.id)
 		end
 	end
 

@@ -7,7 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	
+  <header> 
+    <%=  link_to "Home", root_url%>
+
+    <nav> 
+
 <% if signed_in? %>
 	<%= link_to current_user.fname + ' ' + current_user.mname + ' ' + current_user.lname, user_url(current_user) %>
 
@@ -21,15 +25,18 @@
       </ul>
     <% end %>
   </li>
-
-
 	
 	<%= button_to "Sign Out", session_url, method: :delete %>
 <% else %>
 	<%=  link_to "Sign In", new_session_url%>
 	<%=  link_to "Sign Up", new_user_url%>
 <% end %>
-	<%=  link_to "Home", root_url%>
+
+  <%= render "searches/new" %>
+
+  </nav>
+</header>
+
 
 <%= yield %>
 
