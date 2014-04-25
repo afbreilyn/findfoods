@@ -4,10 +4,16 @@ class SearchesController < ApplicationController
 	end
 
 	def create
-		user = User.find(params[:search][:user_id])
-		@search = user.searches.new(search_params)
-		@search.save!
+		if params[:search][:user_id] != ""
+			user = User.find(params[:search][:user_id])
+			@search = user.searches.new(search_params)
+		else
+			@search = Search.new(search_params)
+			@search.save!
+		end
+
 		redirect_to search_url(@search)
+
 	end
 
 	def show

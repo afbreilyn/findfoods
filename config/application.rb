@@ -8,6 +8,7 @@ Bundler.require(:default, Rails.env)
 
 module Findfood
   class Application < Rails::Application
+    
     config.initialize_on_precompile = false
 
     config.generators do |g|
@@ -29,9 +30,6 @@ module Findfood
         :secret_access_key => ENV["S3_SECRET_KEY"]
       }
     }
-
-
-    #config paperclip stuff
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
