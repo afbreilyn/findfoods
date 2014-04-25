@@ -1,6 +1,12 @@
 <ul>
   <% comments_by_parent[comment_id].each do |child_comment| %>
     <li>
+      <h4>
+          <%= User.find(child_comment.user_id).fname %> 
+          <% if child_comment.rating %>
+            <%= child_comment.rating.rating %> 
+          <% end %>
+      </h4>
     	<%= child_comment.body %>
 
     	<%= render partial: "comments/delete", locals: { comment_type: child_comment } %>

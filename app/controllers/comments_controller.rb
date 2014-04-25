@@ -7,20 +7,20 @@ class CommentsController < ApplicationController
 	def create
 		restaurant = Restaurant.find(params[:comment][:commentable_id]) 
 
-		restaurant.ratings.new(rating: params[:rating], 
+		rating = restaurant.ratings.new(rating: params[:rating], 
 														restaurant_id: params[:restaurant_id], 
-														user_id: current_user.id).save!
+														user_id: current_user.id)
 
-		unless params[:comment][:body] == "" || !current_user
-			if params[:comment][:commentable_type] == "Restaurant" 
-				restaurant = Restaurant.find(params[:comment][:commentable_id])
+		unless (params[:comment][:body] == "" || !current_user)
+			restaurant = Restaurant.find(params[:comment][:commentable_id])
 
-				comment = restaurant.comments.new(comment_params)
-				comment.user_id = current_user.id
-				comment.save!
-				redirect_to restaurant 
-				return 
-			end
+			comment = restaurant.comments.new(comment_params)
+			comment.user_id = current_user.id
+			comment.save!
+			rating.comment_id = comment.id
+			rating.save!
+			redirect_to restaurant 
+			return 
 		end
 		redirect_to restaurant
 	end

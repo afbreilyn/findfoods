@@ -2,7 +2,7 @@ class Notification < ActiveRecord::Base
 
 	include Rails.application.routes.url_helpers
 
-	validates :notifiable_id, :notifiable_type, :user_id, :event_id, presence: true
+	validates :notifiable_id, :notifiable_type, :user_id, :read, :event_id, presence: true
 	
 	belongs_to :notifiable, polymorphic: true
 	belongs_to :user

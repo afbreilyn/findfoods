@@ -20,6 +20,8 @@ class Comment < ActiveRecord::Base
 
 	has_many :notifications, as: :notifiable, dependent: :destroy
 
+	has_one :rating
+
 	after_save :notify_owner
 
 	def notify_owner

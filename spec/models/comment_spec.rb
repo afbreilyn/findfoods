@@ -7,8 +7,11 @@ describe Comment do
 
 	it { should belong_to(:commentable) }
 	it { should belong_to(:parent_comment) }
+
 	it { should have_many(:child_comments) }
 	it { should have_many(:notifications) }
+
+	it { should have_one(:rating) }
 
 	subject(:comment) do
 		FactoryGirl.build(:comment,

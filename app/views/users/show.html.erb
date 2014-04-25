@@ -24,8 +24,8 @@
 	</ul>
 <% end %>
 
-<span class="user-notifications">
+<ul class="user-notifications">
 	<% @user.notifications.each do |notification| %>
-			<%= notification.text %>
+				<li><%= notification.text %></li>
 	<% end %>
-</span>
+</ul>
