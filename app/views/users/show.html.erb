@@ -29,7 +29,7 @@
 	<% end %>
 </ul>
 
-<%= image_tag @user.avatar.url %>
+<img src="<%=  @user.avatar.url %>">
 
 
 	<form enctype="multipart/form-data" action="<%= user_url(@user) %>" method="post">
