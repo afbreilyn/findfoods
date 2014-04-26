@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
-
+		# @user.avatar.url = "true-story.jpg"
 		if @user.save 
 			sign_in(@user)
 			redirect_to user_url(@user)
@@ -28,6 +28,7 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
+
 		if @user.update_attributes(user_params)
 			redirect_to user_url(@user)
 		else
@@ -44,6 +45,6 @@ class UsersController < ApplicationController
 
 	private
 		def user_params
-			params.require(:user).permit(:fname, :mname, :lname, :email, :city, :state, :password)
+			params.require(:user).permit(:fname, :mname, :lname, :email, :city, :state, :password, :avatar)
 		end
 end

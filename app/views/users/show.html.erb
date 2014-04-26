@@ -8,8 +8,7 @@
 <% if current_user == @user %>
 	<%=  link_to "Edit Your Info", edit_user_url %>
 
-	<%= button_to "Delete Your Account", user_url(@user), 
-																						method: :delete %>
+	<%= button_to "Delete Your Account", user_url(@user), method: :delete %>
 
 	<%= link_to "Register A Restaurant", new_user_restaurant_url(@user) %>
 
@@ -29,3 +28,19 @@
 				<li><%= notification.text %></li>
 	<% end %>
 </ul>
+
+<%= image_tag @user.avatar.url %>
+
+
+	<form enctype="multipart/form-data" action="<%= user_url(@user) %>" method="post">
+		<input type="hidden" name="_method" value="patch">
+
+		<%= auth_token %>
+
+		<input type="file" name="user[avatar]" id="avatar-upload">
+
+		<input type="submit" value="Upload Photo">
+	</form>
+
+
+
