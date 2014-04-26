@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Findfood::Application.config.secret_key_base = 'd5cfdbd9c5b0408b18f92394d5954488054b2c943bb72372c191c79e693ea2bcf1b20a2af3dcac871a9410ac912017383f06920fa5dcb15f6767bdda367999c6'
+Findfood::Application.config.secret_key_base = ENV["SECRET_TOKEN"]
