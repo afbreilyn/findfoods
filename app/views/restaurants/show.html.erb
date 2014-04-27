@@ -1,5 +1,8 @@
 <h2> <%= @restaurant.name %>, <%= @restaurant.average_rating %> </h2>
 
+<img src="<%=  @restaurant.avatar.url(:full) %>">
+
+
 <span class="restaurant-address">
 	<%= @restaurant.street1 %> 
 	<% if @restaurant.street2 != nil %>
@@ -12,6 +15,17 @@
 <% if current_user == @restaurant.owner %>
 	<%=  link_to "Edit Your Info", edit_user_restaurant_url(current_user.id, @restaurant) %>
 	<%= button_to "Destroy this restaurant", user_restaurant_url(current_user.id, @restaurant), method: :delete %>
+
+	<form enctype="multipart/form-data" action="<%= user_restaurant_url(current_user, @restaurant) %>" method="post">
+		<input type="hidden" name="_method" value="patch">
+
+		<%= auth_token %>
+
+		<input type="file" name="restaurant[avatar]" id="avatar-upload">
+
+		<input type="submit" value="Upload Photo">
+	</form>
+
 <% end %>
 
 <%= render partial: "tags/new", locals: { restaurant: @restaurant }%>
@@ -24,3 +38,5 @@
 
 <% comments_by_parent = @restaurant.comments_by_parent %>
 <%= comment_partial(nil, comments_by_parent) %>
+
+

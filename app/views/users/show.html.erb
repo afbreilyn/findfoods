@@ -32,15 +32,15 @@
 <img src="<%=  @user.avatar.url(:thumb) %>">
 
 
-	<form enctype="multipart/form-data" action="<%= user_url(@user) %>" method="post">
-		<input type="hidden" name="_method" value="patch">
+<form enctype="multipart/form-data" action="<%= user_url(@user) %>" method="post">
+	<input type="hidden" name="_method" value="patch">
 
-		<%= auth_token %>
+	<%= auth_token %>
 
-		<input type="file" name="user[avatar]" id="avatar-upload">
+	<input type="file" name="user[avatar]" id="avatar-upload">
 
-		<input type="submit" value="Upload Photo">
-	</form>
+	<input type="submit" value="Upload Photo">
+</form>
 
 
 

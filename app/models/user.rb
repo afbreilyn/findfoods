@@ -38,7 +38,6 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 
-
 	def self.find_by_credentials(email, password)
 		user = User.find_by_email(email)
 		user.try(:is_password?, password) ? user : nil
