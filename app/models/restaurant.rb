@@ -17,6 +17,9 @@ class Restaurant < ActiveRecord::Base
 	
 	has_many :ratings, dependent: :destroy
 
+	has_attached_file :avatar, styles: {thumb: "100x100>", full: "300x300>"}, :default_url => "http://www.clker.com/cliparts/h/1/9/c/9/w/restaurant-md.png"
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
 	def comments_by_parent
 		comments_by_parent = Hash.new { |hash, key| hash[key] = [] }
 		comments.each do |comment|
