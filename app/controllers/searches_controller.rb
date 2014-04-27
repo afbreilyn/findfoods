@@ -9,9 +9,9 @@ class SearchesController < ApplicationController
 			@search = user.searches.new(search_params)
 		else
 			@search = Search.new(search_params)
-			@search.save!
 		end
-
+			@search.save!
+			
 		redirect_to search_url(@search)
 
 	end

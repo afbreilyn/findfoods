@@ -7,38 +7,61 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header> 
-    <%=  link_to "Home", root_url%>
+  <header class="header"> 
+    <div class="header-wrap group">
 
-    <nav> 
+    <div class="logo">
+      <a href="<%= root_url %>">FIND FOOD!</a>
+    </div>
 
-<% if signed_in? %>
-	<%= link_to current_user.fname + ' ' + current_user.mname + ' ' + current_user.lname, user_url(current_user) %>
+    <div class="topline">
+      <%= render "searches/new" %>
 
-	<li>
-    <a href="<%= notifications_url %>">Notifications</a>
+      <% if signed_in? %>
+        <div class="prof-pic"> 
+          <a href="<%= user_url(current_user) %>"><img src="<%=  current_user.avatar.url(:micro) %>"></a>
+        </div>
+      <% end %>
+    </div>
 
-    <% unless current_user.notifications.empty? %>
-      <strong><%= current_user.notifications.unread.size %></strong>
-      <ul>
-        <%= render partial: "notifications/notification", collection: current_user.notifications.unread %>
-      </ul>
-    <% end %>
-  </li>
-	
-	<%= button_to "Sign Out", session_url, method: :delete %>
-<% else %>
-	<%=  link_to "Sign In", new_session_url%>
-	<%=  link_to "Sign Up", new_user_url%>
-<% end %>
+    <nav class="header-nav"> 
+    <ul class="group"> 
 
-  <%= render "searches/new" %>
+      <li class="signed-out"><%=  link_to "Home", root_url%></li>
 
-  </nav>
-</header>
+      <% if signed_in? %>
+  	  <li class="signed-in"> 
+          <%#= link_to current_user.fname + ' ' + current_user.mname + ' ' + current_user.lname,
+                    user_url(current_user) %>
+      </li>
+
+    	<li class="signed-in">
+        <a href="<%= notifications_url %>">Notifications
+
+        <%# unless current_user.notifications.empty? %>
+          <strong class="notification-num"><%= current_user.notifications.unread.size %></strong>
+          <!-- <ul> -->
+            <%#= render partial: "notifications/notification", collection: current_user.notifications.unread %>
+          <!-- </ul> -->
+        <%# end %>
+        </a>
+      </li>
+      
+      <li class="signed-in"><%= button_to "Sign Out", session_url, method: :delete %></li>
+
+      <% else %>
+      	<li class="signed-out"><%=  link_to "Sign In", new_session_url%></li>
+      	<li class="signed-out"><%=  link_to "Sign Up", new_user_url%></li>
+      <% end %>
 
 
-<%= yield %>
+
+    </ul>
+    </nav>
+    </div>
+  </header>
+
+  <%= yield %>
 
 </body>
 </html>

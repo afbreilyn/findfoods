@@ -12,6 +12,198 @@
  *= require_tree .
  */
 
+/* --- RESET ALL OF THE THINGS --- */
+
+header, body, a, h1, h2, h3, h4, div, form, 
+span, form, nav, label, img, li, ul {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* --- ELEMENTS --- */
+
 body {
 	font-family: sans-serif;
+	font-size: 16px;
+	line-height: normal;
 }
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+ul {
+	list-style: none;
+}
+
+li {
+	list-style: none;
+}
+
+strong {
+	font-weight: bold; 
+	/*maybe have this be normal font, and the rest skinny....*/
+}
+
+input[type="text"],
+input[type="submit"],
+button,
+textarea {
+  -webkit-appearance: none;
+  box-sizing: content-box;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  color: inherit;
+}
+
+input[type="submit"] {
+	display: inline;
+	cursor: pointer;
+}
+
+input[type="text"]{
+	border: 1px solid black;
+	background: white;
+}
+
+/* --- CLEAR FIX --- */
+
+.group:after {
+	display: block;
+	clear: both;
+	content: "";
+}
+
+/* --- HEADER/NAVBAD --- */
+
+.header {
+	background: #1FDAD8;
+}
+
+.logo{
+	padding: 30px 50px;
+	display: block;
+	float: left;
+}
+
+.header-topline{
+	float: right;
+}
+
+.header-wrap{
+	margin: auto;
+	width: 900px;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+}
+
+.header-search {
+	float: left;
+	position: relative;
+	/*padding: 15px 0px 10px 100px;*/
+	/*margin: auto;*/
+	/*margin-right: 10px*/
+}
+
+input[type="search-text"]{
+	padding: 5px;
+	height: 18px;
+	width: 200px;
+	margin: 10px;
+	font-size: 14px;
+}
+
+.header-nav {
+	/*float: right;*/
+	display: inline;
+}
+
+.header-nav > ul {
+	/*margin: auto;*/
+}
+
+.header-nav > ul > li {
+	/*float: right;*/
+	/*text-align: left;*/
+/*	margin: 10px 100px 10px 0;
+	float: left;*/
+	display: inline-block;
+
+}
+
+.header-nav > ul > li > a{
+	font-size: 18px;
+	display: block;
+	margin-left: 10px;
+	margin-right: 65px;
+/*	margin-top: 10px;
+	margin-left: 150px;
+	padding */
+}
+
+.header-nav > ul > li > a:hover {
+	color: white;
+}
+
+.notification-num{
+	display: inline-block;
+	background: black;
+	color: white;
+	padding: 2px 7px;
+	border-radius: 10px;
+	font-size: 12px
+}
+
+.prof-pic {
+/*	margin: 10px;
+	margin-right: 20px;
+	margin-bottom*/
+	float: right;
+	position: relative;
+	top: -40px;
+	left: -50px;
+}
+
+.header > input[type="submit"]{
+	background: #ccc;
+	height: 24px;
+	width: 24px;
+	font-weight: bold;
+}
+
+/* --- SIDEBAR --- */
+
+/* --- MAIN CONTENT, ie, RESTAURANT LIST --- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
