@@ -11,7 +11,9 @@
     <div class="header-wrap group">
 
     <div class="logo">
-      <a href="<%= root_url %>">FIND FOOD!</a>
+      <a href="<%= root_url %>">
+        <img src="http://i.imgur.com/QFwam36.png">
+      </a>
     </div>
 
     <div class="topline">
@@ -28,6 +30,8 @@
     <ul class="group"> 
 
       <li class="signed-out"><%=  link_to "Home", root_url%></li>
+
+      <li><a href="#">Write a Review</a></li>
 
       <% if signed_in? %>
   	  <li class="signed-in"> 
@@ -47,7 +51,7 @@
         </a>
       </li>
       
-      <li class="signed-in"><%= button_to "Sign Out", session_url, method: :delete %></li>
+      <li class="sign-out"><%= button_to "Sign Out", session_url, method: :delete %></li>
 
       <% else %>
       	<li class="signed-out"><%=  link_to "Sign In", new_session_url%></li>

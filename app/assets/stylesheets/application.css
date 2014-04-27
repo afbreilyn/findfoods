@@ -89,11 +89,12 @@ input[type="text"]{
 /* --- HEADER/NAVBAD --- */
 
 .header {
-	background: #1FDAD8;
+	background: #B7F7FC;
 }
 
 .logo{
-	padding: 30px 50px;
+	/*padding: 30px 50px;*/
+	margin-bottom: -5px; 
 	display: block;
 	float: left;
 }
@@ -104,9 +105,9 @@ input[type="text"]{
 
 .header-wrap{
 	margin: auto;
-	width: 900px;
-	border-left: 1px solid white;
-	border-right: 1px solid white;
+	width: 1000px;
+/*	border-left: 1px solid white;
+	border-right: 1px solid white;*/
 }
 
 .header-search {
@@ -119,10 +120,11 @@ input[type="text"]{
 
 input[type="search-text"]{
 	padding: 5px;
-	height: 18px;
-	width: 200px;
+	height: 30px;
+	width: 300px;
 	margin: 10px;
-	font-size: 14px;
+	font-size: 18px;
+	font-weight: bold;
 }
 
 .header-nav {
@@ -144,7 +146,8 @@ input[type="search-text"]{
 }
 
 .header-nav > ul > li > a{
-	font-size: 18px;
+	font-size: 14px;
+	font-weight: bold;
 	display: block;
 	margin-left: 10px;
 	margin-right: 65px;
@@ -183,13 +186,44 @@ input[type="search-text"]{
 	font-weight: bold;
 }
 
+.sign-out{
+		font-size: 14px;
+	font-weight: bold;
+}
+
+.sign-out:hover {
+	color: white;
+}
+
+
 /* --- SIDEBAR --- */
 
 /* --- MAIN CONTENT, ie, RESTAURANT LIST --- */
 
+/* --- SEARCH PAGE --- */
 
+.google-maps {
+	position: relative;
+	padding-bottom: 75%;
+	height: 0;
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto; 
+	text-align: center;
 
+}
 
+.google-maps iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 400px;
+	float: right;
+
+	/*width: 100% !important;   i am so sorry jonathan :( */
+	/*height: 100% !important;*/
+}
 
 
 

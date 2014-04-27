@@ -1,7 +1,31 @@
-<h1>search show</h1>
 
 
-You searched for:
+<div class="google-maps group">
+
+
+
+<iframe
+  width="900"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/search?key=
+  ENV["GOOGLE_MAP_API"]
+  &center=40.7445929,-73.974645
+  &zoom=14
+  &q=ice+cream">
+</iframe>
+
+<p>You searched for:
 <%= @search.search_params %>
 Near:
 <%= @search.start_location %>
+</p>
+
+</div>
+
+<!-- 
+	1) dynamicly center upon loading
+	2) input search params
+	3) text results of search
+	4) filtering searches...
+ -->
