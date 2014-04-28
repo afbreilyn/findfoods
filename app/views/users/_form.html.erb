@@ -2,7 +2,7 @@
 <% method = (user.persisted? ? :put : :post) %>
 
 
-<form action="<%= action %>" method="post">
+<form class="sidebar" action="<%= action %>" method="post">
 	<input type="hidden" name="_method" value="<%= method %>">
 
 	<%= auth_token %>

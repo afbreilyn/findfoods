@@ -8,7 +8,10 @@
 </head>
 <body>
   <header class="header"> 
+
+
     <div class="header-wrap group">
+
 
     <div class="logo">
       <a href="<%= root_url %>">
@@ -17,7 +20,16 @@
     </div>
 
     <div class="topline">
-      <%= render "searches/new" %>
+      <form class="header search-form" action="<%= searches_url %>" method="post">
+        <%= auth_token %>
+
+        <input type="search-text" name="search[search_params]" value="Find:">
+        <input type="search-text" name="search[start_location]" value="Near:">
+
+        <input type="hidden" name="search[user_id]" value="<%= current_user ? current_user.id : nil %>">
+
+        <input type="submit" value=":)">
+      </form>
 
       <% if signed_in? %>
         <div class="prof-pic"> 
@@ -25,6 +37,13 @@
         </div>
       <% end %>
     </div>
+
+
+
+
+
+
+
 
     <nav class="header-nav"> 
     <ul class="group"> 
@@ -57,11 +76,11 @@
       	<li class="signed-out"><%=  link_to "Sign In", new_session_url%></li>
       	<li class="signed-out"><%=  link_to "Sign Up", new_user_url%></li>
       <% end %>
-
-
-
     </ul>
     </nav>
+
+
+    
     </div>
   </header>
 

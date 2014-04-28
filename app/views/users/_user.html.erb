@@ -1,0 +1,45 @@
+<content class="sidebar group">
+
+<%= @user.fname %> <%= @user.mname %> <%= @user.lname %>
+
+
+<% if current_user == @user %>
+	<%=  link_to "Edit Your Info", edit_user_url %>
+
+	<%= button_to "Delete Your Account", user_url(@user), method: :delete %>
+
+	<%= link_to "Register A Restaurant", new_user_restaurant_url(@user) %>
+
+	<ul class="your-restaurant-list">
+		<% @user.restaurants.each do |restaurant| %>
+			<li>
+				<a href="<%= restaurant_url(restaurant) %>">
+					<%= restaurant.name %>
+				</a>
+			</li>
+		<% end %>
+	</ul>
+<% end %>
+
+<ul class="user-notifications">
+	<% @user.notifications.each do |notification| %>
+				<li><%= notification.text %></li>
+	<% end %>
+</ul>
+
+<img src="<%=  @user.avatar.url(:thumb) %>">
+
+
+<form enctype="multipart/form-data" action="<%= user_url(@user) %>" method="post">
+	<input type="hidden" name="_method" value="patch">
+
+	<%= auth_token %>
+
+	<input type="file" name="user[avatar]" id="avatar-upload">
+
+	<input type="submit" value="Upload Photo">
+</form>
+
+</content>
+
+

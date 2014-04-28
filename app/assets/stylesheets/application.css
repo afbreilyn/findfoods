@@ -78,6 +78,12 @@ input[type="text"]{
 	background: white;
 }
 
+body{
+	width: 1000px;
+	margin: auto;
+
+}
+
 /* --- CLEAR FIX --- */
 
 .group:after {
@@ -86,17 +92,17 @@ input[type="text"]{
 	content: "";
 }
 
-/* --- HEADER/NAVBAD --- */
+/* --- HEADER/NAVBAR --- */
 
 .header {
 	background: #B7F7FC;
 }
 
 .logo{
-	/*padding: 30px 50px;*/
 	margin-bottom: -5px; 
 	display: block;
 	float: left;
+	margin-left: 20px;
 }
 
 .header-topline{
@@ -106,19 +112,18 @@ input[type="text"]{
 .header-wrap{
 	margin: auto;
 	width: 1000px;
-/*	border-left: 1px solid white;
-	border-right: 1px solid white;*/
+	height: 100px;
+	position: relative;
 }
 
-.header-search {
-	float: left;
-	position: relative;
-	/*padding: 15px 0px 10px 100px;*/
-	/*margin: auto;*/
-	/*margin-right: 10px*/
+.search-form {
+	float: right;
+	position: absolute;
+	right: 140px;
 }
 
 input[type="search-text"]{
+	float: left;
 	padding: 5px;
 	height: 30px;
 	width: 300px;
@@ -127,20 +132,25 @@ input[type="search-text"]{
 	font-weight: bold;
 }
 
+.header > input[type="submit"]{
+	background: #ccc;
+	height: 30px;
+	width: 30px;
+	font-weight: bold;
+	margin-top: 15px;
+}
+
+
 .header-nav {
-	/*float: right;*/
-	display: inline;
+	position: absolute;
+	top: 65px;
+	right: 286px;
 }
 
 .header-nav > ul {
-	/*margin: auto;*/
 }
 
 .header-nav > ul > li {
-	/*float: right;*/
-	/*text-align: left;*/
-/*	margin: 10px 100px 10px 0;
-	float: left;*/
 	display: inline-block;
 
 }
@@ -151,9 +161,6 @@ input[type="search-text"]{
 	display: block;
 	margin-left: 10px;
 	margin-right: 65px;
-/*	margin-top: 10px;
-	margin-left: 150px;
-	padding */
 }
 
 .header-nav > ul > li > a:hover {
@@ -166,29 +173,21 @@ input[type="search-text"]{
 	color: white;
 	padding: 2px 7px;
 	border-radius: 10px;
-	font-size: 12px
+	font-size: 10px
 }
 
 .prof-pic {
-/*	margin: 10px;
-	margin-right: 20px;
-	margin-bottom*/
 	float: right;
 	position: relative;
-	top: -40px;
-	left: -50px;
-}
-
-.header > input[type="submit"]{
-	background: #ccc;
-	height: 24px;
-	width: 24px;
-	font-weight: bold;
+	background: black;
+	top: 20px;
+	right: 45px;
 }
 
 .sign-out{
-		font-size: 14px;
+	font-size: 14px;
 	font-weight: bold;
+	display: block;
 }
 
 .sign-out:hover {
@@ -198,7 +197,42 @@ input[type="search-text"]{
 
 /* --- SIDEBAR --- */
 
+.sidebar{
+	background: gray;
+	float: right;
+	width: 300px;
+	margin-top: 20px;
+}
+
+
+.notification-list{
+}
+
+.notifications{
+}
+
 /* --- MAIN CONTENT, ie, RESTAURANT LIST --- */
+
+.comment-list {
+}
+
+.new-comment{
+}
+
+.restaurant-header{
+}
+
+.restaurant-form{
+}
+
+.restaurant-list{
+}
+
+/* --- SIGN IN --- */
+
+.sign-in-header{
+}
+
 
 /* --- SEARCH PAGE --- */
 

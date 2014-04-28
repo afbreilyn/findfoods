@@ -7,7 +7,6 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
-		# @user.avatar.url = "true-story.jpg"
 		if @user.save 
 			sign_in(@user)
 			redirect_to user_url(@user)
@@ -19,7 +18,6 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		# @user.notifications.each(&:read!)
 	end
 
 	def edit
