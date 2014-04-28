@@ -112,7 +112,7 @@ body{
 .header-wrap{
 	margin: auto;
 	width: 1000px;
-	height: 100px;
+	height: 90px;
 	position: relative;
 }
 
@@ -144,7 +144,7 @@ input[type="search-text"]{
 .header-nav {
 	position: absolute;
 	top: 65px;
-	right: 286px;
+	left: 162px;
 }
 
 .header-nav > ul {
@@ -152,7 +152,6 @@ input[type="search-text"]{
 
 .header-nav > ul > li {
 	display: inline-block;
-
 }
 
 .header-nav > ul > li > a{
@@ -201,15 +200,35 @@ input[type="search-text"]{
 	background: gray;
 	float: right;
 	width: 300px;
-	margin-top: 20px;
+	/*margin-top: 20px;*/
 }
 
-
-.notification-list{
+.notification-list {
 }
 
-.notifications{
+.notifications {
 }
+
+.prof-picture {
+	padding: 20px 20px 0 20px;
+	float: left;
+}
+
+.prof-name {
+	font-weight: bold;
+	padding: 40px 20px;
+}
+
+.prof-options{
+	margin: 0 20px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.prof-options > li {
+	padding-bottom: 3px;
+}
+
 
 /* --- MAIN CONTENT, ie, RESTAURANT LIST --- */
 

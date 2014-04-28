@@ -39,12 +39,6 @@
     </div>
 
 
-
-
-
-
-
-
     <nav class="header-nav"> 
     <ul class="group"> 
 
@@ -53,22 +47,6 @@
       <li><a href="#">Write a Review</a></li>
 
       <% if signed_in? %>
-  	  <li class="signed-in"> 
-          <%#= link_to current_user.fname + ' ' + current_user.mname + ' ' + current_user.lname,
-                    user_url(current_user) %>
-      </li>
-
-    	<li class="signed-in">
-        <a href="<%= notifications_url %>">Notifications
-
-        <%# unless current_user.notifications.empty? %>
-          <strong class="notification-num"><%= current_user.notifications.unread.size %></strong>
-          <!-- <ul> -->
-            <%#= render partial: "notifications/notification", collection: current_user.notifications.unread %>
-          <!-- </ul> -->
-        <%# end %>
-        </a>
-      </li>
       
       <li class="sign-out"><%= button_to "Sign Out", session_url, method: :delete %></li>
 

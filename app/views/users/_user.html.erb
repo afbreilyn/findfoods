@@ -1,16 +1,24 @@
 <content class="sidebar group">
 
-<%= @user.fname %> <%= @user.mname %> <%= @user.lname %>
+<section class="main-info group">
+	<img class="prof-picture" src="<%=  @user.avatar.url(:thumb) %>">
+
+	<div class="prof-name">
+		<%= @user.fname %> <%= @user.mname %> <%= @user.lname %>
+	</div>
+</div>
 
 
 <% if current_user == @user %>
-	<%=  link_to "Edit Your Info", edit_user_url %>
 
-	<%= button_to "Delete Your Account", user_url(@user), method: :delete %>
+	<ul class="prof-options">
 
-	<%= link_to "Register A Restaurant", new_user_restaurant_url(@user) %>
+	<li><%=  link_to "Edit Your Info", edit_user_url %></li>
 
-	<ul class="your-restaurant-list">
+	<li><%= button_to "Delete Your Account", user_url(@user), method: :delete %></li>
+
+	<li><%= link_to "Register A Restaurant", new_user_restaurant_url(@user) %></li>
+
 		<% @user.restaurants.each do |restaurant| %>
 			<li>
 				<a href="<%= restaurant_url(restaurant) %>">
@@ -18,16 +26,25 @@
 				</a>
 			</li>
 		<% end %>
+
+		<li>
+			<a href="<%#= notifications_url %>">Notifications
+	      <strong class="notification-num">
+	      	<%= current_user.notifications.unread.size %>
+	      </strong>
+	    </a>
+	  </li>
 	</ul>
+
 <% end %>
 
-<ul class="user-notifications">
+<!-- <ul class="user-notifications">
 	<% @user.notifications.each do |notification| %>
-				<li><%= notification.text %></li>
+				<li><%#= notification.text %></li>
 	<% end %>
 </ul>
+ -->
 
-<img src="<%=  @user.avatar.url(:thumb) %>">
 
 
 <form enctype="multipart/form-data" action="<%= user_url(@user) %>" method="post">
@@ -43,3 +60,4 @@
 </content>
 
 
+<%= render "notifications/index" %>
