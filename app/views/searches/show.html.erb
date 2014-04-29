@@ -1,59 +1,75 @@
-<p>You searched for:
-<%= @search.search_params %>
-Near:
-<%= @search.start_location %>
-</p>
-
-<script>
-var search_map = L.mapbox.map('show_map', 'afbresley.i42ckik9').setView(["0", "0"], 8);
-
-var myLayer = L.mapbox.featureLayer().addTo(search_map);
-
-// The GeoJSON representing the two point features
-// var geoJson = {
-//     'type': 'FeatureCollection',
-//     'features': [{
-//         'type': 'Feature',
-// 			'geometry': {
-// 					'type': 'Point',
-// 					'coordinates': ["<%#= @restaurant.longitude %>", "<%#= @restaurant.latitude %>"]
-// 				},
-// 				'properties': {
-// 					name: "<%#= @restaurant.name %>",
-// 					'address': "<%#= @restaurant.average_rating %>",
-// 					'marker-color': '#c41200',
-// 					'marker-symbol': 'marker',
-// 					'marker-size': 'medium'
-// 				}
-//     }]
-// };
-
-// Pass features and a custom factory function to the map
-myLayer.setGeoJSON(geoJson);
-myLayer.on('click', function(e) {
-    e.layer.openPopup();
-    // window.open(e.layer.feature.properties.name);
-});
-
-// myLayer.setGeoJSON(geoJson);
-// myLayer.on('mouseover', function(e) {
-//     e.layer.openPopup();
-// });
-// myLayer.on('mouseout', function(e) {
-//     e.layer.closePopup();
-// });
+<section class="search-result-content">
 
 
 
 
-</div>
+	<div id='search_map'></div>
 
-<!-- 
-	1) dynamicly center upon loading
-	2) input search params
-	3) text results of search
-	4) filtering searches...
- -->
- <% content_for :sidebar do %>
-  some stuff
- <% end %>
+		<script>
+		var map = L.mapbox.map('search_map', 'afbresley.i42ckik9').setView(["39.12367", "-76.81229"], 8);
+
+		var myLayer = L.mapbox.featureLayer().addTo(map);
+
+		// The GeoJSON representing the two point features
+		var geoJson = {
+		    'type': 'FeatureCollection',
+		    'features': [{
+		        'type': 'Feature',
+					'geometry': {
+							'type': 'Point',
+							'coordinates': ["39.12367", "-76.81229"]
+						},
+						'properties': {
+							'title': "My results",
+							'marker-color': '#c41200',
+							'marker-symbol': 'marker',
+							'marker-size': 'medium'
+						}
+		    }]
+		};
+
+		// Pass features and a custom factory function to the map
+		myLayer.setGeoJSON(geoJson);
+		myLayer.on('click', function(e) {
+		    e.layer.openPopup();
+		    // window.open(e.layer.feature.properties.name);
+		});
+
+	</script>
+	</div>
+
+<section class="search-restaurant-list">
+	<ul>
+		<% @restaurants.each do |restaurant| %>
+			<li>
+				<%= restaurant.name %>
+				<% restaurant.average_rating.each do |star| %>
+					<i class="<%= star %>"></i>  
+				<% end %>
+			</li>
+		<% end %>
+	</ul>
+</section>
+
+		<% content_for :sidebar do %>
+
+			<section class="search-sidebar">
+			<h3>
+				<ul>
+					<label>You searched for:</label>
+						<li><%= @search.search_params %></li>
+					<label>Near:</label>
+						<li><%= @search.start_location %></li>
+				</ul>		
+			</h3>
+
+
+				Parameters: 
+
+				<input type="range" min="0" max="50" value="25" />
+
+			</section>
+		<% end %>
+
+
+</section>

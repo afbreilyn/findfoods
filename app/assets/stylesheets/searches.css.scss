@@ -2,7 +2,68 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.search-show-map {
+
+.search-result-content {
+	width: 700px;
+	position: relative;
+	padding-left: 700px;
+}
+
+#search_map {
+	position: absolute;
+	width: 670px;
+	height: 600px;
+	margin: 0;
+	// margin-bottom: 50px;
+	// padding: 15px;
+	frameBorder: 1;
 	float: left;
-	padding: 15px;
+	left: 15px;
+	top: 5px;
+}
+
+.search-sidebar {
+	width: 242px;
+	float: right;
+	// background: blue;
+	padding: 0 15px;
+	padding-left: 40px;
+	border-left: 1px solid #c41200;
+}
+
+.search-sidebar > h3 {
+	font-weight: bold;
+	clear: right;
+
+}
+
+.search-sidebar > h3 > ul {
+	padding-bottom: 15px;
+} 
+
+.search-sidebar > h3 > ul > li {
+	padding-left: 15px;
+	font-weight: normal;
+}
+
+.search-restaurant-list {
+	// position: absolute;
+	padding-top: 630px;
+	padding-left: 15px;
+	margin-left: -700px;
+	// background: blue;
+	float: left;
+	width: 600px;
+	display: block;
+
+}
+
+.search-restaurant-list > ul > li {
+	font-weight: bold;
+	font-size: 18px;
+	margin-bottom: 4px;
+}
+
+.search-restaurant-list > ul > li > i{
+	color: gold;
 }

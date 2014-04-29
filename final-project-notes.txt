@@ -1,80 +1,3 @@
-pages:
-
-	main page (changes for signed in/ not signed in)
-	user show prof
-	restaurant show
-	write a review 
-	search result page
-
-features: 
-
-user signin/signout and auth
-	schema: 
-		-fname 		(req)
-		-mname
-		-lname 		(req)
-		-city 		(req)
-		-state 		(req)
-		-id
-		-password digest
-		-picture??
-			later:
-			-good
-			-funny
-			-inaccurate
-	model:
-		validations
-	controller:
-		new
-		show
-		edit
-		delete
-
-NO OWNER! just restaurant - and it belongs to a user
-
-owner signin/sighout and auth 
-	schema:
-		-restaurant name 	(req)
-		-address line 1
-		-city 				(req)
-		-state 				(req)
-		-zip 				(req)
-			later:
-			-stars
-			-tags (as an array?)
-	model:
-		validations
-	controller:
-		new
-		show
-		edit
-		delete
-
-
-
-user auth
-owner auth
-tags
-email validation
-search results
-search filters
-comments
-comments on comments
-following people/restaurants
-notifications
-weekly email with info about restaurants in your area
-
-
-tuesday:	models and controllers. finish auth and tests.
-				get rid of rvm
-wednesday:	email verification and css layout.
-
-
-
-
-
-
-
 todo: 
 
 SEED:
@@ -82,13 +5,18 @@ SEED:
 [x] - seed restaurants
 [x] - seed comments
 [ ] - with not with lorem content
+[ ] - button to create default new user (for demos)
 
 RESTAURANT SHOW PAGE:
-[ ] - map flag defaults to their address
+[x] - map flag defaults to their address
 [ ] - fix the fact that everything has 5 stars by default
+[ ] - rating is done in stars, not numbers
+[ ] - display category
 
 MAPBOOK:
 [ ] - EVERYTHING
+[ ] - searchable by category
+[ ] - by default shows everything
 
 SEARCHBARS: 
 [ ] - default in there, which leaves when it is clicked
@@ -112,21 +40,29 @@ UJS:
 INDEX: 
 [ ] - make pictures quicker
 [ ] - load pictures into seeds folder
+[ ] - display category (make searchable)
 
 VALIDATIONS:
 [ ] - change rspecs to test for class, not id
 [ ] - fix all of the breaks
 
+FORMATTING:
+[ ] - sign up/restaurant form headers are messed up
+[ ] - 50px margin bot on every page
+
+WRITE A REVIEW:
+[ ] - search for restaurant both by caregory and name
+[ ] - leads you to their show page
 
 ONCE EVERYTHING WORKS:
 [ ] - user show page
 [ ] - omniauth
-[ ] - emailer
+[ ] - emailer / texter
 [ ] - error styling
 [ ] - search for restaurants with autocomplete
 [ ] - buttons to fill out forms
-
-
+[ ] - weekly emails
+[ ] - profile page
 
 
 

@@ -5,6 +5,7 @@
 		<h1 class="restaurant-header"> 
 			<%= @restaurant.name %>
 		</h1>
+		<% @rating = [] %>
 		<h3 class="restaurant-rating">
 			<% @restaurant.average_rating.each do |star| %>
 				<i class="<%= star %>"></i>  
@@ -34,63 +35,44 @@
 
 	<div id='show_map'></div>
 
+	<script>
+	var map = L.mapbox.map('show_map', 'afbresley.i427m2gn').setView(["<%= @restaurant.latitude %>", "<%= @restaurant.longitude %>"], 8);
 
-<!-- <iframe class="restaurant-show-map" width='720px' height='220px' frameBorder='0' src='http://a.tiles.mapbox.com/v3/afbresley.i3laa2in/attribution,zoompan,zoomwheel,geocoder,share.html'></iframe> -->
+	var myLayer = L.mapbox.featureLayer().addTo(map);
 
-<script>
-var map = L.mapbox.map('show_map', 'afbresley.i427m2gn').setView(["<%= @restaurant.latitude %>", "<%= @restaurant.longitude %>"], 8);
-
-var myLayer = L.mapbox.featureLayer().addTo(map);
-
-// The GeoJSON representing the two point features
-var geoJson = {
-    'type': 'FeatureCollection',
-    'features': [{
-        'type': 'Feature',
-			'geometry': {
-					'type': 'Point',
-					'coordinates': ["<%= @restaurant.longitude %>", "<%= @restaurant.latitude %>"]
-				},
-				'properties': {
-					name: "<%= @restaurant.name %>",
-					'address': "<%= @restaurant.average_rating %>",
-					'marker-color': '#c41200',
-					'marker-symbol': 'marker',
-					'marker-size': 'medium'
-				}
-    }]
-};
-
-// Pass features and a custom factory function to the map
-myLayer.setGeoJSON(geoJson);
-myLayer.on('click', function(e) {
-    e.layer.openPopup();
-    // window.open(e.layer.feature.properties.name);
-});
-
-// myLayer.setGeoJSON(geoJson);
-// myLayer.on('mouseover', function(e) {
-//     e.layer.openPopup();
-// });
-// myLayer.on('mouseout', function(e) {
-//     e.layer.closePopup();
-// });
-
-</script>
+	// The GeoJSON representing the two point features
+	var geoJson = {
+	    'type': 'FeatureCollection',
+	    'features': [{
+	        'type': 'Feature',
+				'geometry': {
+						'type': 'Point',
+						'coordinates': ["<%= @restaurant.longitude %>", "<%= @restaurant.latitude %>"]
+					},
+					'properties': {
+						'title': "<%= @restaurant.name %> :: <%= @restaurant.average_rating %>",
+						'marker-color': '#c41200',
+						'marker-symbol': 'marker',
+						'marker-size': 'medium'
+					}
+	    }]
+	};
 
 
+	myLayer.setGeoJSON(geoJson);
+	myLayer.on('mouseover', function(e) {
+	    e.layer.openPopup();
+	    console.log();
+	});
+	myLayer.on('mouseout', function(e) {
+	    e.layer.closePopup();
+	});
 
-
-
-
-
-
-
+	</script>
 
 	</section>
 
 </div>
-
 
 
 <section class="restaurant-comments main-content">
@@ -110,8 +92,3 @@ myLayer.on('click', function(e) {
 		<%= comment_partial(nil, comments_by_parent) %>
 	</section>
 </section>
-
-
-<%# yield :sidebar do %>
-<!-- meow -->
-<%# end %>

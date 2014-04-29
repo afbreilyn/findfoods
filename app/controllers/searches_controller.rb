@@ -18,6 +18,7 @@ class SearchesController < ApplicationController
 
 	def show
 		@search = Search.find_by_id(params[:id])
+		@restaurants = Restaurant.all
 	end
 
 	def index
