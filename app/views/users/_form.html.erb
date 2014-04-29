@@ -1,47 +1,49 @@
 <% action = (user.persisted? ? user_url(user) : users_url) %>
 <% method = (user.persisted? ? :put : :post) %>
 
+<section class="user-form-content">
 
-<form class="sidebar hidden" action="<%= action %>" method="post">
-	<input type="hidden" name="_method" value="<%= method %>">
+	<form class="user-form" action="<%= action %>" method="post">
+		<input type="hidden" name="_method" value="<%= method %>">
 
-	<%= auth_token %>
+		<%= auth_token %>
 
 
-		<div class="input">
-			<label for="user-fname">First Name</label>
-			<input type='text' name="user[fname]" value="<%= user.fname %>">
-		</div>
+			<div class="input">
+				<label for="user-fname">First Name</label>
+				<input type='text' name="user[fname]" value="<%= user.fname %>">
+			</div>
 
-		<div class="input">
-			<label for="user-mname">Middle Name</label>
-			<input type='text' name="user[mname]" value="<%= user.mname %>">
-		</div>
+			<div class="input">
+				<label for="user-mname">Middle Name</label>
+				<input type='text' name="user[mname]" value="<%= user.mname %>">
+			</div>
 
-		<div class="input">
-			<label for="user-lname">Last Name</label>
-			<input type='text' name="user[lname]" value="<%= user.lname %>">
-		</div>
+			<div class="input">
+				<label for="user-lname">Last Name</label>
+				<input type='text' name="user[lname]" value="<%= user.lname %>">
+			</div>
 
-		<div class="input">
-			<label for="user-city">City</label>
-			<input type='text' name="user[city]" value="<%= user.city %>">
-		</div>
+			<div class="input">
+				<label for="user-city">City</label>
+				<input type='text' name="user[city]" value="<%= user.city %>">
+			</div>
 
-		<div class="input">
-			<label for="user-state">State</label>
-			<input type='text' name="user[state]" value="<%= user.state %>">
-		</div>
+			<div class="input">
+				<label for="user-state">State</label>
+				<input type='text' name="user[state]" value="<%= user.state %>">
+			</div>
 
-		<div class="input">
-			<label for="user-email">Email</label>
-			<input type='text' name="user[email]" value="<%= user.email %>">
-		</div>
+			<div class="input">
+				<label for="user-email">Email</label>
+				<input type='text' name="user[email]" value="<%= user.email %>">
+			</div>
 
-		<div class="input">
-			<label for="user-password">Password</label>
-			<input type='password' name="user[password]" value="<%= user.password %>">
-		</div>
+			<div class="input">
+				<label for="user-password">Password</label>
+				<input type='password' name="user[password]" value="<%= user.password %>">
+			</div>
 
-	<input type="submit" value="<%= user.persisted? ? 'Update' : 'Create'%>">
-</form>
+		<input type="submit" value="<%= user.persisted? ? 'Update' : 'Create'%>">
+	</form>
+</section>

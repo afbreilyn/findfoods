@@ -33,7 +33,7 @@
 
       <% if signed_in? %>
         <div class="prof-pic"> 
-          <a href="<%= user_url(current_user) %>"><img src="<%=  current_user.avatar.url(:micro) %>"></a>
+          <a href="<%= root_url %>"><img src="<%=  current_user.avatar.url(:micro) %>"></a>
         </div>
       <% end %>
     </div>
@@ -64,10 +64,12 @@
     
     </div>
   </header>
+  
+  <section class="group">
+  <%= yield %>
 
   <%= render "sidebars/sidebar" %>
-  
-  <%= yield %>
+  </section>
 
 </body>
 </html>

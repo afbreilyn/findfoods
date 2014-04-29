@@ -1,20 +1,27 @@
-<h2 class="sign-in-header">Sign In</h2>
+<section class="sign-in-content group">
 
-<%= render "layouts/errors" %>
+	<h1 class="sign-in-header">Sign In</h1>
 
-<form action="<%= session_url %>" method="post">
+	<%= render "layouts/errors" %>
 
-	<%= auth_token %>
+	<h3 class="welcome-message">Welcome back!</h3>
 
-	<label>
-		Email
-		<input type='text' name="user[email]" value="">
-	</label>
 
-	<label>
-		Password
-		<input type='password' name="user[password]" value="">
-	</label>
+	<form class="sign-in" action="<%= session_url %>" method="post">
 
-	<input type="submit" value="Sign In">
-</form>
+		<%= auth_token %>
+
+	<div class="input">
+		<label>Email</label>
+		<input type='sign-in-text' name="user[email]" value="">
+	</div>
+
+	<div class="input">
+		<label>Password</label>
+		<input type='sign-in-password' name="user[password]" value="">
+	</div>
+
+		<input type="submit" value="Sign In">
+	</form>
+
+</section>

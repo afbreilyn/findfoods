@@ -2,6 +2,7 @@
 						user_restaurant_url(current_user, restaurant) : user_restaurants_url) %>
 <% method = (restaurant.persisted? ? :put : :post) %>
 
+<section class="restaurant-form-content">
 
 <form class="restaurant-form" action="<%= action %>" method="post">
 	<input type="hidden" name="_method" value="<%= method %>">
@@ -48,3 +49,4 @@
 </form>
 
 
+</section>

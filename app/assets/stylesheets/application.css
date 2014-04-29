@@ -11,10 +11,13 @@
  *= require_self
  *= require font-awesome
  *= require header
+ *= require session
+ *= require userform
  *= require mapbox
  *= require sidebar
  *= require restaurants
  *= require comments
+ *= require restaurantform
  *= require_tree .
  */
 
@@ -100,9 +103,18 @@ body{
 	margin: auto;
 }
 
-h2 {
+h1 {
 	font-size: 36px;
 	font-weight: bold;
+}
+
+h2 {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+h3 {
+	font-size: 18px;
 }
 
 /* --- CLEAR FIX --- */
@@ -120,26 +132,45 @@ h2 {
 	width: 700px;
 	float: left;
 	margin-bottom: 50px;
-	/*padding: 0 15px;*/
+	border-left: 1px solid #c41200;
+	border-right: 1px solid #c41200;
 }
 
-.comment-list {
+.restaurant-index-header {
+	padding: 0 15px;
+	padding-bottom: 25px;
 }
 
-.new-comment{
-}
-
-.restaurant-form{
+.restaurant-address {
+	float: right;
 }
 
 .restaurant-list{
-	/*width: 7/00px;*/
-	background: red;
+	width: 670px;
+	padding: 0 15px;
 	display: block;
 	float: left;
 }
 
+.restaurant-list > li {
+	position: relative;
+	font-weight: normal;
+	border-top: 1px solid #ccc;
+	padding-top: 30px;
+	padding-bottom: 75px;
+	/*margin: 55px 0;*/
+	padding-left: 120px;
+}
 
+.restaurant-list > li > a > div > .restaurant-prof-pic {
+	width: 90px;
+	position: absolute;
+	left: 15px;
+	top: 20px;
+}
+
+.restaurant-list > li > a > .restaurant-rating {
+}
 /* --- SIGN IN --- */
 
 .sign-in-header{

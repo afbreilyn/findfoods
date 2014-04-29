@@ -1,25 +1,24 @@
-// Place all the styles related to the Session controller here.
+// Place all the styles related to the User controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.sign-in-header {
+.user-form-content {
+	width: 700px;
+	float: left;
+	margin-bottom: 50px;
+	border-right: 1px solid #c41200;
+}
+
+.user-form-header {
 	padding: 0 15px;
-	padding-bottom: 25px;
+	padding-bottom: 5px;
 }
 
-.welcome-message {
-	float: right;
-	font-size: 24px;
-	margin-top: -45px;
-	font-weight: bold;
-	padding-right: 25px;
-}
-
-.sign-in > .input {
+.user-form > .input {
 	margin: 20px 0;
 }
 
-.sign-in {
+.user-form {
 	width: 300px;
 	margin: auto;
 	padding: 80px 100px;
@@ -28,18 +27,18 @@
 	border: 1px solid #c41200;
 }
 
-.sign-in > div > label {
+.user-form > div > label {
 	font-weight: bold;
 	font-size: 24px;
 	padding-bottom: 10px;
 }
 
-.sign-in > li {
+.user-form > li {
 	padding: 50px;
 	margin: auto;
 }
 
-.sign-in > div > input {
+.user-form > div > input {
 	padding: 5px 10px;
 	border: 1px solid black;
 	height: 24px;
@@ -47,17 +46,9 @@
 	display: inline-block;
 }
 
-.sign-in > input[type="submit"] {
+.user-form > input[type="submit"] {
 	// background: black;
 	border: 1px solid black;
 	font-size: 18px;
 	padding: 10px 15px;
 }
-
-.sign-in-content {
-	width: 700px;
-	float: left;
-	margin-bottom: 50px;
-	border-right: 1px solid #c41200;
-}
-

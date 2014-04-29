@@ -1,19 +1,9 @@
 
 
-<div class="google-maps group">
+  <div id='map'></div>
 
 
-
-<iframe
-  width="900"
-  height="450"
-  frameborder="0" style="border:0"
-  src="https://www.google.com/maps/embed/v1/search?key=
-  ENV["GOOGLE_MAP_API"]
-  &center=40.7445929,-73.974645
-  &zoom=14
-  &q=ice+cream">
-</iframe>
+<iframe class="search-show-map" width='700px' height='600px' frameBorder='0' src='http://a.tiles.mapbox.com/v3/afbresley.i3laa2in/attribution,zoompan,zoomwheel,geocoder,share.html'></iframe>
 
 <p>You searched for:
 <%= @search.search_params %>

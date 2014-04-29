@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .restaurant-comments {
-	border-left: 1px solid #c41200;
-	border-right: 1px solid #c41200;
+	// border-left: 1px solid #c41200;
+	// border-right: 1px solid #c41200;
 }
 
 .new-comment {
@@ -75,7 +75,7 @@
 	padding: 25px 30px;
 	position: relative;
 	padding-left: 165px;
-	margin-bottom: 25px;
+	margin-bottom: 15px;
 }
 
 .reviewer-name {
@@ -91,6 +91,7 @@
 
 .review-body {
 	// margin: 20px;
+	padding-bottom: 10px;
 }
 
 .reviewer-pic {
@@ -105,6 +106,7 @@
 .delete-button > div {
 
 	}
+
 .delete-button > div > input[type="submit"]{
 	background: #ccc;
 	font-size: 12px;

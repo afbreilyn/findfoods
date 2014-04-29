@@ -1,9 +1,10 @@
 /* --- SIDEBAR --- */
 
 .sidebar {
-	background: #bbb;
+	// background: #bbb;
 	float: right;
-	width: 300px;
+	width: 297px;
+	// border-left: 1px solid #c12044;
 }
 
 .notification-list {
@@ -17,7 +18,6 @@
 }
 
 .prof-picture {
-	/*padding: 15px 15px 0 15px;*/
 	display: block;
 	float: left;
 	background: black;
@@ -60,15 +60,36 @@
 	width: 200px; 
 }
 
-.user-form {
-	display: none;
-	width: 300px;
+.notifications-warning {
+	padding-left: 15px;
 }
 
-.hidden {
-	position: absolute;
-	overflow: hidden;
-	height: 1px;
-	width: 1px;
-	margin: -1px;
+:hover {
+	// background: blue;
+	// DROPDOWN MENU OF NOTIFICATIONS!
 }
+
+.user-restaurants {
+	margin: 15px;
+}
+
+.your-restaurants {
+	font-weight: bold;
+}
+
+.user-notifications {
+ margin: 15px;
+ font-size: 12px;
+}
+
+.sidebar-featured {
+	margin: 15px;
+}
+
+.sidebar-user {
+}
+
+.sidebar-restaurant {
+}
+
+
