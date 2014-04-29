@@ -52,7 +52,7 @@ var geoJson = {
 					'coordinates': ["<%= @restaurant.longitude %>", "<%= @restaurant.latitude %>"]
 				},
 				'properties': {
-					'name': "<%= @restaurant.name %>",
+					name: "<%= @restaurant.name %>",
 					'address': "<%= @restaurant.average_rating %>",
 					'marker-color': '#c41200',
 					'marker-symbol': 'marker',
@@ -63,10 +63,19 @@ var geoJson = {
 
 // Pass features and a custom factory function to the map
 myLayer.setGeoJSON(geoJson);
-myLayer.on('hover', function(e) {
-    e.layer.unbindPopup();
-    window.open(e.layer.feature.properties.name);
+myLayer.on('click', function(e) {
+    e.layer.openPopup();
+    // window.open(e.layer.feature.properties.name);
 });
+
+// myLayer.setGeoJSON(geoJson);
+// myLayer.on('mouseover', function(e) {
+//     e.layer.openPopup();
+// });
+// myLayer.on('mouseout', function(e) {
+//     e.layer.closePopup();
+// });
+
 </script>
 
 

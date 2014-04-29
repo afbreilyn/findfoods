@@ -1,15 +1,50 @@
-
-
-  <div id='map'></div>
-
-
-<iframe class="search-show-map" width='670px' height='600px' frameBorder='0' src='http://a.tiles.mapbox.com/v3/afbresley.i3laa2in/attribution,zoompan,zoomwheel,geocoder,share.html'></iframe>
-
 <p>You searched for:
 <%= @search.search_params %>
 Near:
 <%= @search.start_location %>
 </p>
+
+<script>
+var search_map = L.mapbox.map('show_map', 'afbresley.i42ckik9').setView(["0", "0"], 8);
+
+var myLayer = L.mapbox.featureLayer().addTo(search_map);
+
+// The GeoJSON representing the two point features
+// var geoJson = {
+//     'type': 'FeatureCollection',
+//     'features': [{
+//         'type': 'Feature',
+// 			'geometry': {
+// 					'type': 'Point',
+// 					'coordinates': ["<%#= @restaurant.longitude %>", "<%#= @restaurant.latitude %>"]
+// 				},
+// 				'properties': {
+// 					name: "<%#= @restaurant.name %>",
+// 					'address': "<%#= @restaurant.average_rating %>",
+// 					'marker-color': '#c41200',
+// 					'marker-symbol': 'marker',
+// 					'marker-size': 'medium'
+// 				}
+//     }]
+// };
+
+// Pass features and a custom factory function to the map
+myLayer.setGeoJSON(geoJson);
+myLayer.on('click', function(e) {
+    e.layer.openPopup();
+    // window.open(e.layer.feature.properties.name);
+});
+
+// myLayer.setGeoJSON(geoJson);
+// myLayer.on('mouseover', function(e) {
+//     e.layer.openPopup();
+// });
+// myLayer.on('mouseout', function(e) {
+//     e.layer.closePopup();
+// });
+
+
+
 
 </div>
 
