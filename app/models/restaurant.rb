@@ -67,8 +67,10 @@ class Restaurant < ActiveRecord::Base
 			stars = ["fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star"]
 		elsif average_rating <= 4.5
 			stars = ["fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star-half"]
-		else 
+		elsif average_rating == 5
 			stars = ["fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star"]
+		else
+			stars = [""]
 		end
 
 		return stars

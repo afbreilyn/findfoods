@@ -30,6 +30,13 @@
 	float: left;
 }
 
+.restaurant-address {
+	float: right;
+	font-size: 24px;
+	margin-top: -18px; 
+	font-weight: bold;
+}
+
 .restaurant-address-show {
 	float: right;
 	font-size: 24px;
@@ -58,6 +65,11 @@
 	padding-bottom: 20px;
 }
 
-
+#show_map {
+	// width:100%;
+	width: 720px;
+	height: 220px;
+	frameBorder: 1;
+}
 
 

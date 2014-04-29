@@ -23,6 +23,27 @@ class RestaurantsController < ApplicationController
 
 	def show
 		@restaurant = Restaurant.find(params[:id])
+
+		# @geojson = Array.new
+		# @geojson << {
+		# 	type: 'Feature',
+		# 	geometry: {
+		# 		type: 'Point',
+		# 		coordinates: [@restaurant.longitude, @restaurant.latitude]
+		# 	},
+		# 	properties: {
+		# 		name: @restaurant.name,
+		# 		address: @restaurant.average_rating,
+		# 		:'marker-color' => '#00607d',
+		# 		:'marker-symbol' => 'circle',
+		# 		:'marker-size' => 'medium'
+		# 	}
+		# }
+
+		# respond_to do |format|
+		# 	format.html
+		# 	format.json { render json: @geojson }
+		# end
 	end
 
 	def edit
