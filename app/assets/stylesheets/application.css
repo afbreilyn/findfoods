@@ -9,13 +9,20 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require font-awesome
+ *= require header
+ *= require mapbox
+ *= require sidebar
+ *= require restaurants
+ *= require comments
  *= require_tree .
  */
 
 /* --- RESET ALL OF THE THINGS --- */
 
 header, body, a, h1, h2, h3, h4, div, form, 
-span, form, nav, label, img, li, ul {
+span, form, nav, label, img, li, ul, figure,
+iframe {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -27,7 +34,7 @@ span, form, nav, label, img, li, ul {
 /* --- ELEMENTS --- */
 
 body {
-	font-family: sans-serif;
+	font-family: Helvetica;
 	font-size: 16px;
 	line-height: normal;
 }
@@ -43,6 +50,16 @@ ul {
 
 li {
 	list-style: none;
+}
+
+img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+iframe {
+	display: block;
 }
 
 strong {
@@ -81,7 +98,11 @@ input[type="text"]{
 body{
 	width: 1000px;
 	margin: auto;
+}
 
+h2 {
+	font-size: 36px;
+	font-weight: bold;
 }
 
 /* --- CLEAR FIX --- */
@@ -92,145 +113,15 @@ body{
 	content: "";
 }
 
-/* --- HEADER/NAVBAR --- */
-
-.header {
-	background: #B7F7FC;
-}
-
-.logo{
-	margin-bottom: -5px; 
-	display: block;
-	float: left;
-	margin-left: 20px;
-}
-
-.header-topline{
-	float: right;
-}
-
-.header-wrap{
-	margin: auto;
-	width: 1000px;
-	height: 90px;
-	position: relative;
-}
-
-.search-form {
-	float: right;
-	position: absolute;
-	right: 140px;
-}
-
-input[type="search-text"]{
-	float: left;
-	padding: 5px;
-	height: 30px;
-	width: 300px;
-	margin: 10px;
-	font-size: 18px;
-	font-weight: bold;
-}
-
-.header > input[type="submit"]{
-	background: #ccc;
-	height: 30px;
-	width: 30px;
-	font-weight: bold;
-	margin-top: 15px;
-}
-
-
-.header-nav {
-	position: absolute;
-	top: 65px;
-	left: 162px;
-}
-
-.header-nav > ul {
-}
-
-.header-nav > ul > li {
-	display: inline-block;
-}
-
-.header-nav > ul > li > a{
-	font-size: 14px;
-	font-weight: bold;
-	display: block;
-	margin-left: 10px;
-	margin-right: 65px;
-}
-
-.header-nav > ul > li > a:hover {
-	color: white;
-}
-
-.notification-num{
-	display: inline-block;
-	background: black;
-	color: white;
-	padding: 2px 7px;
-	border-radius: 10px;
-	font-size: 10px
-}
-
-.prof-pic {
-	float: right;
-	position: relative;
-	background: black;
-	top: 20px;
-	right: 45px;
-}
-
-.sign-out{
-	font-size: 14px;
-	font-weight: bold;
-	display: block;
-}
-
-.sign-out:hover {
-	color: white;
-}
-
-
-/* --- SIDEBAR --- */
-
-.sidebar{
-	background: gray;
-	float: right;
-	width: 300px;
-	/*margin-top: 20px;*/
-}
-
-.notification-list {
-}
-
-.notifications {
-}
-
-.prof-picture {
-	padding: 20px 20px 0 20px;
-	float: left;
-}
-
-.prof-name {
-	font-weight: bold;
-	padding: 40px 20px;
-}
-
-.prof-options{
-	margin: 0 20px;
-	font-size: 14px;
-	font-weight: bold;
-}
-
-.prof-options > li {
-	padding-bottom: 3px;
-}
-
 
 /* --- MAIN CONTENT, ie, RESTAURANT LIST --- */
+
+.main-content {
+	width: 700px;
+	float: left;
+	margin-bottom: 50px;
+	/*padding: 0 15px;*/
+}
 
 .comment-list {
 }
@@ -238,14 +129,16 @@ input[type="search-text"]{
 .new-comment{
 }
 
-.restaurant-header{
-}
-
 .restaurant-form{
 }
 
 .restaurant-list{
+	/*width: 7/00px;*/
+	background: red;
+	display: block;
+	float: left;
 }
+
 
 /* --- SIGN IN --- */
 
@@ -273,9 +166,6 @@ input[type="search-text"]{
 	width: 100%;
 	height: 400px;
 	float: right;
-
-	/*width: 100% !important;   i am so sorry jonathan :( */
-	/*height: 100% !important;*/
 }
 
 

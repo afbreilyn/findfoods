@@ -1,42 +1,66 @@
-<h2 class="restaurant-header"> <%= @restaurant.name %>, <%= @restaurant.average_rating %> </h2>
+<div class="restaurant-show">
 
-<img src="<%=  @restaurant.avatar.url(:full) %>">
+	<section class="restaurant-info group">
 
-
-<span class="restaurant-address">
-	<%= @restaurant.street1 %> 
-	<% if @restaurant.street2 != nil %>
-		<%= @restaurant.street2 %>
-	<% end  %>
-	<%= @restaurant.city %>, 	<%= @restaurant.state %>
-	<%= @restaurant.zip %>
-</span>
-
-<% if current_user == @restaurant.owner %>
-	<%=  link_to "Edit Your Info", edit_user_restaurant_url(current_user.id, @restaurant) %>
-	<%= button_to "Destroy this restaurant", user_restaurant_url(current_user.id, @restaurant), method: :delete %>
-
-	<form enctype="multipart/form-data" action="<%= user_restaurant_url(current_user, @restaurant) %>" method="post">
-		<input type="hidden" name="_method" value="patch">
-
-		<%= auth_token %>
-
-		<input type="file" name="restaurant[avatar]" id="avatar-upload">
-
-		<input type="submit" value="Upload Photo">
-	</form>
-
-<% end %>
-
-<%= render partial: "tags/new", locals: { restaurant: @restaurant }%>
-<%= render partial: "tags/show", locals: { restaurant: @restaurant }%>
-
-<%= render partial: "comments/form", locals: {
-    												parent_comment_id: nil,
-														commentable_id: @restaurant.id, 
-														commentable_type: "Restaurant" } %>
-
-<% comments_by_parent = @restaurant.comments_by_parent %>
-<%= comment_partial(nil, comments_by_parent) %>
+		<h2 class="restaurant-header"> 
+			<%= @restaurant.name %>
+		</h2>
+		<h3 class="restaurant-rating">
+			<% @restaurant.average_rating.each do |star| %>
+				<i class="<%= star %>"></i>  
+			<% end %>
+		</h3> 
+		<h3 class="rating-num"><%= @restaurant.ratings.count %> reviews</h3>
 
 
+		<section class="restaurant-address">
+			<%= @restaurant.street1 %> 
+			<% if @restaurant.street2 != nil %>
+					<%= @restaurant.street2 %>
+			<% end  %>
+			<%= @restaurant.city %>, 	<%= @restaurant.state %>
+			<%= @restaurant.zip %>
+		</section>
+
+		<section class="owner-options">
+			<% if current_user == @restaurant.owner %>
+				<%= link_to "Edit Restaurant Info", edit_user_restaurant_url(current_user.id, @restaurant) %>
+			<% end %>
+		</section>
+	</section>
+
+	<section class="graphics group">
+			<img class="restaurant-prof-pic" src="<%= @restaurant.avatar.url(:full) %>">
+	<div id='map'></div>
+
+
+<iframe class="restaurant-show-map" width='720px' height='220px' frameBorder='0' src='http://a.tiles.mapbox.com/v3/afbresley.i3laa2in/attribution,zoompan,zoomwheel,geocoder,share.html'></iframe>
+
+	</section>
+
+</div>
+
+
+
+<section class="restaurant-comments main-content">
+<h3 class="new-review-invitation">Write a review!</h3>
+
+
+	<%#= render partial: "tags/new", locals: { restaurant: @restaurant }%>
+	<%#= render partial: "tags/show", locals: { restaurant: @restaurant }%>
+
+	<%= render partial: "comments/form", locals: {
+	    												parent_comment_id: nil,
+															commentable_id: @restaurant.id, 
+															commentable_type: "Restaurant" } %>
+
+	<section class="all-comments">
+		<% comments_by_parent = @restaurant.comments_by_parent %>
+		<%= comment_partial(nil, comments_by_parent) %>
+	</section>
+</section>
+
+
+<%# yield :sidebar do %>
+<!-- meow -->
+<%# end %>

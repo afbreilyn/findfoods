@@ -1,3 +1,116 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.restaurant-comments {
+	border-left: 1px solid #c41200;
+	border-right: 1px solid #c41200;
+}
+
+.new-comment {
+	// border-top: 1px solid #c41200;
+	// border-bottom: 1px solid #ccc;
+	padding: 10px 20px;
+	padding-right: 60px;
+}
+
+.rating-box {
+	border: 1px solid black;
+	padding: 5px;
+	font-size: 18px;
+}
+
+.comment-textarea {
+	border: 1px solid #000;
+	height: 100px;
+	width: 400px;
+	font-size: 18px;
+	padding: 5px 10px;
+}
+
+.new-review-invitation {
+	font-size: 24px;
+	padding-left: 20px;
+	display: block;
+}
+
+.comment-list-form {
+
+}
+
+.comment-list-form > li {
+	position: relative;
+	padding: 15px 200px;
+}
+
+.comment-list-form > li > label {
+	position: absolute;
+	left: 20px;
+	top: 20px;
+}
+
+.new-comment > input[type="submit"]{
+	background: #ccc;
+	height: 30px;
+	font-weight: bold;
+	margin-top: 15px;
+	margin-left: 20px;
+	padding: 5px 10px;
+	float: right;
+}
+
+.all-comments {
+	padding: 20px;
+}
+
+.comment-label {
+
+}
+
+.comment-list {
+}
+
+.each-comment {
+	border-top: 1px solid #ccc;
+	padding: 25px 30px;
+	position: relative;
+	padding-left: 165px;
+	margin-bottom: 25px;
+}
+
+.reviewer-name {
+	font-weight: bold;
+	// position: absolute;
+	padding-bottom: 3px;
+}
+
+.review-rating {
+	color: gold;
+	padding-bottom: 8px;
+}
+
+.review-body {
+	// margin: 20px;
+}
+
+.reviewer-pic {
+	height: 80px;
+	width: auto;
+	// float: left;
+	position: absolute;
+	left: 15px;
+	top: 30px;
+}
+
+.delete-button > div {
+
+	}
+.delete-button > div > input[type="submit"]{
+	background: #ccc;
+	font-size: 12px;
+}
+
+.delete-review {
+	background: blue;
+}
+

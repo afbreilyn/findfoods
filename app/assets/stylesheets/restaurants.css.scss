@@ -1,7 +1,67 @@
-// Place all the styles related to the restaurants controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* --- RESTAURANT SHOW --- */
 
-.restaurant-list {
-	// background: black;
+.restaurant-show {
+	padding: 0 15px;
 }
+
+.restaurant-info {
+	margin-top: 25px;
+	height: 100px;
+	// width: 507px;
+	// background: red;
+	position: relative;
+}
+
+.restaurant-header{
+	padding-bottom: 5px;
+}
+
+.restaurant-rating {
+	color: gold;
+	font-size: 22px;
+	float: left;
+}
+
+.rating-num {
+	font-size: 22px;
+	padding-left: 8px;
+	float: left;
+}
+
+.restaurant-prof-pic {
+	width: 250px;
+	// position: absolute;
+	float: left;
+}
+
+.restaurant-address {
+	float: right;
+	font-size: 24px;
+	margin-top: -15px;
+	font-weight: bold;
+}
+
+.owner-options {
+	text-align: right;
+	padding-top: 15px;
+}
+
+.address-line {
+}
+
+.restaurant-show-map {
+	float: right;
+	display: block;	
+	padding-top: 18px;
+}
+
+.graphics {
+	// padding-bottom: 40px;
+	// border: 1px solid blue;
+	display: block;
+	padding-bottom: 20px;
+}
+
+
+
+

@@ -1,3 +1,15 @@
 <h2 class="restaurant-header">Edit Restaurant</h2>
 <%= render "layouts/errors" %>
 <%= render "form", :restaurant => @restaurant %>
+
+<%= button_to "Destroy this restaurant", user_restaurant_url(current_user.id, @restaurant), method: :delete %>
+
+<form enctype="multipart/form-data" action="<%= user_restaurant_url(current_user, @restaurant) %>" method="post">
+	<input type="hidden" name="_method" value="patch">
+
+	<%= auth_token %>
+
+	<input type="file" name="restaurant[avatar]" id="avatar-upload">
+
+	<input type="submit" value="Upload Photo">
+</form>

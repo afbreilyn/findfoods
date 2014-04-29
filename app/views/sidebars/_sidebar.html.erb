@@ -1,4 +1,19 @@
-<div type="sidebar">
+<div class="sidebar">
 
+<% sidebar = yield :sidebar %>
+
+<% if sidebar.blank? %>
+<%#= fail %>
+	<% if current_user %>
+		<%#= render partial: "users/user2", locals: { user: current_user } %>
+	<% end %>
+		<%#= render partial: "sidebars/restaurant" %>
+		<%#= render partial: "sidebars/user" %>
+	<% if current_user %>	
+		<%#= render partial: "users/form", locals: { user: current_user } %>
+	<% end %>
+<% end %>
+
+<%#= fail %>
 </div>
 

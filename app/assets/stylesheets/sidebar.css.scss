@@ -1,0 +1,74 @@
+/* --- SIDEBAR --- */
+
+.sidebar {
+	background: #bbb;
+	float: right;
+	width: 300px;
+}
+
+.notification-list {
+}
+
+.notifications {
+}
+
+.main-info {
+	margin-top: 15px;
+}
+
+.prof-picture {
+	/*padding: 15px 15px 0 15px;*/
+	display: block;
+	float: left;
+	background: black;
+	margin: 0px 15px;
+	width: 100px;
+}
+
+.prof-name {
+	/*margin: 15px;*/
+	font-weight: bold;
+	left: 110px;
+	font-size: 18px;
+	padding-bottom: 1px;
+}
+
+.prof-options {
+	margin: 15px;
+	top: 10px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.prof-options > li {
+	padding-bottom: 3px;
+}
+
+.load-prof-pic {
+}
+
+.load-prof-pic > input[type="submit"] {
+	background: #ccc;
+	font-weight: bold;
+	/*margin-top: 15px;*/
+}
+
+.prof-string {
+	background: #fff;
+	border-radius: 15px;
+	border: 1px solid black;
+	width: 200px; 
+}
+
+.user-form {
+	display: none;
+	width: 300px;
+}
+
+.hidden {
+	position: absolute;
+	overflow: hidden;
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+}

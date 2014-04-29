@@ -15,12 +15,12 @@
 		password: "password"
 		}),
 
-	sennacys_delight = Restaurant.new({ 
+	sennacys_delight = Restaurant.create({ 
 		name: "Senaccy's Delight",
 		street1: "27 Cooper Square",
-		city: "nyc",
-		state: "ny",
-		zip: 11111,
+		city: "New York City",
+		state: "NY",
+		zip: 10003,
 		owner_id: 1,
 		avatar: "http://www.coolfunnyjunk.com/wp-content/uploads/2009/01/happy-cat.jpg"
 		})

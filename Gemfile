@@ -62,6 +62,11 @@ gem 'figaro'
 
 gem 'rails_12factor', group: :production
 
+gem 'font-awesome-sass'
+
+gem 'mapbox-rails'
+gem 'geocoder'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

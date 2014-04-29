@@ -1,26 +1,27 @@
-<form class="new-comment" action="<%= restaurant_comments_url(commentable_id) %>" method="post">
 
+<form class="new-comment group" action="<%= restaurant_comments_url(commentable_id) %>" method="post">
 	<%= auth_token %>
+	<ul class="comment-list-form">
+		<% if commentable_type == "Restaurant" %>
+				<li class="group">
+					<label class="comment-label" for="comment-rating">Rating (0 to 5)</label>
+					<input class="rating-box" type="number" min="0" max="7" step="1" name="rating" value="">
+				</li>
+		<% end %>
 
-	<div class="input">
-		<label for="comment-body"></label>
-		<textarea name="comment[body]"></textarea>
-	</div>
+			<li class="group">
+				<label class="comment-label" for="comment-body">What'd you think?</label>
+				<textarea class="comment-textarea" name="comment[body]" id="comment-body"></textarea>
+			</li>
+	</ul>	
 
-	<% if commentable_type == "Restaurant" %>
-		<div class="input">
-			<label for="comment-rating">Rating, between 0 and 7</label>
-			<input type="number" min="0" max="7" step="1" name="rating" value="">
-		</div>
-	<% end %>
-
-	<input type="hidden" name="comment[parent_comment_id]" 
-																								value="<%= parent_comment_id %>">
+		<input type="hidden" name="comment[parent_comment_id]" 
+																									value="<%= parent_comment_id %>">
 
 
-	<input type="hidden" name="comment[commentable_type]" value="<%= commentable_type %>">
-	<input type="hidden" name="comment[commentable_id]" value="<%= commentable_id %>">
+		<input type="hidden" name="comment[commentable_type]" value="<%= commentable_type %>">
+		<input type="hidden" name="comment[commentable_id]" value="<%= commentable_id %>">
 
-	<input type="submit" value="Submit ">
+		<input type="submit" value="Submit ">
 
 </form>

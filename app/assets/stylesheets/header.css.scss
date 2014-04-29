@@ -1,0 +1,101 @@
+/* --- HEADER/NAVBAR --- */
+
+.header {
+}
+
+.logo{
+	margin-bottom: -5px; 
+	display: block;
+	float: left;
+	margin-left: 20px;
+}
+
+.header-topline{
+	float: right;
+}
+
+.header-wrap{
+	margin: auto;
+	width: 1000px;
+	height: 90px;
+	position: relative;
+	border-bottom: 1px solid #c41200;
+}
+
+.search-form {
+	float: right;
+	position: absolute;
+	right: 140px;
+}
+
+input[type="search-text"]{
+	float: left;
+	padding: 5px;
+	height: 30px;
+	width: 300px;
+	margin: 10px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.header > input[type="submit"]{
+	background: #ccc;
+	height: 30px;
+	width: 30px;
+	font-weight: bold;
+	margin-top: 15px;
+}
+
+.header-nav {
+	position: absolute;
+	top: 65px;
+	left: 162px;
+}
+
+.header-nav > ul {
+}
+
+.header-nav > ul > li {
+	display: inline-block;
+}
+
+.header-nav > ul > li > a{
+	font-size: 14px;
+	font-weight: bold;
+	display: block;
+	margin-left: 10px;
+	margin-right: 65px;
+}
+
+.header-nav > ul > li > a:hover {
+	color: white;
+}
+
+.notification-num{
+	display: inline-block;
+	background: black;
+	color: white;
+	padding: 2px 7px;
+	border-radius: 10px;
+	font-size: 10px
+}
+
+.prof-pic {
+	float: right;
+	position: relative;
+	background: black;
+	top: 20px;
+	right: 45px;
+	width: 50px;
+}
+
+.sign-out{
+	font-size: 14px;
+	font-weight: bold;
+	display: block;
+}
+
+.sign-out:hover {
+	color: white;
+}
+

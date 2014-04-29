@@ -4,20 +4,22 @@
 	<img class="prof-picture" src="<%=  @user.avatar.url(:thumb) %>">
 
 	<div class="prof-name">
-		<%= @user.fname %> <%= @user.mname %> <%= @user.lname %>
+		<%= @user.fname %> 
+		<br> <%= @user.mname %> 
+		<br><%= @user.lname %>
 	</div>
-</div>
+</section>
 
 
 <% if current_user == @user %>
 
 	<ul class="prof-options">
 
-	<li><%=  link_to "Edit Your Info", edit_user_url %></li>
+		<li><%=  link_to "Edit Your Info", edit_user_url %></li>
 
-	<li><%= button_to "Delete Your Account", user_url(@user), method: :delete %></li>
+		<%= render partial: "users/avatar", locals: {user: @user} %>
 
-	<li><%= link_to "Register A Restaurant", new_user_restaurant_url(@user) %></li>
+		<li><%= button_to "Delete Your Account", user_url(@user), method: :delete %></li>
 
 		<% @user.restaurants.each do |restaurant| %>
 			<li>
@@ -38,26 +40,19 @@
 
 <% end %>
 
-<!-- <ul class="user-notifications">
+
+
+<%#= render "notifications/index" %>
+
+<ul class="user-notifications">
 	<% @user.notifications.each do |notification| %>
-				<li><%#= notification.text %></li>
+				<% unless notification.is_read? %>
+					<li><a href="<%= notification_url(notification) %>"><%= notification.text %></a></li>
+				<% end  %>
 	<% end %>
 </ul>
- -->
 
 
-
-<form enctype="multipart/form-data" action="<%= user_url(@user) %>" method="post">
-	<input type="hidden" name="_method" value="patch">
-
-	<%= auth_token %>
-
-	<input type="file" name="user[avatar]" id="avatar-upload">
-
-	<input type="submit" value="Upload Photo">
-</form>
 
 </content>
 
-
-<%= render "notifications/index" %>

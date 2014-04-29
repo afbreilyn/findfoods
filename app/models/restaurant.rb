@@ -17,7 +17,7 @@ class Restaurant < ActiveRecord::Base
 	
 	has_many :ratings, dependent: :destroy
 
-	has_attached_file :avatar, styles: {thumb: "100x100>", full: "200x200>"}, :default_url => "http://www.clker.com/cliparts/h/1/9/c/9/w/restaurant-md.png"
+	has_attached_file :avatar, styles: { :thumb => "100x100>", :full => "200x200>" }, :default_url => "http://www.clker.com/cliparts/h/1/9/c/9/w/restaurant-md.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 	def comments_by_parent
@@ -40,11 +40,33 @@ class Restaurant < ActiveRecord::Base
 
 		average_rating = average_rating/tot_rating
 
-		if !(average_rating >= 0)
-			return "No Stars Yet!"
+		stars = []
+
+		if average_rating == 0
+			stars = [""]
+		elsif average_rating <= 0.5
+			stars = ["fa fa-half-star"]
+		elsif average_rating < 1
+			stars = ["fa fa-star"]
+		elsif average_rating < 1.5
+			stars = ["fa fa-star", "fa fa-star-half"]
+		elsif average_rating < 2
+			stars = ["fa fa-star", "fa fa-star"]
+		elsif average_rating < 2.5
+			stars = ["fa fa-star", "fa fa-star", "fa fa-star-half"]
+		elsif average_rating < 3
+			stars = ["fa fa-star", "fa fa-star", "fa fa-star"]
+		elsif average_rating < 3.5
+			stars = ["fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star-half"]
+		elsif average_rating < 4
+			stars = ["fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star"]
+		elsif average_rating <= 4.5
+			stars = ["fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star-half"]
+		else 
+			stars = ["fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star"]
 		end
 
-		return "#{average_rating} stars!!!"
+		return stars
 	end
 	 
 end

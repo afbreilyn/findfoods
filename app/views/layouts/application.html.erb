@@ -48,6 +48,9 @@
 
       <% if signed_in? %>
       
+      <li><%= link_to "Register A Restaurant", new_user_restaurant_url(current_user) %></li>
+
+      
       <li class="sign-out"><%= button_to "Sign Out", session_url, method: :delete %></li>
 
       <% else %>
@@ -62,6 +65,8 @@
     </div>
   </header>
 
+  <%= render "sidebars/sidebar" %>
+  
   <%= yield %>
 
 </body>
