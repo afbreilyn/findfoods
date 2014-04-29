@@ -6,22 +6,21 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-	jonathan = User.create({
+	jonathan = User.create!(
 		fname: "Jonathan",
 		lname: "Tamboer",
 		city: "Amsterdam",
 		state: "NH",
 		email: "jt@email.com",
 		password: "password"
-		}),
+		)
 
-	sennacys_delight = Restaurant.create({ 
+	sennacys_delight = jonathan.restaurants.create!(
 		name: "Senaccy's Delight",
 		street1: "27 Cooper Square",
 		city: "New York City",
 		state: "NY",
 		zip: 10003,
-		owner_id: 1,
 		avatar: "http://www.coolfunnyjunk.com/wp-content/uploads/2009/01/happy-cat.jpg"
-		})
+		)
 

@@ -69,3 +69,59 @@ tuesday:	models and controllers. finish auth and tests.
 				get rid of rvm
 wednesday:	email verification and css layout.
 
+
+
+
+
+
+
+todo: 
+
+SEED:
+- seed people
+- seed restaurants
+
+RESTAURANT SHOW PAGE:
+- map flag defaults to their address
+
+MAPBOOK:
+- EVERYTHING
+
+SEARCHBARS: 
+- default in there, which leaves when it is clicked
+
+CSS:
+- get rid of single use classes
+
+SIDEBAR:
+- switches between 
+
+BACKBONE:
+- use for search queries sorting
+- signing in users
+- keep the top bar statis on all pages
+
+UJS:
+- use for adding comments
+
+INDEX: 
+- make pictures quicker
+
+ONCE EVERYTHING WORKS:
+- user show page
+- omniauth
+- emailer
+- error styling
+- search for restaurants with autocomplete
+
+
+
+
+
+
+
+
+
+
+
+

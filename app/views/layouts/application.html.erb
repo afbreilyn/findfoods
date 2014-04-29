@@ -68,7 +68,13 @@
   <section class="group">
   <%= yield %>
 
-  <%= render "sidebars/sidebar" %>
+  <% if @default %>
+  <%#= fail %>
+    <%= render partial: "sidebars/sidebar" %>
+  <% else %>
+    <%= yield :sidebar %>
+  <% end %>
+
   </section>
 
 </body>

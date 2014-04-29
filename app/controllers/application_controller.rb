@@ -3,7 +3,20 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_action :pick_sidebar
+
   helper_method :signed_in?, :current_user
+
+  def pick_sidebar
+    @default = true
+
+    if params[:action] == "show" && params[:controller] == "searches"
+      @default = false
+    end
+    #check controller and action if they are headed to the search page (exception)
+    #else 
+    #returns variable
+  end
 
   private
 
@@ -33,5 +46,7 @@ class ApplicationController < ActionController::Base
   def require_user!
   	redirect_to session_url unless signed_in?
   end
+
+
   
 end

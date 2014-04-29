@@ -2,6 +2,7 @@
 
 <%# sidebar = yield :sidebar %>
 
+<%#= content_for :sidebar do %>
 <% #if sidebar.blank? %>
 <%#= fail %>
 	<% if current_user %>
@@ -10,6 +11,7 @@
 		<%= render partial: "sidebars/restaurant" %>
 		<%= render partial: "sidebars/user" %>
 <%# end %>
+
 
 <%#= fail %>
 </div>

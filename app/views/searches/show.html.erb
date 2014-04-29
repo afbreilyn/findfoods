@@ -3,7 +3,7 @@
   <div id='map'></div>
 
 
-<iframe class="search-show-map" width='700px' height='600px' frameBorder='0' src='http://a.tiles.mapbox.com/v3/afbresley.i3laa2in/attribution,zoompan,zoomwheel,geocoder,share.html'></iframe>
+<iframe class="search-show-map" width='670px' height='600px' frameBorder='0' src='http://a.tiles.mapbox.com/v3/afbresley.i3laa2in/attribution,zoompan,zoomwheel,geocoder,share.html'></iframe>
 
 <p>You searched for:
 <%= @search.search_params %>
@@ -19,3 +19,6 @@ Near:
 	3) text results of search
 	4) filtering searches...
  -->
+ <% content_for :sidebar do %>
+  some stuff
+ <% end %>
