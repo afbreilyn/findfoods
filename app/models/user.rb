@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
 		:restaurants,
 		class_name: "Restaurant",
 		foreign_key: :owner_id,
-		primary_key: :id
+		primary_key: :id,
+		inverse_of: :owner
 	)
 	
 	has_many(
@@ -23,7 +24,15 @@ class User < ActiveRecord::Base
 		primary_key: :id
 	)
 
-	has_many :comments, as: :commentable, dependent: :destroy
+	has_many(
+		:written_comments,
+		class_name: "Comment",
+		foreign_key: :user_id,
+		primary_key: :id,
+		dependent: :destroy,
+		inverse_of: :user
+	) 
+
   has_many :notifications, inverse_of: :user, dependent: :destroy
 	has_many :ratings, dependent: :destroy
 	
@@ -34,9 +43,8 @@ class User < ActiveRecord::Base
 		primary_key: :id
 	)
 
-	has_attached_file :avatar, styles: {thumb: "100x100>", micro: "50x50>"}, :default_url => "http://i.imgur.com/JwCG2L9.jpg"
-  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-
+	has_attached_file :avatar, styles: {thumb: "100x100>", micro: "50x50>"}, :default_url => ActionController::Base.helpers.asset_path("sloth.jpeg")
+	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 	def self.find_by_credentials(email, password)
 		user = User.find_by_email(email)

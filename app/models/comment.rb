@@ -2,7 +2,15 @@ class Comment < ActiveRecord::Base
 
 	belongs_to :commentable, polymorphic: true
 
-	validates :body, :user_id, presence: true
+	validates :body, :user, presence: true
+
+	belongs_to(
+		:user,
+		class_name: "User",
+		foreign_key: :user_id,
+		primary_key: :id,
+		inverse_of: :written_comments
+	)
 
 	has_many(
 		:child_comments,

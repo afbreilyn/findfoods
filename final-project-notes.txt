@@ -78,41 +78,54 @@ wednesday:	email verification and css layout.
 todo: 
 
 SEED:
-- seed people
-- seed restaurants
+[x] - seed people
+[x] - seed restaurants
+[x] - seed comments
+[ ] - with not with lorem content
 
 RESTAURANT SHOW PAGE:
-- map flag defaults to their address
+[ ] - map flag defaults to their address
+[ ] - fix the fact that everything has 5 stars by default
 
 MAPBOOK:
-- EVERYTHING
+[ ] - EVERYTHING
 
 SEARCHBARS: 
-- default in there, which leaves when it is clicked
+[ ] - default in there, which leaves when it is clicked
 
 CSS:
-- get rid of single use classes
+[ ] - get rid of single use classes
 
 SIDEBAR:
-- switches between 
+[x] - switches between 
+[ ] - populate the search bar
+[ ] - have it actually filter
 
 BACKBONE:
-- use for search queries sorting
-- signing in users
-- keep the top bar statis on all pages
+[ ] - use for search queries sorting
+[ ] - signing in users
+[ ] - keep the top bar statis on all pages
 
 UJS:
-- use for adding comments
+[ ] - use for adding comments
 
 INDEX: 
-- make pictures quicker
+[ ] - make pictures quicker
+[ ] - load pictures into seeds folder
+
+VALIDATIONS:
+[ ] - change rspecs to test for class, not id
+[ ] - fix all of the breaks
+
 
 ONCE EVERYTHING WORKS:
-- user show page
-- omniauth
-- emailer
-- error styling
-- search for restaurants with autocomplete
+[ ] - user show page
+[ ] - omniauth
+[ ] - emailer
+[ ] - error styling
+[ ] - search for restaurants with autocomplete
+[ ] - buttons to fill out forms
+
 
 
 

@@ -20,6 +20,10 @@ class SearchesController < ApplicationController
 		@search = Search.find_by_id(params[:id])
 	end
 
+	def index
+
+	end
+
 	private
 
 	def search_params

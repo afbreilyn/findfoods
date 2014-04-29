@@ -1,13 +1,14 @@
 class Restaurant < ActiveRecord::Base
 
-	validates :name, :street1, :city, :zip, :owner_id, presence: true
+	validates :name, :street1, :city, :zip, :owner, presence: true
 	validates :state, presence: true, length: { maximum: 2 }
 
 	belongs_to(
 		:owner,
 		class_name: "User",
 		foreign_key: :owner_id,
-		primary_key: :id
+		primary_key: :id,
+		inverse_of: :restaurants
 	)
 
 	has_many :tags
@@ -17,8 +18,12 @@ class Restaurant < ActiveRecord::Base
 	
 	has_many :ratings, dependent: :destroy
 
-	has_attached_file :avatar, styles: { :thumb => "100x100>", :full => "200x200>" }, :default_url => "http://www.clker.com/cliparts/h/1/9/c/9/w/restaurant-md.png"
+	has_attached_file :avatar, styles: { :thumb => "100x100>", :full => "200x200>" }, :default_url => ActionController::Base.helpers.asset_path("restaurant.png")
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
+	geocoded_by :zip
+	after_validation :geocode, :if => :zip_changed?
+
 
 	def comments_by_parent
 		comments_by_parent = Hash.new { |hash, key| hash[key] = [] }

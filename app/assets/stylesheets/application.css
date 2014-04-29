@@ -143,8 +143,13 @@ h3 {
 
 .restaurant-address {
 	float: right;
+	padding-top: 15px;
 }
 
+.restaurant-list > li > a > .restaurant-address {
+	width: 240px;
+	text-align: right;
+}
 .restaurant-list{
 	width: 670px;
 	padding: 0 15px;
