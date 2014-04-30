@@ -24,7 +24,6 @@ class Restaurant < ActiveRecord::Base
 	geocoded_by :zip
 	after_validation :geocode, :if => :zip_changed?
 
-
 	def comments_by_parent
 		comments_by_parent = Hash.new { |hash, key| hash[key] = [] }
 		comments.each do |comment|

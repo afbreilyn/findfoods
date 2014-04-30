@@ -20,6 +20,7 @@
 	float: left;
 	left: 15px;
 	top: 5px;
+	background: #fff;
 }
 
 .search-sidebar {
@@ -29,6 +30,7 @@
 	padding: 0 15px;
 	padding-left: 40px;
 	border-left: 1px solid #c41200;
+	background: #fff;
 }
 
 .search-sidebar > h3 {
@@ -64,6 +66,6 @@
 	margin-bottom: 4px;
 }
 
-.search-restaurant-list > ul > li > i{
+.search-restaurant-list > ul > li > a > i{
 	color: gold;
 }

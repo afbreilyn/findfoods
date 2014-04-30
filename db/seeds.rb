@@ -6,6 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+food_arr = %w(chinese, japanese, itialian, thai, german, french, american, english, indian,
+		dutch, burgers, pizza, mexican, fusion, hoiday, appetizers, breads, chocolate, 
+		convenience, fast, meat, steak, dessert, pies, puddings, stews, kosher, breakfast, 
+		sandwich, icecream, noodles)
+
 	jonathan = User.create!(
 		fname: "Jonathan",
 		lname: "Tamboer",
@@ -55,7 +60,7 @@
 	)
 
 users = []
-10.times do 
+30.times do 
 	users << User.create!(
 		fname: Faker::Name.first_name,
 		lname: Faker::Name.last_name,
@@ -67,7 +72,7 @@ users = []
 end
 
 restaurants = []
-10.times do 
+30.times do 
 	restaurants << Restaurant.create!(
 		name: Faker::Company.name,
 		street1: Faker::Address.street_address,
@@ -78,14 +83,32 @@ restaurants = []
 	)
 end
 
-10.times do 
-	users.sample.written_comments.create!(
+restaurants.each do |restaurant|
+	unless restaurant.latitude
+		restaurant.zip = Faker::Address.zip
+	end
+end
+
+reviews = []
+45.times do 
+	reviews << users.sample.written_comments.create!(
 		commentable_type: "Restaurant",
 		commentable_id: restaurants.sample.id,
 		body: "Ubique invidunt cu vix, pri an wisi omnium vidisse"
 	)
 end
 
+60.times do 
+	restaurants.sample.tags.create!(
+		author_id: users.sample.id,
+		body: food_arr.sample
+	)
+end
 
-
-
+reviews.each do |review|
+	review.create_rating!(
+		rating: rand(5),
+		user_id: review.user_id,
+		restaurant_id: review.commentable_id
+	)
+end

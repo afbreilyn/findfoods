@@ -60,12 +60,16 @@
 
 
 	myLayer.setGeoJSON(geoJson);
+
 	myLayer.on('mouseover', function(e) {
 	    e.layer.openPopup();
-	    console.log();
 	});
 	myLayer.on('mouseout', function(e) {
 	    e.layer.closePopup();
+	});
+
+	myLayer.on('ready', function() {
+		map.fitBounds(featureLayer.getBounds());
 	});
 
 	</script>

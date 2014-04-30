@@ -6,21 +6,35 @@
 	<div id='search_map'></div>
 
 		<script>
-		var map = L.mapbox.map('search_map', 'afbresley.i42ckik9').setView(["39.12367", "-76.81229"], 8);
+		var map = L.mapbox.map('search_map', 'afbresley.i42ckik9').setView(["39.12367", "-76.81229"], 2);
 
 		var myLayer = L.mapbox.featureLayer().addTo(map);
 
 		// The GeoJSON representing the two point features
 		var geoJson = {
 		    'type': 'FeatureCollection',
-		    'features': [{
-		        'type': 'Feature',
+		    'features': [
+		    <% @restaurants.each do |restaurant| %>
+		        {'type': 'Feature',
 					'geometry': {
 							'type': 'Point',
-							'coordinates': ["39.12367", "-76.81229"]
+							'coordinates': [<%= restaurant.longitude %>, <%= restaurant.latitude %>]
 						},
 						'properties': {
-							'title': "My results",
+							'title': "<%= restaurant.name %>",
+							'marker-color': '#c41200',
+							'marker-symbol': 'marker',
+							'marker-size': 'medium'
+						}
+		    },
+	    <% end %>
+	    	{'type': 'Feature',
+					'geometry': {
+							'type': 'Point',
+							'coordinates': [-110,40]
+						},
+						'properties': {
+							'title': "dummy",
 							'marker-color': '#c41200',
 							'marker-symbol': 'marker',
 							'marker-size': 'medium'
@@ -30,10 +44,15 @@
 
 		// Pass features and a custom factory function to the map
 		myLayer.setGeoJSON(geoJson);
-		myLayer.on('click', function(e) {
+		myLayer.on('mouseover', function(e) {
 		    e.layer.openPopup();
-		    // window.open(e.layer.feature.properties.name);
 		});
+		myLayer.on('mouseout', function(e) {
+		    e.layer.closePopup();
+		});
+    myLayer.on('click', function(e) {
+      map.panTo(e.layer.getLatLng());
+    });
 
 	</script>
 	</div>
@@ -42,10 +61,12 @@
 	<ul>
 		<% @restaurants.each do |restaurant| %>
 			<li>
-				<%= restaurant.name %>
-				<% restaurant.average_rating.each do |star| %>
-					<i class="<%= star %>"></i>  
-				<% end %>
+				<a href="<%= restaurant_url(restaurant) %>">	
+					<%= restaurant.name %> 
+					<% restaurant.average_rating.each do |star| %>
+						<i class="<%= star %>"></i>  
+					<% end %>
+				</a>
 			</li>
 		<% end %>
 	</ul>
