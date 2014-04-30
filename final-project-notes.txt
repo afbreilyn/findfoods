@@ -53,6 +53,7 @@ INDEX:
 VALIDATIONS:
 [ ] - change rspecs to test for class, not id
 [ ] - fix all of the breaks
+[ ] - removew validations for search_params and start_location
 
 FORMATTING:
 [ ] - sign up/restaurant form headers are messed up

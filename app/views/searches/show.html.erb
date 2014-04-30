@@ -1,8 +1,5 @@
 <section class="search-result-content">
 
-
-
-
 	<div id='search_map'></div>
 
 		<script>
@@ -82,16 +79,32 @@
 						<li><%= @search.search_params %></li>
 					<label>Near:</label>
 						<li><%= @search.start_location %></li>
-				</ul>		
+				</ul>
 			</h3>
 
 
 				Parameters: 
+				<form >
+					<label>New Category?</label>
+						<input type="text" name="search[search_params]" value="">
 
-				<input type="range" min="0" max="50" value="25" />
+					<label>New Location?</label>
+		        <input type="text" name="search[start_location]" value="">
+
+					<label>Select Stars</label>
+						<input type="range" min="0" max="5" value="1" />
+
+	        <input type="hidden" name="search[user_id]" value="<%= current_user ? current_user.id : nil %>">
+
+	        <input type="hidden" name="search[current_lat]" value="">
+	        <input type="hidden" name="search[current_long]" value="">
+
+	        <input type="submit" value="Refine Search"> 
+				</form>
+
 
 			</section>
 		<% end %>
 
-
 </section>
+

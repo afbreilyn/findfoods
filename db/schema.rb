@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430142229) do
+ActiveRecord::Schema.define(version: 20140430154041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,8 +95,12 @@ ActiveRecord::Schema.define(version: 20140430142229) do
     t.text     "search_params"
     t.text     "start_location"
     t.integer  "user_id"
+    t.decimal  "current_lat"
+    t.decimal  "current_long"
   end
 
+  add_index "searches", ["current_lat"], name: "index_searches_on_current_lat", using: :btree
+  add_index "searches", ["current_long"], name: "index_searches_on_current_long", using: :btree
   add_index "searches", ["search_params"], name: "index_searches_on_search_params", using: :btree
   add_index "searches", ["start_location"], name: "index_searches_on_start_location", using: :btree
 
