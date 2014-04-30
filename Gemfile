@@ -66,7 +66,9 @@ gem 'font-awesome-sass'
 
 gem 'mapbox-rails'
 gem 'geocoder'
+
 gem 'kaminari'
+gem 'pg_search'
 
 # Use unicorn as the app server
 # gem 'unicorn'

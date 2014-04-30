@@ -18,7 +18,7 @@ class SearchesController < ApplicationController
 
 	def show
 		@search = Search.find_by_id(params[:id])
-		@restaurants = Restaurant.all
+		@restaurants = Restaurant.all.page(params[:page]).per(10)
 	end
 
 	def index

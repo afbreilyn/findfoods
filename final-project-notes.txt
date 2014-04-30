@@ -9,25 +9,31 @@ SEED:
 
 RESTAURANT SHOW PAGE:
 [x] - map flag defaults to their address
-[ ] - fix the fact that everything has 5 stars by default
-[ ] - rating is done in stars, not numbers
-[ ] - display category
+[x] - fix the fact that everything has 5 stars by default
+[ ] - rating is done in stars, not numbers (CSS MAGIC)
+[ ] - display category																		****
 
 MAPBOOK:
-[ ] - EVERYTHING
-[ ] - searchable by category
-[ ] - by default shows everything
+[x] - setup
+[x] - by default shows everything
+[ ] - hide dummy 																					****
 
 SEARCHBARS: 
-[ ] - default in there, which leaves when it is clicked
+[ ] - default in there, which leaves when it is clicked 	****
+[ ] - actually create results to populate list and map 		****
 
 CSS:
 [ ] - get rid of single use classes
 
 SIDEBAR:
 [x] - switches between 
+[ ] - searchable by category 															****
 [ ] - populate the search bar
-[ ] - have it actually filter
+[ ] - have it actually filter															****
+[ ] - featured review show
+[ ] - features review generation (random by week)
+[ ] - featured restaurant show
+[ ] - featured restaurant generateion (random by week)
 
 BACKBONE:
 [ ] - use for search queries sorting
@@ -38,9 +44,11 @@ UJS:
 [ ] - use for adding comments
 
 INDEX: 
-[ ] - make pictures quicker
-[ ] - load pictures into seeds folder
-[ ] - display category (make searchable)
+[x] - make pictures quicker
+[x] - load pictures into seeds folder
+[ ] - display category, aka tags, (make searchable)
+[x] - pagination
+[ ] - clean up pagination
 
 VALIDATIONS:
 [ ] - change rspecs to test for class, not id
