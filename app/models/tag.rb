@@ -14,6 +14,10 @@ class Tag < ActiveRecord::Base
 
 	after_save :notify_owner
 
+	include PgSearch
+
+	multisearchable against: [:body]
+
 	def notify_owner
 			self.notifications.create(
 				user_id: self.restaurant.owner.id,

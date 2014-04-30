@@ -46,6 +46,10 @@ class User < ActiveRecord::Base
 	has_attached_file :avatar, styles: {thumb: "100x100>", micro: "50x50>"}, :default_url => ActionController::Base.helpers.asset_path("sloth.jpeg")
 	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
+	include PgSearch
+
+	multisearchable against: [:fname, :mname, :lname]
+
 	def self.find_by_credentials(email, password)
 		user = User.find_by_email(email)
 		user.try(:is_password?, password) ? user : nil
