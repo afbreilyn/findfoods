@@ -4,9 +4,6 @@ class SearchesController < ApplicationController
 	end
 
 	def create
-
-		#### MAKE AND SAVE THE SEARCH ####
-		
 		if params[:search][:user_id] != ""
 			user = User.find(params[:search][:user_id])
 			@search = user.searches.new(search_params)
@@ -16,15 +13,13 @@ class SearchesController < ApplicationController
 			@search.save!
 			
 		redirect_to search_url(@search)
-
 	end
 
 	def show
 		@search = Search.find_by_id(params[:id])
 
-		if params[:search_params].present?
+		if @search.search_params.present?
 			category_results = PgSearch.multisearch(@search.search_params).map(&:searchable)
-
 			@restaurants = []
 			category_results.each do |result|
 				case result.class.to_s
@@ -40,18 +35,38 @@ class SearchesController < ApplicationController
 
 		@restaurants = @restaurants.uniq 
 
-		if !params[:start_location].present? || params[:start_location].include?("here" || "near me")
+		return Restaurant.all if @search.start_location.include?("everywhere")
+
+		if !@search.start_location.present? || @search.start_location.include?("here" || "near me")
 			#@restaurants = @restaurants.nearbys(50)
-			@restaurants = Restaurant.all
+			near_restaurants = []
+			@restaurants.each do |restaurant| 
+				if Geocoder::Calculations.distance_between([restaurant.longitude,restaurant.latitude], [@search.current_long, @search.current_lat]) < 20 
+					near_restaurants << restaurant
+				end
+			end
+			near_restaurants
+				## when i have better seed data, use "restaurant.nearbys(20)""
 		else
-			@restaurants = @restaurants.near[@search.start_location, 50, :order => :distance]
+			near_restaurants = []
+			start = Geocoder.search(@search.start_location)[0].data["geometry"]["location"]
+			start_long = start["lng"]
+			start_lat = start["lat"]
+			@restaurants.each do |restaurant| 
+				if Geocoder::Calculations.distance_between([restaurant.longitude,restaurant.latitude], [start_long, start_lat]) < 20 
+					near_restaurants << restaurant
+				end
+			end
+			near_restaurants
 		end
+
+
+		@restaurants = near_restaurants
 
 	end
 
 
 	def index
-
 	end
 
 	private

@@ -12,6 +12,7 @@ RESTAURANT SHOW PAGE:
 [x] - fix the fact that everything has 5 stars by default
 [ ] - rating is done in stars, not numbers (CSS MAGIC)
 [ ] - display category																		****
+[ ] - addresses bump into titles...
 
 MAPBOOK:
 [x] - setup

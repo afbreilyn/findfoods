@@ -12,8 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.serializejson
-//= require turbolinks
-//= require mapbox
 //= require get_location
+//= require jquery.serializejson
+//= require mapbox
 //= require_tree .

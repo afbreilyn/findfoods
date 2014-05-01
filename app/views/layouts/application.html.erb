@@ -29,8 +29,8 @@
 
         <input type="hidden" name="search[user_id]" value="<%= current_user ? current_user.id : nil %>">
 
-        <input type="hidden" name="search[current_lat]" value="???">
-        <input type="hidden" name="search[current_long]" value="???">
+        <input type="hidden" id="search-lat" name="search[current_lat]" value="">
+        <input type="hidden" id="search-long" name="search[current_long]" value="">
 
         <input type="submit" value=":)" >
       </form>
@@ -38,30 +38,57 @@
       <script>
         $(document).ready(function() {
 
-          $("form.search-form").on("submit", function (event) {
-            event.preventDefault();
-            var $form = $(this);
-            // console.log(event);
-            // console.log($form);
-            var $currentTarget = $(event.currentTarget);
-            var data = $currentTarget.serializeJSON();
+            function showLocation(position) {
+              $("#search-lat").val(position.coords.latitude);
+              $("#search-long").val(position.coords.longitude);
+              console.log(position)
+            }
 
-          console.log($currentTarget);
-
-            $.ajax({
-              url: $form.attr("action"),
-              type: "POST",
-              data: data,
-              success: function ( ) {
-                console.log("success!!!!");
+            function errorHandler(err) {
+              if(err.code == 1) {
+                alert("Error: Access is denied!");
+              }else if( err.code == 2) {
+                alert("Error: Position is unavailable!");
               }
-            });
-          });
+            }
+
+            function getLocation(){
+               if(navigator.geolocation){
+                  // timeout at 60000 milliseconds (60 seconds)
+                  var options = {timeout:60000};
+                  navigator.geolocation.getCurrentPosition(showLocation, 
+                                                           errorHandler,
+                                                           options);
+               }else{
+                  alert("Sorry, browser does not support geolocation!");
+               }
+               console.log("hello there!")
+            }
+
+            getLocation();
+
+          // $("form.search-form").on("submit", function (event) {
+          //   event.preventDefault();
+          //   var $form = $(this);
+          //   // console.log(event);
+          //   // console.log($form);
+          //   var $currentTarget = $(event.currentTarget);
+          //   var data = $currentTarget.serializeJSON();
+
+          //   // other_data = this.getLocation();
+
+          // console.log($currentTarget);
+
+          //   $.ajax({
+          //     url: $form.attr("action"),
+          //     type: "POST",
+          //     data: data,
+          //     success: function ( ) {
+          //       console.log("success!");
+          //     }
+          //   });
+          // });
         });
-
-
-        // onsubmit="getLocation();"
-
 
       </script>
 
@@ -95,10 +122,6 @@
     </nav>
 
     </div>
-<!--   <form>
-     <input type="button" onclick="getLocation();"  
-                             value="Get Location"/>
-   </form> -->
 
   </header>
   
@@ -106,7 +129,6 @@
   <%= yield %>
 
   <% if @default %>
-  <%#= fail %>
     <%= render partial: "sidebars/sidebar" %>
   <% else %>
     <%= yield :sidebar %>
