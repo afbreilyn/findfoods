@@ -17,7 +17,7 @@ RESTAURANT SHOW PAGE:
 MAPBOOK:
 [x] - setup
 [x] - by default shows everything
-[ ] - hide dummy 																					****
+[x] - hide dummy 																					****
 
 SEARCHBARS: 
 [ ] - default in there, which leaves when it is clicked 	****
@@ -28,13 +28,16 @@ CSS:
 
 SIDEBAR:
 [x] - switches between 
-[ ] - searchable by category 															****
-[ ] - populate the search bar
-[ ] - have it actually filter															****
+[x] - searchable by category 															****
+[x] - populate the search bar
+[x] - have it actually filter															****
 [ ] - featured review show
 [ ] - features review generation (random by week)
 [ ] - featured restaurant show
 [ ] - featured restaurant generateion (random by week)
+
+[ ] - reset form
+[ ] - populater physical list
 
 BACKBONE:
 [ ] - use for search queries sorting
