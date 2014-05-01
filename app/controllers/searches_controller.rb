@@ -12,37 +12,38 @@ class SearchesController < ApplicationController
 		end
 			@search.save!
 			
-	# 	redirect_to search_url(@search)
-	# end
-
-	# def show
-	# 	@search = Search.find_by_id(params[:id])
 
 		if @search.search_params.present?
 			category_results = PgSearch.multisearch(@search.search_params).map(&:searchable)
-			@restaurants = []
+			all_restaurants = []
 			category_results.each do |result|
 				case result.class.to_s
 					when "Restaurant"
-						@restaurants << result
+						all_restaurants << result
 					when "Tag"
-						@restaurants << result.restaurant 
+						all_restaurants << result.restaurant 
 				end	
 			end
 		else
-			@restaurants = Restaurant.all
+			all_restaurants = Restaurant.all
 		end
 
-		@restaurants = @restaurants.uniq 
+		restaurants_uniq = all_restaurants.uniq 
 
-		# return Restaurant.all if @search.start_location.include?("everywhere")
+    rest_arr = []
+
+    restaurants_uniq.each do |rest|
+      unless rest.longitude == "" || rest.latitude == ""
+        rest_arr << rest
+      end
+    end
 
 
 
 		if !@search.start_location.present? || @search.start_location.include?("here" || "near me")
 			#@restaurants = @restaurants.nearbys(50)
 			near_restaurants = []
-			@restaurants.each do |restaurant| 
+			rest_arr.each do |restaurant| 
 				if Geocoder::Calculations.distance_between([restaurant.longitude,restaurant.latitude], [@search.current_long, @search.current_lat]) < 20 
 					near_restaurants << restaurant
 				end
@@ -50,12 +51,11 @@ class SearchesController < ApplicationController
 			near_restaurants
 				## when i have better seed data, use "restaurant.nearbys(20)""
 		else
-			fail
 			near_restaurants = []
 			start = Geocoder.search(@search.start_location)[0].data["geometry"]["location"]
 			start_long = start["lng"]
 			start_lat = start["lat"]
-			@restaurants.each do |restaurant| 
+			rest_arr.each do |restaurant| 
 				if Geocoder::Calculations.distance_between([restaurant.longitude,restaurant.latitude], [start_long, start_lat]) < 20 
 					near_restaurants << restaurant
 				end
@@ -64,12 +64,16 @@ class SearchesController < ApplicationController
 		end
 
 		if @search.start_location.include?("everywhere") 
-			@restaurants = Restaurant.all
+			@restaurants = rest_arr
 		else
 			@restaurants = near_restaurants
 		end
-		
-		render :show
+    if request.xhr?
+      render json: @restaurants
+    else
+      render :show
+    end
+
 	end
 
 

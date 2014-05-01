@@ -7,7 +7,6 @@
 		var map = L.mapbox.map('search_map', 'afbresley.i42ckik9').setView(["39.12367", "-76.81229"], 5);
 
 		var myLayer = L.mapbox.featureLayer().addTo(map);
-
 		// The GeoJSON representing the two point features
 		var geoJson = {
 		    'type': 'FeatureCollection',
@@ -17,6 +16,7 @@
 
 		// Pass features and a custom factory function to the map
 		myLayer.setGeoJSON(geoJson);
+
 		map.fitBounds(myLayer.getBounds());
 
 
@@ -103,25 +103,59 @@
     <script>
       $("form.refine-search").on("submit", function (event) {
         event.preventDefault();
-        // console.log("SENNACY!!!!")
         var $form = $(this);
-      //   // console.log(event);
-      //   // console.log($form);
         var $currentTarget = $(event.currentTarget);
         var data = $currentTarget.serializeJSON();
-
-
-      	console.log(data);
+        var that = this;
 
         $.ajax({
           url: $form.attr("action"),
           type: "POST",
           data: data,
-          success: function ( ) {
-            console.log("success!");
+          success: function (resp) {
+            console.log("success!"),
+            console.log(resp),
+            meow = resp;
+            // console.log("$form.attr('action')")
+            // $("myLayer").
+            // $currentTarget.reset()
+
+            arr = []
+            resp.forEach(function (obj) {
+
+              if(obj.latitude && obj.longitude){
+
+  							arr.push({'type': 'Feature',
+                    'geometry': {
+                      'type': 'Point',
+                      'coordinates': [ obj.longitude, obj.latitude ]
+                    },
+                    'properties': {
+                      'title': obj.name,
+                      'marker-color': '#c41200',
+                      'marker-symbol': 'marker',
+                      'marker-size': 'medium'
+                    }
+                  });
+              };
+            })
+
+
+              console.log("Arr is: ", arr);
+
+              geoJson = { 'type' : 'FeatureCollection', 'features': arr };
+
+              myLayer.setGeoJSON(geoJson);
+
+                geoJson = null;
+                arr = []
+
+
+
+            
           }
-        });
-      });
+        })
+       });
 		</script>
 
 
