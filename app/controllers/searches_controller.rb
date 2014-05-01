@@ -12,11 +12,11 @@ class SearchesController < ApplicationController
 		end
 			@search.save!
 			
-		redirect_to search_url(@search)
-	end
+	# 	redirect_to search_url(@search)
+	# end
 
-	def show
-		@search = Search.find_by_id(params[:id])
+	# def show
+	# 	@search = Search.find_by_id(params[:id])
 
 		if @search.search_params.present?
 			category_results = PgSearch.multisearch(@search.search_params).map(&:searchable)
@@ -35,7 +35,9 @@ class SearchesController < ApplicationController
 
 		@restaurants = @restaurants.uniq 
 
-		return Restaurant.all if @search.start_location.include?("everywhere")
+		# return Restaurant.all if @search.start_location.include?("everywhere")
+
+
 
 		if !@search.start_location.present? || @search.start_location.include?("here" || "near me")
 			#@restaurants = @restaurants.nearbys(50)
@@ -48,6 +50,7 @@ class SearchesController < ApplicationController
 			near_restaurants
 				## when i have better seed data, use "restaurant.nearbys(20)""
 		else
+			fail
 			near_restaurants = []
 			start = Geocoder.search(@search.start_location)[0].data["geometry"]["location"]
 			start_long = start["lng"]
@@ -60,9 +63,13 @@ class SearchesController < ApplicationController
 			near_restaurants
 		end
 
-
-		@restaurants = near_restaurants
-
+		if @search.start_location.include?("everywhere") 
+			@restaurants = Restaurant.all
+		else
+			@restaurants = near_restaurants
+		end
+		
+		render :show
 	end
 
 

@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   def pick_sidebar
     @default = true
 
-    if params[:action] == "show" && params[:controller] == "searches"
+    if params[:action] == "create" && params[:controller] == "searches"
       @default = false
     end
     #check controller and action if they are headed to the search page (exception)

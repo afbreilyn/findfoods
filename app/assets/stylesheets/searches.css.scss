@@ -71,13 +71,39 @@
 	color: gold;
 }
 
-
 .refine-search {
-	background: blue;
+	// background: blue;
 	font-weight: bold;
 	padding-top: 10px;
 }
 
+#star-select {
+	display: block;
+}
+
+.refine-search > label {
+	margin-bottom: 20px;
+}
+
 .refine-search > input {
 	padding: 10px 0;
+	margin-right: 30px;
+	margin: 15px 0;
+	width: 230px
+}
+
+.refine-search > input[type="range"] {
+	width: 180px;
+	float: right;
+	display: block;
+}
+
+#textInput {
+	width: 35px;
+	display: block;
+	float: left;
+	margin-top: 30px;
+	margin-left: 10px;
+	padding-right: 3px;
+	font-size: 18px
 }
