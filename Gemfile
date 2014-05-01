@@ -70,6 +70,9 @@ gem 'geocoder'
 gem 'kaminari'
 gem 'pg_search'
 
+gem 'ejs'
+gem 'backbone-on-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
