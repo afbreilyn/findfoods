@@ -146,13 +146,14 @@
               geoJson = { 'type' : 'FeatureCollection', 'features': arr };
 
               myLayer.setGeoJSON(geoJson);
+                map.fitBounds(myLayer.getBounds());
+              
+              geoJson = null;
+              arr = []
 
-                geoJson = null;
-                arr = []
 
 
 
-            
           }
         })
        });
