@@ -1,9 +1,7 @@
-class SearchesController < ApplicationController
-
-	def new
-	end
+ class Api::SearchesController < ApplicationController
 
 	def create
+		console.log(params)
 		if params[:search][:user_id] != ""
 			user = User.find(params[:search][:user_id])
 			@search = user.searches.new(search_params)
@@ -66,22 +64,24 @@ class SearchesController < ApplicationController
 		else
 			@restaurants = near_restaurants
 		end
-    if request.xhr?
-      render json: @restaurants
-    else
-      render :show
-    end
 
+
+    # if request.xhr?
+      render json: @restaurants
+    # else
+    #   render :show
+    # end
 	end
 
-
 	def index
+		@searches = Search.all
+		render json: @searches
 	end
 
 	private
 
-	def search_params
-		params.require(:search).permit(:user_id, :search_params, :start_location, :current_long, :current_lat)
-	end
+		def search_params
+			params.require(:search).permit(:user_id, :search_params, :start_location, :current_long, :current_lat)
+		end
 
-end
+ end

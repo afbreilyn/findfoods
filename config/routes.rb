@@ -1,26 +1,28 @@
 Findfood::Application.routes.draw do
 
-resources :users, only: [:new, :create, :edit, :update, :show, :destroy] do
-  resources :restaurants, only: [:new, :create, :edit, :update, :destroy]
-end
+  resources :users, only: [:new, :create, :edit, :update, :show, :destroy] do
+    resources :restaurants, only: [:new, :create, :edit, :update, :destroy]
+  end
 
-resources :restaurants, only: [:show, :index] do
-  resources :comments, only: [:create]
-end
+  resources :restaurants, only: [:show, :index] do
+    resources :comments, only: [:create]
+  end
 
-resources :comments 
+  resources :comments 
 
-resources :tags, only: [:new, :create, :destroy]
+  resources :tags, only: [:new, :create, :destroy]
 
-resource :session, only: [:new, :create, :destroy]
+  resource :session, only: [:new, :create, :destroy]
 
-resources :notifications, only: [:index, :show]
+  resources :notifications, only: [:index, :show]
 
-resources :searches, only: [:new, :create, :show]
+  resources :searches, only: [:new, :create, :show]
 
-root to: "restaurants#index"
+  root to: "restaurants#index"
 
-
+  namespace :api do 
+    resources :searches, only: [:create, :index]
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

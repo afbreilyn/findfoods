@@ -36,7 +36,9 @@ SIDEBAR:
 [ ] - featured restaurant show
 [ ] - featured restaurant generateion (random by week)
 
-[ ] - reset form
+SEARCH SHOW PAGE:
+[ ] - auto zoom/ not too far
+[x] - reset form
 [ ] - populater physical list
 
 BACKBONE:

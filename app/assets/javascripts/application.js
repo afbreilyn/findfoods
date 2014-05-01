@@ -14,5 +14,7 @@
 //= require jquery_ujs
 //= require get_location
 //= require jquery.serializejson
+//= require underscore
+//= require backbone
 //= require mapbox
 //= require_tree .
