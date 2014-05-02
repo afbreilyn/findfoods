@@ -42,6 +42,10 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+<<<<<<< HEAD
+=======
+  gem 'faker'
+>>>>>>> newMap
 end
 
 gem 'faker'
@@ -71,7 +75,11 @@ gem 'geocoder'
 gem 'kaminari'
 gem 'pg_search'
 
+gem 'ejs'
+gem 'backbone-on-rails'
+
 gem 'image_suckr'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

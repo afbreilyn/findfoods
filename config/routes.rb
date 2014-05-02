@@ -16,12 +16,12 @@ Findfood::Application.routes.draw do
 
   resources :notifications, only: [:index, :show]
 
-  resources :searches, only: [:new, :create, :show]
+  resources :searches, only: [:new, :create, :show, :index]
 
   root to: "restaurants#index"
 
   namespace :api do 
-    resources :searches, only: [:create, :index]
+    resources :searches, only: [:index]
   end
 
 

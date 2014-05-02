@@ -12,9 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require get_location
 //= require jquery.serializejson
 //= require underscore
 //= require backbone
 //= require mapbox
+//= require underscore
+//= require backbone
+//= require findfood
+//= require_tree ../templates
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require_tree ./routers
 //= require_tree .
+

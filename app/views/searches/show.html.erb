@@ -1,53 +1,9 @@
 <section class="search-result-content">
 
-	<div id='search_map'></div>
+<article>
+<%= render partial: "searches/mapply", locals: {restaurants: @restaurants} %>
+</article>
 
-	<script>
-
-    var map = L.mapbox.map('search_map', 'afbresley.i42ckik9').setView(["39.12367", "-76.81229"], 5)    
-    var myLayer = L.mapbox.featureLayer().addTo(map);
-    // The GeoJSON representing the two point features
-    var geoJson = {
-        'type': 'FeatureCollection',
-        'features': [<%= feature_helper(@restaurants) %>]
-    };
-
-
-    // Pass features and a custom factory function to the map
-    myLayer.setGeoJSON(geoJson)    
-    map.fitBounds(myLayer.getBounds()); /*.maxzoom(15));*/
-
-    // var that = this;
-    // meow = map._zoom
-
-    if (map._zoom > 15) { 
-      // console.log("meow"),
-      // meow = 15,
-      // console.log(meow)
-      console.log(map._zoom);
-      // map.setZoom(15) 
-    }
-
-    // console.log(map._zoom);
-
-    myLayer.on('mouseover', function(e) {
-        e.layer.openPopup();
-    });
-    myLayer.on('mouseout', function(e) {
-        e.layer.closePopup();
-    });
-    myLayer.on('click', function(e) {
-      map.panTo(e.layer.getLatLng());
-    });
-
-    myLayer.on('ready', function() {
-	      map.fitBounds(myLayer.getBounds());
-	      console.log("meow");
-    });
-
-	</script>
-
-	</div>
 
 <section class="search-restaurant-list" id="title-list">
 	<ul>

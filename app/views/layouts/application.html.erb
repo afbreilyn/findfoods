@@ -2,17 +2,17 @@
 <html>
 <head>
   <title>Findfood</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <meta charset="utf-8"> 
 </head>
 <body>
-  <header class="header .colour"> 
+  <header class="header"> 
 
 
     <div class="header-wrap group">
-
+ 
 
     <div class="logo">
       <a href="<%= root_url %>">
@@ -21,8 +21,7 @@
     </div>
 
     <div class="topline">
-      <form class="header search-form" action="<%= searches_url %>" method="post">
-        <%= auth_token %>
+      <form class="header search-form" action="<%= searches_url %>" method="get" data-remote="true">
 
         <input type="search-text" name="search[search_params]" value="">
         <input type="search-text" name="search[start_location]" value="">
@@ -32,11 +31,66 @@
         <input type="hidden" id="search-lat" name="search[current_lat]" value="">
         <input type="hidden" id="search-long" name="search[current_long]" value="">
 
-        <input type="submit" value=":)" >
+        <input type="submit" id="submit-search" value=":)" >
       </form>
 
       <script>
         $(document).ready(function() {
+
+          var $mainContent = $("#main-content");
+          var $header = $(".header");
+          var $sidebar = $(".sidebar");
+          var $fullContent = $("#full-content")
+
+
+          $("form.search-form").on("ajax:success", function (event, data) {
+            // console.log("data is: ", data);
+            // console.log(event);
+            $mainContent.html(data);
+            $sidebar.html()
+          });
+
+          $("li.sign-in").on("click", function(event) {
+            event.preventDefault();
+            console.log("i did it!!! :D");
+            // $mainContent.html(data);
+          })
+
+    //<<<<<<THIS IS THE MODAL STUFF>>>>>
+            // window.openModal = function(event){
+            //   $("#modal").addClass("is-active");
+            // }
+
+            // window.closeModal = function(event){
+            //   $("#modal").removeClass("is-active");
+            // }
+
+            // $("body").on("click", ".open-modal", window.openModal);
+            // $("body").on("click", ".close-modal", window.closeModal);
+
+    //<<<<<<<<<<<<
+
+
+                // insert the data where i want it
+            //   console.log(window.collection)
+
+            //   var that = this;
+            //   var $form = $(this);
+            //   data = $form.serializeJSON();
+
+            //   // console.log(Findfood.restaurants);
+              
+            //   $.ajax({
+            //     url: $form.attr("action"),
+            //     type: "GET",
+            //     data: data,
+            //     success: function (resp) {
+            //       resp.forEach(function(restaurantJSON) {
+            //         console.log(restaurantJSON)
+            //       })
+            //     }
+            //   });
+
 
             function showLocation(position) {
               $("#search-lat").val(position.coords.latitude);
@@ -64,28 +118,6 @@
             }
 
             getLocation();
-
-          // $("form.search-form").on("submit", function (event) {
-          //   event.preventDefault();
-          //   var $form = $(this);
-          //   // console.log(event);
-          //   // console.log($form);
-          //   var $currentTarget = $(event.currentTarget);
-          //   var data = $currentTarget.serializeJSON();
-
-          //   // other_data = this.getLocation();
-
-          // console.log($currentTarget);
-
-          //   $.ajax({
-          //     url: $form.attr("action"),
-          //     type: "POST",
-          //     data: data,
-          //     success: function ( ) {
-          //       console.log("success!");
-          //     }
-          //   });
-          // });
         });
 
       </script>
@@ -109,12 +141,11 @@
       
       <li><%= link_to "Register A Restaurant", new_user_restaurant_url(current_user) %></li>
 
-      
       <li class="sign-out"><%= button_to "Sign Out", session_url, method: :delete %></li>
 
       <% else %>
-      	<li class="signed-out"><%=  link_to "Sign In", new_session_url%></li>
-      	<li class="signed-out"><%=  link_to "Sign Up", new_user_url%></li>
+        <li class="signed-out" id="sign-in"><%=  link_to "Sign In", new_session_url%></li>
+        <li class="signed-out"><%=  link_to "Sign Up", new_user_url%></li>
       <% end %>
     </ul>
     </nav>
@@ -122,8 +153,49 @@
     </div>
 
   </header>
+
+  <section id="modal" class="modal">
+  <article class="modal-content">
+    <span class="modal-map close-modal">&times;</span>
+
+      <div id='silly_map'></div>
+
+  <script>
+
+    var map = L.mapbox.map('silly_map', 'afbresley.i42ckik9').setView(["39.12367", "-76.81229"], 5)    
+    var myLayer = L.mapbox.featureLayer().addTo(map);
+
+    var geoJson = {
+      'type': 'FeatureCollection',
+      'features': [<%= feature_helper(@restaurants) %>]
+    };
+
+    myLayer.setGeoJSON(geoJson)    
+    // map.fitBounds(myLayer.getBounds()); /*.maxzoom(15));*/
+
+    myLayer.on('mouseover', function(e) {
+        e.layer.openPopup();
+    });
+    myLayer.on('mouseout', function(e) {
+        e.layer.closePopup();
+    });
+    myLayer.on('click', function(e) {
+      map.panTo(e.layer.getLatLng());
+    });
+
+    myLayer.on('ready', function() {
+        map.fitBounds(myLayer.getBounds());
+        console.log("meow");
+    });
+
+  </script>
+
+  </article>
+  <div class="modal-screen close-modal"></div>
+</section>
+
   
-  <section class="group">
+  <section class="group" id="full-content">
   <%= yield %>
 
   <% if @default %>
