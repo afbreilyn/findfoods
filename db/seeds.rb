@@ -24,6 +24,25 @@ cities = %w(Shanghai Beijing Lagos Istanbul Karachi Mumbai Moscow São Paulo Gua
 cities.concat(["Ho Chi Minh City", "Saint Petersburg", "Mexico City", "Hong Kong", 
 							"Rio de Janerio", "Xi'an", "Los Angeles", "San Antonio", "Salt Lake City", ])
 
+reviews.samples = [
+	"Great, fun place to walk around, shop and eat! Kid friendly, highly recommend going to 
+	the artist's flea next door.",
+
+	"it is easy to imagine the worst if you walk by Glaser's Bake Shop without going inside.  
+	The sign is easily 112 years old.  The vast majority of the store's numerous display cases 
+	are empty and there appeared to be only 2 varieties of layer cakes.  But wait, step inside 
+	the shop.  Talk to the women who work the counter, try their baked goods and be prepared to 
+	be transported to a wonderful and simpler time. Simply put, Glaser's products are wonderful.  
+	The layer cake and pound cake were moist and delicious.",
+
+	"This is by far the best Italian deli I have ever been to.",
+
+	"Awesome!"
+]
+
+
+
+
 	jonathan = User.create!(
 		fname: "Jonathan",
 		lname: "Tamboer",
@@ -120,7 +139,7 @@ end
 
 reviews.each do |review|
 	review.create_rating!(
-		rating: rand(5),
+		rating: rand(7),
 		user_id: review.user_id,
 		restaurant_id: review.commentable_id
 	)
