@@ -21,7 +21,7 @@ Findfood::Application.routes.draw do
   root to: "restaurants#index"
 
   namespace :api do 
-    resources :searches, only: [:create, :index]
+    resources :searches, only: [:index]
   end
 
 

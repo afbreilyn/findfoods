@@ -21,7 +21,7 @@
     </div>
 
     <div class="topline">
-      <form class="header search-form" action="<%= searches_url %>" method="post">
+      <form class="header search-form" action="<%= api_searches_url %>" method="get">
         <%= auth_token %>
 
         <input type="search-text" name="search[search_params]" value="">
@@ -113,8 +113,8 @@
       <li class="sign-out"><%= button_to "Sign Out", session_url, method: :delete %></li>
 
       <% else %>
-      	<li class="signed-out"><%=  link_to "Sign In", new_session_url%></li>
-      	<li class="signed-out"><%=  link_to "Sign Up", new_user_url%></li>
+        <li class="signed-out"><%=  link_to "Sign In", new_session_url%></li>
+        <li class="signed-out"><%=  link_to "Sign Up", new_user_url%></li>
       <% end %>
     </ul>
     </nav>

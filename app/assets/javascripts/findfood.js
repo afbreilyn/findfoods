@@ -3,8 +3,9 @@ window.Findfood = {
   Collections: {},
   Views: {},
   Routers: {},
+  Findfood.posts = new Findfood.Collections.Restaurants();
   initialize: function() {
-    alert('Hello from Backbone!');
+
   }
 };
 
