@@ -3,47 +3,91 @@
 
 <section class="user-form-content">
 
-	<form class="user-form" action="<%= action %>" method="post">
-		<input type="hidden" name="_method" value="<%= method %>">
+  <form class="user-form" action="<%= action %>" method="post">
+    <input type="hidden" name="_method" value="<%= method %>">
 
-		<%= auth_token %>
+    <%= auth_token %>
 
 
-			<div class="input">
-				<label for="user-fname">First Name</label>
-				<input type='text' name="user[fname]" value="<%= user.fname %>">
-			</div>
+      <div class="input">
+        <label for="user-fname">First Name</label>
+        <input type='text' id="u-fname" name="user[fname]" value="<%= user.fname %>">
+      </div>
 
-			<div class="input">
-				<label for="user-mname">Middle Name</label>
-				<input type='text' name="user[mname]" value="<%= user.mname %>">
-			</div>
+      <div class="input">
+        <label for="user-mname">Middle Name</label>
+        <input type='text' name="user[mname]" value="<%= user.mname %>">
+      </div>
 
-			<div class="input">
-				<label for="user-lname">Last Name</label>
-				<input type='text' name="user[lname]" value="<%= user.lname %>">
-			</div>
+      <div class="input">
+        <label for="user-lname">Last Name</label>
+        <input type='text' id="u-lname" name="user[lname]" value="<%= user.lname %>">
+      </div>
 
-			<div class="input">
-				<label for="user-city">City</label>
-				<input type='text' name="user[city]" value="<%= user.city %>">
-			</div>
+      <div class="input">
+        <label for="user-city">City</label>
+        <input type='text' id="u-city" name="user[city]" value="<%= user.city %>">
+      </div>
 
-			<div class="input">
-				<label for="user-state">State</label>
-				<input type='text' name="user[state]" value="<%= user.state %>">
-			</div>
+      <div class="input">
+        <label for="user-state">State</label>
+        <input type='text' id="u-state"name="user[state]" value="<%= user.state %>">
+      </div>
 
-			<div class="input">
-				<label for="user-email">Email</label>
-				<input type='text' name="user[email]" value="<%= user.email %>">
-			</div>
+      <div class="input">
+        <label for="user-email">Email</label>
+        <input type='text' id="u-email" name="user[email]" value="<%= user.email %>">
+      </div>
 
-			<div class="input">
-				<label for="user-password">Password</label>
-				<input type='password' name="user[password]" value="<%= user.password %>">
-			</div>
+      <div class="input">
+        <label for="user-password">Password</label>
+        <input type='password' id="u-password" name="user[password]" value="<%= user.password %>">
+      </div>
 
-		<input type="submit" value="<%= user.persisted? ? 'Update' : 'Create'%>">
-	</form>
+    <input type="submit" value="<%= user.persisted? ? 'Update' : 'Create'%>">
+    <% if !user.persisted? %>
+      <input type="submit" id="generate-form" value="Populate form?">
+    <% end %>
+  </form>
+
 </section>
+
+
+
+<script>
+
+  function makeid() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for( var i=0; i < 5; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    return text;
+  }
+
+  function randomData(position) {
+    var name = makeid();
+    $("#u-fname").val(name);
+    $("#u-lname").val("Smith");
+    $("#u-city").val("New York");
+    $("#u-state").val("NY");
+    $("#u-email").val(name + "@example.com");
+    $("#u-password").val("password");
+  }
+
+
+      $("#generate-form").on("click", function (event) {
+        event.preventDefault();
+        randomData();
+
+        // var $form = $(this);
+        // var $currentTarget = $(event.currentTarget);
+        // var data = $currentTarget.serializeJSON();
+
+        // other_data = this.getLocation();
+
+      console.log($currentTarget);
+
+      });
+
+</script>

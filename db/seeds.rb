@@ -24,7 +24,7 @@ cities = %w(Shanghai Beijing Lagos Istanbul Karachi Mumbai Moscow São Paulo Gua
 cities.concat(["Ho Chi Minh City", "Saint Petersburg", "Mexico City", "Hong Kong", 
 							"Rio de Janerio", "Xi'an", "Los Angeles", "San Antonio", "Salt Lake City", ])
 
-reviews.samples = [
+reviews_samples = [
 	"Great, fun place to walk around, shop and eat! Kid friendly, highly recommend going to 
 	the artist's flea next door.",
 

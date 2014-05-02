@@ -6,6 +6,7 @@ SEED:
 [x] - seed comments
 [ ] - with not with lorem content
 [ ] - button to create default new user (for demos)
+[ ] - pictures
 
 RESTAURANT SHOW PAGE:
 [x] - map flag defaults to their address
@@ -20,8 +21,8 @@ MAPBOOK:
 [x] - hide dummy 																					****
 
 SEARCHBARS: 
-[ ] - default in there, which leaves when it is clicked 	****
-[ ] - actually create results to populate list and map 		****
+[x] - default in there, which leaves when it is clicked 	****
+[x] - actually create results to populate list and map 		****
 
 CSS:
 [ ] - get rid of single use classes
@@ -45,6 +46,7 @@ BACKBONE:
 [ ] - use for search queries sorting
 [ ] - signing in users
 [ ] - keep the top bar statis on all pages
+[ ] - make it one page
 
 UJS:
 [ ] - use for adding comments
