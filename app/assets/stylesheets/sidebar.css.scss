@@ -3,7 +3,7 @@
 .sidebar {
 	// background: #bbb;
 	float: right;
-	width: 297px;
+	width: 296px;
 
 	// border-left: 1px solid #c12044;
 }
@@ -93,4 +93,10 @@
 .sidebar-restaurant {
 }
 
+.isShowing {
+	display: block;
+}	
 
+.notShowing {
+	display: none;
+}

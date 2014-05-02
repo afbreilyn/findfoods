@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
-
+  layout false
 	def new
 	end
 
@@ -71,6 +71,8 @@ class SearchesController < ApplicationController
 		# render partial: "restaurants/index", locals: {restaurants: @restaurants}
 
 		render partial: "searches/mapply", locals: {restaurants: @restaurants}
+    #  :layout => false
+    # redirect_to search_url(@search)
   end
 
 	private

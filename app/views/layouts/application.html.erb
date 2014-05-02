@@ -40,13 +40,20 @@
           var $mainContent = $("#main-content");
           var $header = $(".header");
           var $sidebar = $(".sidebar");
+          var $fullContent = $("#full-content")
 
 
           $("form.search-form").on("ajax:success", function (event, data) {
             // console.log("data is: ", data);
             // console.log(event);
             $mainContent.html(data);
+            $sidebar.html()
           });
+
+          $("a.sign-in").on("ajax:success", function(event, data) {
+            console.log("i did it!!! :D")
+            // $mainContent.html(data);
+          })
 
     //<<<<<<THIS IS THE MODAL STUFF>>>>>
             // window.openModal = function(event){
@@ -136,7 +143,7 @@
       <li class="sign-out"><%= button_to "Sign Out", session_url, method: :delete %></li>
 
       <% else %>
-        <li class="signed-out"><%=  link_to "Sign In", new_session_url%></li>
+        <li class="signed-out" id="sign-in"><%=  link_to "Sign In", new_session_url%></li>
         <li class="signed-out"><%=  link_to "Sign Up", new_user_url%></li>
       <% end %>
     </ul>
@@ -187,7 +194,7 @@
 </section>
 
   
-  <section class="group">
+  <section class="group" id="full-content">
   <%= yield %>
 
   <% if @default %>
