@@ -61,7 +61,7 @@ gem "paperclip", "~> 4.1"
 gem 'aws-sdk'
 gem 'figaro'
 
-gem 'rails_12factor', group: :production
+# gem 'rails_12factor', group: :production
 
 gem 'font-awesome-sass'
 
