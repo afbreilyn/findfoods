@@ -50,8 +50,9 @@
             $sidebar.html()
           });
 
-          $("a.sign-in").on("ajax:success", function(event, data) {
-            console.log("i did it!!! :D")
+          $("li.sign-in").on("click", function(event) {
+            event.preventDefault();
+            console.log("i did it!!! :D");
             // $mainContent.html(data);
           })
 
