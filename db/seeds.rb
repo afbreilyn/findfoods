@@ -14,15 +14,15 @@
   cities = %w(Shanghai Beijing Lagos Istanbul Karachi Mumbai Moscow São Paulo Guangzhou 
     Delhi Shenzhen Seoul Jakarta Kinshasa Tainjin Tokyo Cairo Chaka Mexico Lima Bangalor 
     NYC London Bangkok Dongguan Tehran Bogotá Baghdad Wuhan Hanoi Hyderabad Lahore Foshan
-    Santiago Riyadh Ahmedabad Singapore Shantou Luanda Abidjan Chengdu Yangon Chennai 
+    Santiago Riyadh Ahmedabad Singapore Shantou Luanda Abidjan Chengdu Chennai 
     Alexandria Chongqing Kolkata Surat Johannesburg Nanjing Boston Montreal Newark Dallas 
-    Austin Ogden Charlette Atlanta Columbus Houston Lexinton Fayetteville Asheville Cambridge
+    Austin Charlette Atlanta Columbus Houston Lexinton Fayetteville Asheville Cambridge
     Louisville Boise Knoxville Perth Tallinn Tashkent Tehran Tirana Tirana Tokyo Tripoli
     Windhoek Yaren Zagreb Windhoek Vaduz Rome Florence Venice Hamburg Berlin Cairo Jerusalem
-    Saipan  Rabat Quito Pyongyang Prague Getinje Paris Dijon Panama Oslo Nicosia Nuuk Monaco)
+    Saipan Rabat Quito Prague Getinje Paris Dijon Panama Oslo Nicosia Nuuk Monaco)
 
-  cities.concat(["Ho Chi Minh City", "Saint Petersburg", "Mexico City", "Hong Kong", 
-                "Rio de Janerio", "Xi'an", "Los Angeles", "San Antonio", "Salt Lake City", ])
+  cities.concat(["Saint Petersburg", "Mexico City", "Hong Kong", 
+                  "Xi'an", "Los Angeles", "San Antonio", "Salt Lake City", ])
 
   reviews_samples = [
     "Great, fun place to walk around, shop and eat! Kid friendly, highly recommend going to 
@@ -152,7 +152,8 @@
       city: Faker::Address.city,
       state: Faker::Address.state_abbr,
       email: Faker::Internet.safe_email,
-      password: "password"
+      password: "password",
+      avatar: suckr.get_image_file({"q" => "portrait"})
     )
   end
 

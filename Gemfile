@@ -71,6 +71,7 @@ gem 'geocoder'
 gem 'kaminari'
 gem 'pg_search'
 
+gem 'image_suckr'
 # Use unicorn as the app server
 # gem 'unicorn'
 

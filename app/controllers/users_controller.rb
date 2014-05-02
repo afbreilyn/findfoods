@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 
 		if @user.update_attributes(user_params)
-			redirect_to user_url(@user)
+			redirect_to root_url
 		else
 			flash.now[:errors] = @user.errors.full_messages
 			render :edit
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 	def destroy
 		@user = User.find(params[:id])
 		@user.destroy
-		redirect_to new_session_url
+			redirect_to root_url
 	end
 
 	private
