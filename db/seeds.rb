@@ -6,10 +6,23 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-food_arr = %w(chinese, japanese, itialian, thai, german, french, american, english, indian,
-		dutch, burgers, pizza, mexican, fusion, hoiday, appetizers, breads, chocolate, 
-		convenience, fast, meat, steak, dessert, pies, puddings, stews, kosher, breakfast, 
-		sandwich, icecream, noodles)
+food_arr = %w(chinese japanese itialian thai german french american english indian
+		dutch burgers pizza mexican fusion hoiday appetizers breads chocolate 
+		convenience fast meat steak dessert pies puddings stewskosher breakfast, 
+		sandwich icecream noodles)
+
+cities = %w(Shanghai Beijing Lagos Istanbul Karachi Mumbai Moscow São Paulo Guangzhou 
+	Delhi Shenzhen Seoul Jakarta Kinshasa Tainjin Tokyo Cairo Chaka Mexico Lima Bangalor 
+	NYC London Bangkok Dongguan Tehran Bogotá Baghdad Wuhan Hanoi Hyderabad Lahore Foshan
+	Santiago Riyadh Ahmedabad Singapore Shantou Luanda Abidjan Chengdu Yangon Chennai 
+	Alexandria Chongqing Kolkata Surat Johannesburg Nanjing Boston Montreal Newark Dallas 
+	Austin Ogden Charlette Atlanta Columbus Houston Lexinton Fayetteville Asheville Cambridge
+	Louisville Boise Knoxville Perth Tallinn Tashkent Tehran Tirana Tirana Tokyo Tripoli
+	Windhoek Yaren Zagreb Windhoek Vaduz Rome Florence Venice Hamburg Berlin Cairo Jerusalem
+	Saipan  Rabat Quito Pyongyang Prague Getinje Paris Dijon Panama Oslo Nicosia Nuuk Monaco)
+
+cities.concat(["Ho Chi Minh City", "Saint Petersburg", "Mexico City", "Hong Kong", 
+							"Rio de Janerio", "Xi'an", "Los Angeles", "San Antonio", "Salt Lake City", ])
 
 	jonathan = User.create!(
 		fname: "Jonathan",
@@ -60,7 +73,7 @@ food_arr = %w(chinese, japanese, itialian, thai, german, french, american, engli
 	)
 
 users = []
-30.times do 
+75.times do 
 	users << User.create!(
 		fname: Faker::Name.first_name,
 		lname: Faker::Name.last_name,
@@ -72,11 +85,11 @@ users = []
 end
 
 restaurants = []
-30.times do 
+100.times do 
 	restaurants << Restaurant.create!(
 		name: Faker::Company.name,
 		street1: Faker::Address.street_address,
-		city: Faker::Address.city,
+		city: cities.sample,
 		state: Faker::Address.state_abbr,
 		zip: Faker::Address.zip,
 		owner_id: users.sample.id
@@ -90,7 +103,7 @@ restaurants.each do |restaurant|
 end
 
 reviews = []
-45.times do 
+50.times do 
 	reviews << users.sample.written_comments.create!(
 		commentable_type: "Restaurant",
 		commentable_id: restaurants.sample.id,
@@ -98,7 +111,7 @@ reviews = []
 	)
 end
 
-60.times do 
+120.times do 
 	restaurants.sample.tags.create!(
 		author_id: users.sample.id,
 		body: food_arr.sample
