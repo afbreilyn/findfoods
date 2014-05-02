@@ -1,45 +1,9 @@
 <section id="main-content" class="main-content group">
 
-<h1 class="restaurant-index-header">Check out some delicious foods!</h1>
-
 <%= paginate @restaurants %>
 
-  <ul class="restaurant-list group">
-    
-   <% @restaurants.each do |restaurant| %>
-      <li>
-
-        <a href="<%= restaurant_url(restaurant.id) %>">
-
-          <div class="index-pic">
-            <img class="restaurant-prof-pic" src="<%= restaurant.avatar.url(:full) %>">
-          </div>
-
-          <h2><%= restaurant.name %></h2>
-
-          <h2 class="restaurant-rating">
-            <% restaurant.average_rating.each do |star| %>
-              <i class="<%= star %>"></i>  
-            <% end %>
-          </h2> 
-
-          <span class="restaurant-address">
-            <h3>
-              <%= restaurant.street1 %> 
-              <% if restaurant.street2 != nil %>
-                <%= restaurant.street2 %>
-              <% end  %>
-              <%= restaurant.city %>, <%= restaurant.state %>
-              <%= restaurant.zip %>
-            </h3>
-          </span>
-
-        </a>
-
-      </li>
-    <% end %>
-
-  </ul>
+<%= render partial: "restaurants/index", locals: {restaurants: @restaurants}
+ %>
 
 </section>
 

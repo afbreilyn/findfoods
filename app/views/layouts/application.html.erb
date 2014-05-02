@@ -158,8 +158,8 @@
     var myLayer = L.mapbox.featureLayer().addTo(map);
 
     var geoJson = {
-        'type': 'FeatureCollection',
-        'features': [<%= feature_helper(@restaurants) %>]
+      'type': 'FeatureCollection',
+      'features': [<%= feature_helper(@restaurants) %>]
     };
 
     myLayer.setGeoJSON(geoJson)    
