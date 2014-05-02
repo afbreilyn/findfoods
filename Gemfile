@@ -42,10 +42,6 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-<<<<<<< HEAD
-=======
-  gem 'faker'
->>>>>>> newMap
 end
 
 gem 'faker'
