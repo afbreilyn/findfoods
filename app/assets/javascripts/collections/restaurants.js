@@ -4,18 +4,10 @@ Findfood.Collections.Restaurants = Backbone.Collection.extend({
   url: "/api/searches",
 
   // url: function () {
+    //should grab the info it is given in the url, and parse it to make a 
   // } ,
 
   // initialize: function() {
   // }
 
-  submitComment: function(event) {
-    event.preventDefault();
-
-    var attrs = $(event.target.form).serializeJSON();
-    // var comment = new BetterNote.Models.Comment(attrs);
-    // comment.author = BetterNote.currentUser;
-
-    // this.collection.create(comment, {});
-  },
 });

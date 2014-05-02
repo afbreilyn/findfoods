@@ -1,1 +1,9 @@
 <h1 id="hellothere"> Hello there </h1>
+
+<ul>
+	<% restaurants.each(function(restaurant) { %>
+	  <li>
+	    <a href="#<%= restaurant.url() %>"><%= restaurant.escape("name") %></a>
+	  </li>
+	<% }); %>
+</ul>

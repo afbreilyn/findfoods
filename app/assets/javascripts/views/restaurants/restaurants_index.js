@@ -10,7 +10,7 @@ Findfood.Views.RestaurantsIndex = Backbone.View.extend({
       restaurants: this.collection
     });
 
-    this.$el.html.(renderedContent);
+    this.$el.html(renderedContent);
     return this;
   }
 

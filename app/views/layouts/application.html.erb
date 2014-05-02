@@ -51,39 +51,32 @@
             // $("body").on("click", ".close-modal", window.closeModal);
 
     //<<<<<<<<<<<<
+            function pushInHello(){
+              $("#main-content").val('what?')
+            }
+
+
             $("form.search-form").on("submit", function (event) {
               // $("body").on("click", ".open-modal", window.openModal);
-                // window.openModal();
-                 /*WOULD LOVE TO PASS THE COLLECTION INTO HERE... ;) */
-                event.preventDefault();
-                console.log("got here");
-                e = event;
-                var $form = $(this);
-                console.log("$FORM IS: ", $form);
-                var $currentTarget = $(event.currentTarget);
-                console.log("$CT: ", $currentTarget);
-                var data = $currentTarget.serializeJSON();
-                console.log("data is:", data);
-                    
+              // window.openModal();
+               /*WOULD LOVE TO PASS THE COLLECTION INTO HERE... ;) */
+              event.preventDefault();
 
-
-                // <%#= (render partial: "layouts/restaurant.json.jbuilder", locals: {restaurants: @restaurants).html_safe %>
-
-                // eventcurrentTarget[1].value => gives the values of each field
-
-              // var geoJSON = 
-              //         <%#= (render partial: "layouts/restaurant.json.jbuilder", locals: {restaurants: @restaurants).html_safe %>;
-
-              //           console.log(geojson)
-                    // L.mapbox.map('map', 'andrewkv19.i3khopgf')
-                    //   // .setView([center[1], center[0]], 12)
-                    //   .featureLayer.setGeoJSON(geojson);                
-
-
-              // var view = new Findfood.Views.RestaurantsIndex();
-
-
-              // $("#main-content").html(view.render().$el);
+              // console.log("got here");
+              // e = event;
+              var $form = $(this);
+              data = $form.serializeJSON();
+              // console.log("data is:", data);
+              
+              $.ajax({
+                url: $form.attr("action"),
+                type: "POST",
+                data: data,
+                success: function ( ) {
+                  console.log("success!");
+                }
+              });
+              
 
             });
 

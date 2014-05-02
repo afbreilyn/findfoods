@@ -8,7 +8,7 @@ window.Findfood = {
     $rootEl: $(".main-content");
     $header: $(".header");
     $sidebar: $(".sidebar");
-    var restaurants: new Findfood.Collections.Restaurants();
+    var restaurants = new Findfood.Collections.Restaurants();
     Backbone.history.start();
   }
 };
