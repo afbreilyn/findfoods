@@ -37,6 +37,8 @@
       <script>
         $(document).ready(function() {
 
+
+
     //<<<<<<THIS IS THE MODAL STUFF>>>>>
             // window.openModal = function(event){
             //   $("#modal").addClass("is-active");
@@ -61,17 +63,22 @@
                /*WOULD LOVE TO PASS THE COLLECTION INTO HERE... ;) */
               event.preventDefault();
 
+              console.log(window.collection)
+
+              var that = this;
               var $form = $(this);
               data = $form.serializeJSON();
-              console.log("data is:", data.search);
+
+              // console.log(Findfood.restaurants);
               
               $.ajax({
-                url: $form.attr("<%= api_searches_url %>"),
+                url: $form.attr("action"),
                 type: "GET",
-                data: data.search,
+                data: data,
                 success: function (resp) {
-                  console.log(resp)
-                  // var restaurants = new Findfood.Collections.Restaurants()
+                  resp.forEach(function(restaurantJSON) {
+                    console.log(restaurantJSON)
+                  })
                 }
               });
             });

@@ -3,16 +3,13 @@ window.Findfood = {
   Collections: {},
   Views: {},
   Routers: {},
-  // Findfood.restaurants = new Findfood.Collections.Restaurants();
   initialize: function() {
-    $rootEl: $(".main-content");
-    $header: $(".header");
-    $sidebar: $(".sidebar");
-    var restaurants = new Findfood.Collections.Restaurants();
-    Backbone.history.start();
+    this.$rootEl = $(".main-content"),
+    this.$header = $(".header"),
+    this.$sidebar = $(".sidebar"),
+    this.restaurants = new Findfood.Collections.Restaurants();
   }
 };
-
 
 $(document).ready(function(){
   Findfood.initialize();

@@ -59,20 +59,23 @@ food_arr = %w(chinese, japanese, itialian, thai, german, french, american, engli
 		avatar: File.open(Rails.root.join("seeds", "nom_noodles.jpg"))
 	)
 
+suckr = ImageSuckr::GoogleSuckr.new
+
 users = []
-30.times do 
+10.times do 
 	users << User.create!(
 		fname: Faker::Name.first_name,
 		lname: Faker::Name.last_name,
 		city: Faker::Address.city,
 		state: Faker::Address.state_abbr,
 		email: Faker::Internet.safe_email,
-		password: "password"
+		password: "password",
+		avatar: suckr.get_image_file({"q" => "portrait"})
 	)
 end
 
 restaurants = []
-30.times do 
+5.times do 
 	restaurants << Restaurant.create!(
 		name: Faker::Company.name,
 		street1: Faker::Address.street_address,
@@ -90,7 +93,7 @@ restaurants.each do |restaurant|
 end
 
 reviews = []
-45.times do 
+5.times do 
 	reviews << users.sample.written_comments.create!(
 		commentable_type: "Restaurant",
 		commentable_id: restaurants.sample.id,
@@ -98,7 +101,7 @@ reviews = []
 	)
 end
 
-60.times do 
+5.times do 
 	restaurants.sample.tags.create!(
 		author_id: users.sample.id,
 		body: food_arr.sample
