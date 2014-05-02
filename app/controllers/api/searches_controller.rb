@@ -65,7 +65,7 @@ def index
       @restaurants = near_restaurants
     end
 
-      render json: @restaurants
+    render json: @restaurants
 
   end
 

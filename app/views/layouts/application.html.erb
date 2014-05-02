@@ -32,11 +32,33 @@
         <input type="hidden" id="search-lat" name="search[current_lat]" value="">
         <input type="hidden" id="search-long" name="search[current_long]" value="">
 
-        <input type="submit" value=":)" >
+        <input type="submit" id="submit-search" value=":)" >
       </form>
 
       <script>
         $(document).ready(function() {
+
+            $("form.search-form").on("submit", function (event) {
+                event.preventDefault();
+              },
+                // eventcurrentTarget[1].value => gives the values of each field
+
+              // var geoJSON = 
+              //         <%#= (render partial: "layouts/restaurant.json.jbuilder", locals: {restaurants: @restaurants).html_safe %>;
+
+              //           console.log(geojson)
+                    // L.mapbox.map('map', 'andrewkv19.i3khopgf')
+                    //   // .setView([center[1], center[0]], 12)
+                    //   .featureLayer.setGeoJSON(geojson);                
+
+
+              var view = new Findfood.Views.RestaurantsIndex({
+                
+              }),
+
+              $("#main-content").html(view.render().$el)
+
+            });
 
             function showLocation(position) {
               $("#search-lat").val(position.coords.latitude);
