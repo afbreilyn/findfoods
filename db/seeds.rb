@@ -145,7 +145,7 @@
     )
 
   users = []
-  15.times do 
+  50.times do 
     users << User.create!(
       fname: Faker::Name.first_name,
       lname: Faker::Name.last_name,
@@ -157,7 +157,7 @@
   end
 
   restaurants = []
-  20.times do 
+  100.times do 
     restaurants << Restaurant.create!(
       name: Faker::Company.name,
       street1: Faker::Address.street_address,
@@ -175,7 +175,7 @@
   end
 
   reviews = []
-  20.times do 
+  150.times do 
     reviews << users.sample.written_comments.create!(
       commentable_type: "Restaurant",
       commentable_id: restaurants.sample.id,
@@ -183,7 +183,7 @@
     )
   end
 
-  10.times do 
+  200.times do 
     restaurants.sample.tags.create!(
       author_id: users.sample.id,
       body: food_arr.sample
