@@ -69,8 +69,7 @@ users = []
 		city: Faker::Address.city,
 		state: Faker::Address.state_abbr,
 		email: Faker::Internet.safe_email,
-		password: "password",
-		avatar: suckr.get_image_file({"q" => "portrait"})
+		password: "password"	
 	)
 end
 

@@ -8,11 +8,11 @@
   <meta charset="utf-8"> 
 </head>
 <body>
-  <header class="header .colour"> 
+  <header class="header"> 
 
 
     <div class="header-wrap group">
-
+ 
 
     <div class="logo">
       <a href="<%= root_url %>">
@@ -21,7 +21,7 @@
     </div>
 
     <div class="topline">
-      <form class="header search-form" action="<%= api_searches_url %>" method="get">
+      <form class="header search-form" action="<%= searches_url %>" method="get" data-remote="true">
 
         <input type="search-text" name="search[search_params]" value="">
         <input type="search-text" name="search[start_location]" value="">
@@ -37,7 +37,16 @@
       <script>
         $(document).ready(function() {
 
+          var $mainContent = $("#main-content");
+          var $header = $(".header");
+          var $sidebar = $(".sidebar");
 
+
+          $("form.search-form").on("ajax:success", function (event, data) {
+            console.log("data is: ", data);
+            // console.log(event);
+            $mainContent.html(data);
+          });
 
     //<<<<<<THIS IS THE MODAL STUFF>>>>>
             // window.openModal = function(event){
@@ -52,36 +61,28 @@
             // $("body").on("click", ".close-modal", window.closeModal);
 
     //<<<<<<<<<<<<
-            function pushInHello(){
-              $("#main-content").val('what?')
-            }
 
 
-            $("form.search-form").on("submit", function (event) {
-              // $("body").on("click", ".open-modal", window.openModal);
-              // window.openModal();
-               /*WOULD LOVE TO PASS THE COLLECTION INTO HERE... ;) */
-              event.preventDefault();
+                // insert the data where i want it
+            //   console.log(window.collection)
 
-              console.log(window.collection)
+            //   var that = this;
+            //   var $form = $(this);
+            //   data = $form.serializeJSON();
 
-              var that = this;
-              var $form = $(this);
-              data = $form.serializeJSON();
-
-              // console.log(Findfood.restaurants);
+            //   // console.log(Findfood.restaurants);
               
-              $.ajax({
-                url: $form.attr("action"),
-                type: "GET",
-                data: data,
-                success: function (resp) {
-                  resp.forEach(function(restaurantJSON) {
-                    console.log(restaurantJSON)
-                  })
-                }
-              });
-            });
+            //   $.ajax({
+            //     url: $form.attr("action"),
+            //     type: "GET",
+            //     data: data,
+            //     success: function (resp) {
+            //       resp.forEach(function(restaurantJSON) {
+            //         console.log(restaurantJSON)
+            //       })
+            //     }
+            //   });
+
 
             function showLocation(position) {
               $("#search-lat").val(position.coords.latitude);
@@ -132,7 +133,6 @@
       
       <li><%= link_to "Register A Restaurant", new_user_restaurant_url(current_user) %></li>
 
-      
       <li class="sign-out"><%= button_to "Sign Out", session_url, method: :delete %></li>
 
       <% else %>
