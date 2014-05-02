@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Findfood</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <meta charset="utf-8"> 
 </head>
@@ -38,23 +38,33 @@
       <script>
         $(document).ready(function() {
 
-            window.openModal = function(event){
-              $("#modal").addClass("is-active");
-            }
+    //<<<<<<THIS IS THE MODAL STUFF>>>>>
+            // window.openModal = function(event){
+            //   $("#modal").addClass("is-active");
+            // }
 
-            window.closeModal = function(event){
-              $("#modal").removeClass("is-active");
-            }
+            // window.closeModal = function(event){
+            //   $("#modal").removeClass("is-active");
+            // }
 
-            $("body").on("click", ".open-modal", window.openModal);
-            $("body").on("click", ".close-modal", window.closeModal);
+            // $("body").on("click", ".open-modal", window.openModal);
+            // $("body").on("click", ".close-modal", window.closeModal);
 
+    //<<<<<<<<<<<<
             $("form.search-form").on("submit", function (event) {
               // $("body").on("click", ".open-modal", window.openModal);
-                window.openModal();
+                // window.openModal();
                  /*WOULD LOVE TO PASS THE COLLECTION INTO HERE... ;) */
                 event.preventDefault();
                 console.log("got here");
+                e = event;
+                var $form = $(this);
+                console.log("$FORM IS: ", $form);
+                var $currentTarget = $(event.currentTarget);
+                console.log("$CT: ", $currentTarget);
+                var data = $currentTarget.serializeJSON();
+                console.log("data is:", data);
+                    
 
 
                 // <%#= (render partial: "layouts/restaurant.json.jbuilder", locals: {restaurants: @restaurants).html_safe %>

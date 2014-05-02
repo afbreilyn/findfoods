@@ -2,7 +2,7 @@ module SearchesHelper
   def feature_helper(restaurants)
     result = []
 
-    restaurants.each do |restaurant|
+    @restaurants.each do |restaurant|
 
       next if restaurant.longitude.nil? || restaurant.latitude.nil?
 
