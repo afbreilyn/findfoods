@@ -34,22 +34,23 @@ group :doc do
 end
 
 group :development do
-	gem 'binding_of_caller'
-	gem 'better_errors'
-	gem 'debugger'
+  gem 'binding_of_caller'
+  gem 'better_errors'
+  gem 'debugger'
 end
 
 group :development, :test do
-	gem 'rspec-rails'
-	gem 'factory_girl_rails'
-	gem 'faker'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
+gem 'faker'
+
 group :test do 
-	gem 'capybara'
-	gem 'launchy'
-	gem 'guard-rspec'
-	gem "shoulda-matchers"
+  gem 'capybara'
+  gem 'launchy'
+  gem 'guard-rspec'
+  gem "shoulda-matchers"
 end
 
 
