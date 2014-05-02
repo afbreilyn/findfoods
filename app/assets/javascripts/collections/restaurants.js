@@ -6,10 +6,8 @@ Findfood.Collections.Restaurants = Backbone.Collection.extend({
   // url: function () {
   // } ,
 
-  initialize: function() {
-
-    
-  }
+  // initialize: function() {
+  // }
 
   submitComment: function(event) {
     event.preventDefault();
@@ -20,7 +18,4 @@ Findfood.Collections.Restaurants = Backbone.Collection.extend({
 
     // this.collection.create(comment, {});
   },
-
-
-
 });

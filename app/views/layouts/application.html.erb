@@ -38,9 +38,27 @@
       <script>
         $(document).ready(function() {
 
+            window.openModal = function(event){
+              $("#modal").addClass("is-active");
+            }
+
+            window.closeModal = function(event){
+              $("#modal").removeClass("is-active");
+            }
+
+            $("body").on("click", ".open-modal", window.openModal);
+            $("body").on("click", ".close-modal", window.closeModal);
+
             $("form.search-form").on("submit", function (event) {
+              // $("body").on("click", ".open-modal", window.openModal);
+                window.openModal();
+                 /*WOULD LOVE TO PASS THE COLLECTION INTO HERE... ;) */
                 event.preventDefault();
-              },
+                console.log("got here");
+
+
+                // <%#= (render partial: "layouts/restaurant.json.jbuilder", locals: {restaurants: @restaurants).html_safe %>
+
                 // eventcurrentTarget[1].value => gives the values of each field
 
               // var geoJSON = 
@@ -52,11 +70,10 @@
                     //   .featureLayer.setGeoJSON(geojson);                
 
 
-              var view = new Findfood.Views.RestaurantsIndex({
-                
-              }),
+              // var view = new Findfood.Views.RestaurantsIndex();
 
-              $("#main-content").html(view.render().$el)
+
+              // $("#main-content").html(view.render().$el);
 
             });
 
@@ -144,6 +161,47 @@
     </div>
 
   </header>
+
+  <section id="modal" class="modal">
+  <article class="modal-content">
+    <span class="modal-map close-modal">&times;</span>
+
+      <div id='silly_map'></div>
+
+  <script>
+
+    var map = L.mapbox.map('silly_map', 'afbresley.i42ckik9').setView(["39.12367", "-76.81229"], 5)    
+    var myLayer = L.mapbox.featureLayer().addTo(map);
+
+    var geoJson = {
+        'type': 'FeatureCollection',
+        'features': [<%= feature_helper(@restaurants) %>]
+    };
+
+    myLayer.setGeoJSON(geoJson)    
+    // map.fitBounds(myLayer.getBounds()); /*.maxzoom(15));*/
+
+    myLayer.on('mouseover', function(e) {
+        e.layer.openPopup();
+    });
+    myLayer.on('mouseout', function(e) {
+        e.layer.closePopup();
+    });
+    myLayer.on('click', function(e) {
+      map.panTo(e.layer.getLatLng());
+    });
+
+    myLayer.on('ready', function() {
+        map.fitBounds(myLayer.getBounds());
+        console.log("meow");
+    });
+
+  </script>
+
+  </article>
+  <div class="modal-screen close-modal"></div>
+</section>
+
   
   <section class="group">
   <%= yield %>
