@@ -22,7 +22,6 @@
 
     <div class="topline">
       <form class="header search-form" action="<%= api_searches_url %>" method="get">
-        <%= auth_token %>
 
         <input type="search-text" name="search[search_params]" value="">
         <input type="search-text" name="search[start_location]" value="">
@@ -62,22 +61,19 @@
                /*WOULD LOVE TO PASS THE COLLECTION INTO HERE... ;) */
               event.preventDefault();
 
-              // console.log("got here");
-              // e = event;
               var $form = $(this);
               data = $form.serializeJSON();
-              // console.log("data is:", data);
+              console.log("data is:", data.search);
               
               $.ajax({
-                url: $form.attr("action"),
-                type: "POST",
-                data: data,
-                success: function ( ) {
-                  console.log("success!");
+                url: $form.attr("<%= api_searches_url %>"),
+                type: "GET",
+                data: data.search,
+                success: function (resp) {
+                  console.log(resp)
+                  // var restaurants = new Findfood.Collections.Restaurants()
                 }
               });
-              
-
             });
 
             function showLocation(position) {
@@ -106,28 +102,6 @@
             }
 
             getLocation();
-
-          // $("form.search-form").on("submit", function (event) {
-          //   event.preventDefault();
-          //   var $form = $(this);
-          //   // console.log(event);
-          //   // console.log($form);
-          //   var $currentTarget = $(event.currentTarget);
-          //   var data = $currentTarget.serializeJSON();
-
-          //   // other_data = this.getLocation();
-
-          // console.log($currentTarget);
-
-          //   $.ajax({
-          //     url: $form.attr("action"),
-          //     type: "POST",
-          //     data: data,
-          //     success: function ( ) {
-          //       console.log("success!");
-          //     }
-          //   });
-          // });
         });
 
       </script>

@@ -73,6 +73,7 @@ gem 'pg_search'
 gem 'ejs'
 gem 'backbone-on-rails'
 
+gem 'image_suckr'
 # Use unicorn as the app server
 # gem 'unicorn'
 
