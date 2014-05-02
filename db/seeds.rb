@@ -90,7 +90,14 @@
     "'truejamacan' didn't even know how to spell 'Sorrel.'",
     "If you don't love this place, then your tastebuds are ignorant.",
     "Bad", "3 stars cause the guac tasted good", "I didn't even eat here", "HELP! I'm trapped in a yelp clone and can't get out!!!!!",
-    "I like the meat", "Not that great", "Doesnt live up to the hype", "My girlfriend gained 20lbs eating at this place."
+    "I like the meat", "Not that great", "Doesnt live up to the hype", "My girlfriend gained 20lbs eating at this place.", "HELP! I'm trapped in a yelp clone and can't get out!!!!!",
+    "My girlfriend gained 20lbs eating at this place.", "HELP! I'm trapped in a yelp clone and can't get out!!!!!",
+    "My girlfriend gained 20lbs eating at this place.", "HELP! I'm trapped in a yelp clone and can't get out!!!!!",
+    "My girlfriend gained 20lbs eating at this place.", "HELP! I'm trapped in a yelp clone and can't get out!!!!!",
+    "My girlfriend gained 20lbs eating at this place.", "HELP! I'm trapped in a yelp clone and can't get out!!!!!",
+    "My girlfriend gained 20lbs eating at this place.", "HELP! I'm trapped in a yelp clone and can't get out!!!!!",
+    "My girlfriend gained 20lbs eating at this place.", "HELP! I'm trapped in a yelp clone and can't get out!!!!!",
+    "My girlfriend gained 20lbs eating at this place.", "HELP! I'm trapped in a yelp clone and can't get out!!!!!",
 
 
 
