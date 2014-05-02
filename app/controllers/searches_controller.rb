@@ -68,7 +68,9 @@ class SearchesController < ApplicationController
       @restaurants = near_restaurants
     end
 
-		render partial: "restaurants/index", locals: {restaurants: @restaurants}
+		# render partial: "restaurants/index", locals: {restaurants: @restaurants}
+
+		render partial: "searches/mapply", locals: {restaurants: @restaurants}
   end
 
 	private
