@@ -15,7 +15,8 @@ module SearchesHelper
                       'title': '#{h(restaurant.name)}',
                       'marker-color': '#c41200',
                       'marker-symbol': 'marker',
-                      'marker-size': 'medium'
+                      'marker-size': 'medium',
+                      'url' : '<%= restaurant_url(restaurant.id) %>'
                     }
                   }"
         result << j_rest

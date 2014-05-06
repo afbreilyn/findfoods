@@ -1,62 +1,45 @@
 todo: 
 
+OVERALL: 
+[ ] - make it one page
+
 SEED:
-[x] - seed people
-[x] - seed restaurants
-[x] - seed comments
-[ ] - with not with lorem content
-[ ] - button to create default new user (for demos)
 [ ] - pictures
 
 RESTAURANT SHOW PAGE:
-[x] - map flag defaults to their address
-[x] - fix the fact that everything has 5 stars by default
+[ ] - fix default stars
 [ ] - rating is done in stars, not numbers (CSS MAGIC)
-[ ] - display category																		****
-[ ] - addresses bump into titles...
+[ ] - display tags
+[ ] - addresses bump into titles... 											***
 
 MAPBOOK:
-[x] - setup
-[x] - by default shows everything
-[x] - hide dummy 																					****
+[ ] - correct zoom when searching
+[ ] - hover displays name
+[ ] - click brings to restaurant show page
 
 SEARCHBARS: 
-[x] - default in there, which leaves when it is clicked 	****
-[x] - actually create results to populate list and map 		****
+[ ] - default in there, which leaves when it is clicked
 
 CSS:
 [ ] - get rid of single use classes
 
 SIDEBAR:
-[x] - switches between 
-[x] - searchable by category 															****
-[x] - populate the search bar
-[x] - have it actually filter															****
 [ ] - featured review show
 [ ] - features review generation (random by week)
 [ ] - featured restaurant show
 [ ] - featured restaurant generateion (random by week)
 
 SEARCH SHOW PAGE:
-[ ] - auto zoom/ not too far
-[x] - reset form
-[ ] - populater physical list
+[ ] - populate physical list
 
 BACKBONE:
 [ ] - use for search queries sorting
 [ ] - signing in users
 [ ] - keep the top bar statis on all pages
-[ ] - make it one page
 
 UJS:
 [ ] - use for adding comments
-
-INDEX: 
-[x] - make pictures quicker
-[x] - load pictures into seeds folder
-[ ] - display category, aka tags, (make searchable)
-[x] - pagination
-[ ] - clean up pagination
+[ ] - (if time - nested)
 
 VALIDATIONS:
 [ ] - change rspecs to test for class, not id
@@ -66,10 +49,16 @@ VALIDATIONS:
 FORMATTING:
 [ ] - sign up/restaurant form headers are messed up
 [ ] - 50px margin bot on every page
+[ ] - make pagination pretty 
 
 WRITE A REVIEW:
 [ ] - search for restaurant both by caregory and name
 [ ] - leads you to their show page
+
+COMMENTS: 
+[ ] - fix picture size on comments
+
+
 
 ONCE EVERYTHING WORKS:
 [ ] - user show page

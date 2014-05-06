@@ -4,7 +4,13 @@
 
   <script>
 
-    var map = L.mapbox.map('search_map', 'afbresley.i42ckik9').setView(["39.12367", "-76.81229"], 5)    
+    var map = L.mapbox.map('search_map', 'afbresley.i42ckik9', {
+      tileLayer: {
+        continuousWorld: false,
+        noWrap: true
+      }
+    }).setView(["39.12367", "-76.81229"], 5)
+    
     var myLayer = L.mapbox.featureLayer().addTo(map);
     // The GeoJSON representing the two point features
     var geoJson = {
@@ -36,10 +42,12 @@
     myLayer.on('mouseout', function(e) {
         e.layer.closePopup();
     });
+    myLayer.on('mouseover', function(e) {
+      map.panTo(e.layer.getLatLng());
+    });
     myLayer.on('click', function(e) {
       map.panTo(e.layer.getLatLng());
     });
-
     myLayer.on('ready', function() {
           map.fitBounds(myLayer.getBounds());
           console.log("meow");
@@ -65,5 +73,7 @@
       <% end %>
     </ul>
   </section>
+
+  <%= render partial: "searches/sidebar", locals: { search: @search } %>
 
 </section>

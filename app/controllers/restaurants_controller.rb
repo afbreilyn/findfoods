@@ -1,8 +1,15 @@
 class RestaurantsController < ApplicationController
 
+	# layout false
+
 	def index
 		@restaurants = Restaurant.all.page(params[:page]).per(15)
-		render :index
+
+		respond_to do |format|
+			format.html
+			format.js
+		end
+		# render :index
 	end
 
 	def new

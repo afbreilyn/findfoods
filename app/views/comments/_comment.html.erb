@@ -3,8 +3,10 @@
   <% comments_by_parent[comment_id].each do |child_comment| %>
     <li class="each-comment group">
         <h3 class="reviewer-name">
-            <%= User.find(child_comment.user_id).fname %> 
+          <%= User.find(child_comment.user_id).fname %> 
+          <div id="picture-comment">
             <img class="reviewer-pic" src="<%=  User.find(child_comment.user_id).avatar %>">
+          </div>
         </h3>
         <h3 class="review-rating">
           <% if child_comment.rating %>

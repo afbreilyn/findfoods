@@ -2,6 +2,8 @@ class SessionsController < ApplicationController
 	# before_action :require_! only: [:destroy] 
 	# before_action :require_current_user! only: [:destroy] 
 
+	layout false
+
 	def new
 	end
 

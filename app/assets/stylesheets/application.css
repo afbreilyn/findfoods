@@ -42,6 +42,10 @@ body {
 	line-height: normal;
 }
 
+#fullContent {
+	/*border: 2px solid green;*/
+}
+
 a {
 	text-decoration: none;
 	color: black;
@@ -181,6 +185,9 @@ h3 {
 	top: 20px;
 }
 
+.restaurant-list-tags > li {
+	color: blue;
+}
 .restaurant-list > li > a > .restaurant-rating {
 }
 /* --- SIGN IN --- */

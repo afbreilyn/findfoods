@@ -39,24 +39,38 @@
 
           var $mainContent = $("#main-content");
           var $header = $(".header");
-          var $sidebar = $(".sidebar");
+          // var $sidebar = $(".sidebar");
           var $fullContent = $("#full-content")
 
 
           $("form.search-form").on("ajax:success", function (event, data) {
             // console.log("data is: ", data);
-            // console.log(event);
-            $mainContent.html(data);
-            $sidebar.html()
+            // console.log("clicked");
+            $fullContent.html(data); /* doesn't work on restaurant show page, cause no main-content */
+            // $fullContent.html()
           });
 
-          $("li.sign-in").on("click", function(event) {
+          $("#sign-in").on("ajax:success", function(event, data) {
             event.preventDefault();
-            console.log("i did it!!! :D");
-            // $mainContent.html(data);
+            $mainContent.html(data);
           })
 
-    //<<<<<<THIS IS THE MODAL STUFF>>>>>
+          $("#sign-up").on("ajax:success", function(event, data) {
+            event.preventDefault();
+            $mainContent.html(data);
+            // console.log("i did it!!! :D");
+          })
+
+        // $('#mainContent').html()
+
+          $("#homeButton").on("click", function(event, data) {
+            console.log("i did it!!! :D");
+            event.preventDefault();
+            // $mainContent.html('<%#=j render partial: 'restaurants/restaurants'%>');
+          })
+  
+
+    //<<<<<<THIS IS THE MODAL STUFF>>>>>w
             // window.openModal = function(event){
             //   $("#modal").addClass("is-active");
             // }
@@ -133,7 +147,7 @@
     <nav class="header-nav"> 
     <ul class="group"> 
 
-      <li class="signed-out"><%=  link_to "Home", root_url%></li>
+      <li class="signed-out" id="homeButton"><a href="<%= root_url %>", data-remote="true">Home</a>
 
       <li><a href="#">Write a Review</a></li>
 
@@ -144,8 +158,9 @@
       <li class="sign-out"><%= button_to "Sign Out", session_url, method: :delete %></li>
 
       <% else %>
-        <li class="signed-out" id="sign-in"><%=  link_to "Sign In", new_session_url%></li>
-        <li class="signed-out"><%=  link_to "Sign Up", new_user_url%></li>
+        <li class="signed-out" id="sign-in"><a href="<%= new_session_url %>", data-remote="true">Sign In</a></li>
+
+        <li class="signed-out" id="sign-up"><a href="<%= new_user_url %>", data-remote="true">Sign Up</a>
       <% end %>
     </ul>
     </nav>
@@ -193,16 +208,9 @@
   </article>
   <div class="modal-screen close-modal"></div>
 </section>
-
   
-  <section class="group" id="full-content">
+  <section class="group" id="fullContent">
   <%= yield %>
-
-  <% if @default %>
-    <%= render partial: "sidebars/sidebar" %>
-  <% else %>
-    <%= yield :sidebar %>
-  <% end %>
 
   </section>
 

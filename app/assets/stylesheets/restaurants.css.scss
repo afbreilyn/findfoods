@@ -10,13 +10,18 @@
 }
 
 .restaurant-header{
-	padding-bottom: 5px;
+	padding-bottom: 10px;
+	margin-top: -5px;
 }
 
 .restaurant-rating {
 	color: gold;
 	font-size: 22px;
 	float: left;
+}
+
+.restaurant-tags {
+	color: blue;
 }
 
 .rating-num {
@@ -40,7 +45,7 @@
 .restaurant-address-show {
 	float: right;
 	font-size: 24px;
-	margin-top: -20px; 
+	margin-top: -10px; 
 	font-weight: bold;
 }
 
