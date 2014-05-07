@@ -40,34 +40,31 @@
           var $mainContent = $("#main-content");
           var $header = $(".header");
           // var $sidebar = $(".sidebar");
-          var $fullContent = $("#full-content")
+          var $fullContent = $("#fullContent");
 
 
-          $("form.search-form").on("ajax:success", function (event, data) {
-            // console.log("data is: ", data);
-            // console.log("clicked");
-            $fullContent.html(data); /* doesn't work on restaurant show page, cause no main-content */
-            // $fullContent.html()
+          $("form.search-form").on("ajax:success", function (event, data) { 
+            $fullContent.html(data); 
           });
 
           $("#sign-in").on("ajax:success", function(event, data) {
             event.preventDefault();
-            $mainContent.html(data);
-          })
+            $fullContent.html(data);
+          });
 
           $("#sign-up").on("ajax:success", function(event, data) {
             event.preventDefault();
-            $mainContent.html(data);
+            $fullContent.html(data);
             // console.log("i did it!!! :D");
-          })
+          });
 
-        // $('#mainContent').html()
-
-          $("#homeButton").on("click", function(event, data) {
-            console.log("i did it!!! :D");
+          $("#home-button").on("ajax:success", "a", function(event, data) {
             event.preventDefault();
-            // $mainContent.html('<%#=j render partial: 'restaurants/restaurants'%>');
-          })
+            console.log(event)
+            // console.log("hello there");
+            // $fullContent.html(data);
+            $fullContent.html(data);
+          });
   
 
     //<<<<<<THIS IS THE MODAL STUFF>>>>>w
@@ -147,7 +144,7 @@
     <nav class="header-nav"> 
     <ul class="group"> 
 
-      <li class="signed-out" id="homeButton"><a href="<%= root_url %>", data-remote="true">Home</a>
+      <li class="signed-out" id="home-button"><a href="<%= root_url %>", data-remote="true">Home</a></li>
 
       <li><a href="#">Write a Review</a></li>
 
@@ -209,10 +206,9 @@
   <div class="modal-screen close-modal"></div>
 </section>
   
-  <section class="group" id="fullContent">
+<section class="group" id="fullContent">
   <%= yield %>
-
-  </section>
+</section>
 
 </body>
 </html>

@@ -5,11 +5,15 @@ class RestaurantsController < ApplicationController
 	def index
 		@restaurants = Restaurant.all.page(params[:page]).per(15)
 
-		respond_to do |format|
-			format.html
-			format.js
-		end
+		# respond_to do |format|
+		# 	format.html { render :index }
+		# 	fail
+		# 	format.js { render :index, layout: false }
+		# end
 		# render :index
+		if request.xhr?
+			render :index, layout: false
+		end
 	end
 
 	def new

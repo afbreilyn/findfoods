@@ -4,20 +4,20 @@
   <h3>
   	<ul>
   		<label>You searched for:</label>
-  			<li><%= search.search_params %></li>
+  			<li><%= !search.search_params.empty? || "Anything" %></li>
   		<label>Near:</label>
-  			<li><%= search.start_location %></li>
+  			<li><%= !search.start_location.empty? || "Near Me" %></li>
   	</ul>
   </h3>
 
 
   Parameters: 
-  <form class="refine-search" action="<%= searches_url %>" method="post">
+  <form class="refine-search" id="thisthing" action="<%= searches_url %>" method="get" data-remote="true">
   	<%= auth_token %>
-  	<label>New Category?</label>
+  	<label>New Category:</label>
   		<input type="text" name="search[search_params]" value="">
 
-  	<label>New Location?</label>
+  	<label>New Location:</label>
       <input type="text" name="search[start_location]" value="">
 
   	<label id="star-label">Select Stars</label>
@@ -40,60 +40,69 @@
 
 
   <script>
-    $("form.refine-search").on("submit", function (event) {
-      event.preventDefault();
-      var $form = $(this);
-      var $currentTarget = $(event.currentTarget);
-      var data = $currentTarget.serializeJSON();
-      var that = this;
 
-      $.ajax({
-        url: $form.attr("action"),
-        type: "POST",
-        data: data,
-        success: function (resp) {
-          // console.log("success!"),
-          // console.log(resp),
-          meow = resp;
+    var $fullContent = $("#fullContent");
 
-          arr = []
-          resp.forEach(function (obj) {
+    $("form.refine-search").on("ajax:success", function (event, data) { 
+      console.log(data);
+      $fullContent.html(data); /* doesn't work on restaurant show page, cause no main-content */
+    });
 
-            if(obj.latitude && obj.longitude){
+    // $("form.refine-search").on("submit", function (event) {
+    //   event.preventDefault();
+    //   var $form = $(this);
+    //   var $currentTarget = $(event.currentTarget);
+    //   var data = $currentTarget.serializeJSON();
+    //   var that = this;
+    //   console.log(data);
 
-  						arr.push({'type': 'Feature',
-                  'geometry': {
-                    'type': 'Point',
-                    'coordinates': [ obj.longitude, obj.latitude ]
-                  },
-                  'properties': {
-                    'title': obj.name,
-                    'marker-color': '#c41200',
-                    'marker-symbol': 'marker',
-                    'marker-size': 'medium'
-                  }
-                });
-            };
-          })
+    //   $.ajax({
+    //     url: $form.attr("action"),
+    //     type: "GET",
+    //     data: data,
+    //     success: function (resp) {
+    //       console.log("success!"),
+    //       console.log(resp),
+    //       // meow = resp;
+    //       // $fullContent.html(data);
+    //       arr = []
+    //       resp.forEach(function (obj) {
+    //         // console.log("meow");
+    //         if(obj.latitude && obj.longitude){
 
-          geoJson = { 'type' : 'FeatureCollection', 'features': arr };
-          myLayer.setGeoJSON(geoJson);
+  		// 				arr.push({'type': 'Feature',
+    //               'geometry': {
+    //                 'type': 'Point',
+    //                 'coordinates': [ obj.longitude, obj.latitude ]
+    //               },
+    //               'properties': {
+    //                 'title': obj.name,
+    //                 'marker-color': '#c41200',
+    //                 'marker-symbol': 'marker',
+    //                 'marker-size': 'medium'
+    //               }
+    //             });
+    //         };
+    //       })
+
+          // geoJson = { 'type' : 'FeatureCollection', 'features': arr };
+          // myLayer.setGeoJSON(geoJson);
           
-          if (arr.length > 0 ){
-            map.fitBounds(myLayer.getBounds());
-          } else {
-            map.setView(["50", "-50"], 2);
-          };
+          // if (arr.length > 0 ){
+          //   map.fitBounds(myLayer.getBounds());
+          // } else {
+          //   map.setView(["50", "-50"], 2);
+          // };
 
-          if (map._zoom > 15) { 
-            // console.log(map._zoom)
-            // map.setZoom(15) 
-            // console.log(map._zoom)
-          }
-          $form[0].reset();
-        }
-      })
-     });
+          // if (map._zoom > 15) { 
+          //   // console.log(map._zoom)
+          //   // map.setZoom(15) 
+          //   // console.log(map._zoom)
+          // }
+          // $form[0].reset();
+     //    }
+     //  })
+     // });
   </script>
 
 </section>
