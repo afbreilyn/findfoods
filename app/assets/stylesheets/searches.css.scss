@@ -9,6 +9,17 @@
 	padding-left: 700px;
 }
 
+.meow {
+	padding-top: 20px;
+	// background: blue;
+	// height: 100px;
+	width: 702px;
+	margin: 0;
+	overflow: hidden;
+	float: left;
+	border-right: 1px solid #c41200;
+}
+
 #search_map {
 	position: absolute;
 	width: 670px;
@@ -17,20 +28,21 @@
 	margin-left: 15px;
 	// margin-bottom: 50px;
 	// padding: 15px;
-	frameBorder: 1;
-	float: left;
+	// frameBorder: 1;
+	// float: left;
 	// left: 35px;
 	// top: 5px;
 	background: #fff;
 }
 
 .search-sidebar {
-	width: 242px;
-	float: right;
+
+	width: 222px;
+	// float: right;
+	margin-left: 700px;
 	// background: blue;
-	padding: 0 15px;
-	padding-left: 40px;
-	border-left: 1px solid #c41200;
+	padding: 20px 15px;
+	// padding-left: 20px;
 	background: #fff;
 }
 
@@ -55,8 +67,8 @@
 	padding-left: 15px;
 	// margin-left: -700px;
 	// background: blue;
-	float: left;
-	width: 600px;
+	// float: left;
+	// width: 600px;
 	display: block;
 	padding-bottom: 50px
 

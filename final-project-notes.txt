@@ -1,7 +1,7 @@
 todo: 
 
 OVERALL: 
-[ ] - make it one page
+[x] - make it one page
 
 SEED:
 [ ] - pictures
@@ -10,12 +10,12 @@ RESTAURANT SHOW PAGE:
 [ ] - fix default stars
 [ ] - rating is done in stars, not numbers (CSS MAGIC)
 [ ] - display tags
-[ ] - addresses bump into titles... 											***
+[x] - addresses bump into titles...
 
 MAPBOOK:
 [ ] - correct zoom when searching
-[ ] - hover displays name
-[ ] - click brings to restaurant show page
+[x] - hover displays name
+[x] - click brings to restaurant show page
 
 SEARCHBARS: 
 [ ] - default in there, which leaves when it is clicked
@@ -58,7 +58,12 @@ WRITE A REVIEW:
 COMMENTS: 
 [ ] - fix picture size on comments
 
+USER SHOW PAGE:
+[ ] - list of their reviews
+[ ] - their info on the side
 
+NOTIFICATIONS:
+[ ] - index page
 
 ONCE EVERYTHING WORKS:
 [ ] - user show page
@@ -69,7 +74,8 @@ ONCE EVERYTHING WORKS:
 [ ] - buttons to fill out forms
 [ ] - weekly emails
 [ ] - profile page
-
+[ ] - run everything through html validator
+[ ] - user 1 and user 2 buttons
 
 
 

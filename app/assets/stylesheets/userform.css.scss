@@ -2,11 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.user-form-content {
-	width: 700px;
+
+.user-form-body {
+	width: 702px;
 	float: left;
 	margin-bottom: 50px;
 	border-right: 1px solid #c41200;
+	overflow: hidden;
+}
+
+.user-form-content {
 }
 
 .user-form-header {
