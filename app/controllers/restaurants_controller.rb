@@ -3,6 +3,7 @@ class RestaurantsController < ApplicationController
   # layout false
 
   def index
+    @users = User.all
     @restaurants = Restaurant.all.page(params[:page]).per(15)
 
     if request.xhr?
@@ -39,16 +40,18 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @users = User.all
   end
 
   def edit
     @restaurant = current_user.restaurants.find(params[:id])
-
+    @users = User.all
     render :edit
   end
 
 
   def update
+    @users = User.all
     @restaurant = current_user.restaurants.find(params[:id])
 
     if params["tag1"]["body"] != ""

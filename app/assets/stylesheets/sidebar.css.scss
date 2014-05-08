@@ -1,13 +1,13 @@
 /* --- SIDEBAR --- */
 
 .sidebar {
-	// background: #bbb;
-	float: right;
-	width: 296px;
-	// background: blue;
-	float: right;
+  // background: #bbb;
+  float: right;
+  width: 296px;
+  // background: blue;
+  float: right;
 
-	// border-left: 1px solid #c12044;
+  // border-left: 1px solid #c12044;
 }
 
 .notification-list {
@@ -17,67 +17,67 @@
 }
 
 .main-info {
-	margin-top: 15px;
+  margin-top: 15px;
 }
 
 .prof-picture {
-	display: block;
-	float: left;
-	background: black;
-	margin: 0px 15px;
-	width: 100px;
+  display: block;
+  float: left;
+  background: black;
+  margin: 0px 15px;
+  width: 100px;
 }
 
 .prof-name {
-	/*margin: 15px;*/
-	font-weight: bold;
-	left: 110px;
-	font-size: 18px;
-	padding-bottom: 1px;
+  /*margin: 15px;*/
+  font-weight: bold;
+  left: 110px;
+  font-size: 18px;
+  padding-bottom: 1px;
 }
 
 .prof-options {
-	margin: 15px;
-	top: 10px;
-	font-size: 14px;
-	font-weight: bold;
+  margin: 15px;
+  top: 10px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .prof-options > li {
-	padding-bottom: 3px;
+  padding-bottom: 3px;
 }
 
 .load-prof-pic {
 }
 
 .load-prof-pic > input[type="submit"] {
-	background: #ccc;
-	font-weight: bold;
-	/*margin-top: 15px;*/
+  background: #ccc;
+  font-weight: bold;
+  /*margin-top: 15px;*/
 }
 
 .prof-string {
-	background: #fff;
-	border-radius: 15px;
-	border: 1px solid black;
-	width: 200px; 
+  background: #fff;
+  border-radius: 15px;
+  border: 1px solid black;
+  width: 200px; 
 }
 
 .notifications-warning {
-	padding-left: 15px;
+  padding-left: 15px;
 }
 
 :hover {
-	// background: blue;
-	// DROPDOWN MENU OF NOTIFICATIONS!
+  // background: blue;
+  // DROPDOWN MENU OF NOTIFICATIONS!
 }
 
 .user-restaurants {
-	margin: 15px;
+  margin: 15px;
 }
 
 .your-restaurants {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 .user-notifications {
@@ -86,7 +86,7 @@
 }
 
 .sidebar-featured {
-	margin: 15px;
+  margin: 15px;
 }
 
 .sidebar-user {
@@ -96,9 +96,52 @@
 }
 
 .isShowing {
-	display: block;
-}	
+  display: block;
+} 
 
 .notShowing {
-	display: none;
+  display: none;
 }
+
+.feat-header {
+  // font-weight: bold;
+  font-size: 24px;
+  margin-top: 15px;
+}
+
+.feat-title {
+  font-weight: bold;
+  padding-left: 10px;
+  padding: 5px 0;
+  font-size: 22px;
+}
+
+.feat-body {
+  padding-left: 10px;
+  font-size: 21px;
+}
+
+.feat-main-info {
+  margin-top: 15px;
+}
+
+.feat-prof-picture {
+  display: block;
+  float: left;
+  background: black;
+  margin: 0px 15px;
+  width: 100px;
+}
+
+.feat-prof-name {
+  /*margin: 15px;*/
+  font-weight: bold;
+  left: 110px;
+  font-size: 26px;
+  padding-bottom: 1px;
+  // position: absolute;
+  overflow: hidden;
+}
+
+
+

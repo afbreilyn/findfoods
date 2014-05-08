@@ -1,9 +1,9 @@
 class SearchesController < ApplicationController
   layout false
-	def new
-	end
+  def new
+  end
 
-	def index
+  def index
 
     if params[:search][:user_id] != ""
       user = User.find(params[:search][:user_id])
@@ -68,17 +68,17 @@ class SearchesController < ApplicationController
       @restaurants = near_restaurants
     end
 
-		# render partial: "restaurants/index", locals: {restaurants: @restaurants}
+    # render partial: "restaurants/index", locals: {restaurants: @restaurants}
 
-		render partial: "searches/mapply", locals: {restaurants: @restaurants}
+    render partial: "searches/mapply", locals: {restaurants: @restaurants}
     #  :layout => false
     # redirect_to search_url(@search)
   end
 
-	private
+  private
 
-	def search_params
-		params.require(:search).permit(:user_id, :search_params, :start_location, :current_long, :current_lat)
-	end
+  def search_params
+    params.require(:search).permit(:user_id, :search_params, :start_location, :current_long, :current_lat)
+  end
 
 end

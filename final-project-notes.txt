@@ -18,13 +18,15 @@ MAPBOx:
 [x] - click brings to restaurant show page
 
 SEARCHBARS: 
-[ ] - default in there, which leaves when it is clicked
+[x] - default in there, which leaves when it is clicked
 
 SIDEBAR:
 [ ] - featured review show
 [ ] - features review generation (random by week)
 [ ] - featured restaurant show
 [ ] - featured restaurant generateion (random by week)
+[ ] - filter by star thing
+[ ] - make it not look like shit
 
 SEARCH SHOW PAGE:
 [ ] - populate physical list
@@ -38,13 +40,8 @@ UJS:
 [ ] - use for adding comments
 [ ] - (if time - nested)
 
-VALIDATIONS:
-[ ] - change rspecs to test for class, not id
-[ ] - fix all of the breaks
-[ ] - removew validations for search_params and start_location
-
 FORMATTING:
-[ ] - sign up/restaurant form headers are messed up
+[x] - sign up/restaurant form headers are messed up
 [ ] - 50px margin bot on every page
 [ ] - make pagination pretty 
 
@@ -67,6 +64,11 @@ SEED:
 
 CSS:
 [ ] - get rid of single use classes
+
+VALIDATIONS:
+[ ] - change rspecs to test for class, not id
+[ ] - fix all of the breaks
+[ ] - remove validations for search_params and start_location
 
 ONCE EVERYTHING WORKS:
 [ ] - user show page
