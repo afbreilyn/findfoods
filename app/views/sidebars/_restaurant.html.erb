@@ -20,22 +20,24 @@
 
 <br><br>
 
-    <section class="feat-main-info group">
-      <img class="feat-prof-picture" src="<%=  restaurant.avatar.url(:thumb) %>">
+    <a href="<%= restaurant_url(restaurant.id) %>">
+      <section class="feat-main-info group">
+        <img class="feat-prof-picture" src="<%=  restaurant.avatar.url(:thumb) %>">
 
-      <div class="feat-prof-name">
-        <%= restaurant.name %>
-      </div>
-    </section>
+        <div class="feat-prof-name">
+          <%= restaurant.name %>
+        </div>
+      </section>
 
-    <ul id="feat-rest-add">
-      <li class="feat-rest-add"><%= restaurant.street1 %> </li>
-      <% if restaurant.street2 != nil %>
-          <li class="feat-rest-add"><%= restaurant.street2 %></li>
-      <% end %>
-      <li class="feat-rest-add"><%= restaurant.city %>,  <%= restaurant.state %></li>
-      <li class="feat-rest-add"><%= restaurant.zip %></li>
-    </ul>
+      <ul id="feat-rest-add">
+        <li class="feat-rest-add"><%= restaurant.street1 %> </li>
+        <% if restaurant.street2 != nil %>
+            <li class="feat-rest-add"><%= restaurant.street2 %></li>
+        <% end %>
+        <li class="feat-rest-add"><%= restaurant.city %>,  <%= restaurant.state %></li>
+        <li class="feat-rest-add"><%= restaurant.zip %></li>
+      </ul>
+    </a>
   <% end %>
 
 </section>

@@ -1,10 +1,5 @@
 <div class="sidebar isShowing">
 
-<%# sidebar = yield :sidebar %>
-
-<%#= content_for :sidebar do %>
-<% #if sidebar.blank? %>
-<%#= fail %>
   <% if current_user %>
     <%= render partial: "users/user2", locals: { user: current_user } %>
   <% end %>
@@ -12,9 +7,6 @@
     <br>
     <br>
     <%= render partial: "sidebars/user" %>
-<%# end %>
-
-
-<%#= fail %>
+    
 </div>
 
