@@ -3,11 +3,8 @@ todo:
 OVERALL: 
 [x] - make it one page
 
-SEED:
-[ ] - pictures
-
 RESTAURANT SHOW PAGE:
-[ ] - fix default stars
+[x] - fix default stars
 [ ] - rating is done in stars, not numbers (CSS MAGIC)
 [ ] - display tags
 [x] - addresses bump into titles...
@@ -19,9 +16,6 @@ MAPBOOK:
 
 SEARCHBARS: 
 [ ] - default in there, which leaves when it is clicked
-
-CSS:
-[ ] - get rid of single use classes
 
 SIDEBAR:
 [ ] - featured review show
@@ -64,6 +58,12 @@ USER SHOW PAGE:
 
 NOTIFICATIONS:
 [ ] - index page
+
+SEED:
+[ ] - pictures
+
+CSS:
+[ ] - get rid of single use classes
 
 ONCE EVERYTHING WORKS:
 [ ] - user show page

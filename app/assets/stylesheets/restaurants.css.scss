@@ -18,6 +18,8 @@
 	color: gold;
 	font-size: 22px;
 	float: left;
+	text-shadow:1px 1px #C52C1E, .1em .1em .2em rgba(0,0,0,.5);
+
 }
 
 .restaurant-tags {
@@ -51,7 +53,7 @@
 
 .owner-options {
 	text-align: right;
-	padding-top: 15px;
+	padding-top: 20px;
 }
 
 .address-line {

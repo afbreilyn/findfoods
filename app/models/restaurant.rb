@@ -42,8 +42,10 @@ class Restaurant < ActiveRecord::Base
     tot_rating = 0.0
 
     ratings.each do |rate|
-      average_rating += rate.rating.to_f
-      tot_rating += 1
+      unless rate.rating.nil?
+        average_rating += rate.rating.to_f
+        tot_rating += 1
+      end
     end
 
     average_rating = average_rating/tot_rating
@@ -54,23 +56,23 @@ class Restaurant < ActiveRecord::Base
       stars = [""]
     elsif average_rating <= 0.5
       stars = ["fa fa-half-star"]
-    elsif average_rating < 1
+    elsif average_rating <= 1.0
       stars = ["fa fa-star"]
-    elsif average_rating < 1.5
+    elsif average_rating <= 1.5
       stars = ["fa fa-star", "fa fa-star-half"]
-    elsif average_rating < 2
+    elsif average_rating <= 2.0
       stars = ["fa fa-star", "fa fa-star"]
-    elsif average_rating < 2.5
+    elsif average_rating <= 2.5
       stars = ["fa fa-star", "fa fa-star", "fa fa-star-half"]
-    elsif average_rating < 3
+    elsif average_rating <= 3.0
       stars = ["fa fa-star", "fa fa-star", "fa fa-star"]
-    elsif average_rating < 3.5
+    elsif average_rating <= 3.5
       stars = ["fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star-half"]
-    elsif average_rating < 4
+    elsif average_rating <= 4.0
       stars = ["fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star"]
     elsif average_rating <= 4.5
       stars = ["fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star-half"]
-    elsif average_rating == 5
+    elsif average_rating == 5.0
       stars = ["fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star"]
     else
       stars = [""]
@@ -78,5 +80,5 @@ class Restaurant < ActiveRecord::Base
 
     return stars
   end
-   
+
 end

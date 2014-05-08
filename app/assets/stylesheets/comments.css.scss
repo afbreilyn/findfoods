@@ -16,7 +16,7 @@
 }
 
 .rating-box {
-	border: 1px solid black;
+	// border: 1px solid black;
 	padding: 5px;
 	font-size: 18px;
 }
@@ -89,6 +89,8 @@
 	margin-top: -78px;
 	color: gold;
 	padding-bottom: 8px;
+	text-shadow:1px 1px #C52C1E, .1em .1em .2em rgba(0,0,0,.5);
+
 }
 
 .review-body {
@@ -96,13 +98,24 @@
 	padding-bottom: 10px;
 }
 
-.reviewer-pic {
-	height: auto;
-	width: 130px;
+#picture-comment {
+	width: 120px;
+	height: 100px;
+	// position: relative;
 	// float: left;
-	position: absolute;
-	left: 15px;
-	top: 30px;
+	// left: 10px;
+
+}
+
+
+.reviewer-pic {
+	// left: 35px;
+	// top: 30px;
+	// padding-bottom: 15px;
+	width: 120%;
+	position: relative;
+	left: -130px;
+	top: -19px;
 }
 
 .delete-button > div {
@@ -122,4 +135,104 @@
 	height: 80px;
 	width: 80px;
 }
+
+
+// #rating {
+// 	font-weight: bold;
+// 	font-size: 26px;
+// 	unicode-bidi: bidi-override;
+// 	direction: rtl;
+// }
+
+// #rating > span {
+// 	display: inline-block;
+// 	position: relative;
+// 	width: 1.1em;
+// }
+
+// #rating > span:hover:before,
+// #rating > span:hover ~ span:before {
+// 	content: "\2605";
+// 	position: absolute;
+// 	color: gold;
+// }
+
+#rating {
+    float:left;
+    border: 0;
+}
+
+#rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    // clip:rect(0,0,0,0);
+}
+
+#rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+#rating:not(:checked) > label:before {
+    content: '★ ';
+}
+
+#rating > input:checked ~ label {
+    color: gold;
+    text-shadow:1px 1px #C52C1E, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+#rating:not(:checked) > label:hover,
+#rating:not(:checked) > label:hover ~ label {
+    color: gold;
+    text-shadow:1px 1px gold, 2px 2px gold, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+#rating > input:checked + label:hover,
+#rating > input:checked + label:hover ~ label,
+#rating > input:checked ~ label:hover,
+#rating > input:checked ~ label:hover ~ label,
+#rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px gold, 2px 2px gold, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+#rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
+
+
+
+
+#star-one {
+
+}
+
+#star-two {
+
+}
+
+#star-three {
+
+}
+
+#star-four {
+
+}
+
+#star-five {
+
+}
+
+
+
 

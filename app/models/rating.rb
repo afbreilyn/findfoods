@@ -10,31 +10,33 @@ class Rating < ActiveRecord::Base
 
 	def rating_stars
 
-		if rating == 0
-			stars = [""]
-		elsif rating <= 0.5
-			stars = ["fa fa-half-star"]
-		elsif rating < 1
-			stars = ["fa fa-star"]
-		elsif rating < 1.5
-			stars = ["fa fa-star", "fa fa-star-half"]
-		elsif rating < 2
-			stars = ["fa fa-star", "fa fa-star"]
-		elsif rating < 2.5
-			stars = ["fa fa-star", "fa fa-star", "fa fa-star-half"]
-		elsif rating < 3
-			stars = ["fa fa-star", "fa fa-star", "fa fa-star"]
-		elsif rating < 3.5
-			stars = ["fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star-half"]
-		elsif rating < 4
-			stars = ["fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star"]
-		elsif rating <= 4.5
-			stars = ["fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star-half"]
-		else 
-			stars = ["fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star"]
-		end
+		unless rating == nil
+			if rating == 0
+				stars = [""]
+			elsif rating <= 0.5
+				stars = ["fa fa-half-star"]
+			elsif rating <= 1
+				stars = ["fa fa-star"]
+			elsif rating <= 1.5
+				stars = ["fa fa-star", "fa fa-star-half"]
+			elsif rating <= 2
+				stars = ["fa fa-star", "fa fa-star"]
+			elsif rating <= 2.5
+				stars = ["fa fa-star", "fa fa-star", "fa fa-star-half"]
+			elsif rating <= 3
+				stars = ["fa fa-star", "fa fa-star", "fa fa-star"]
+			elsif rating < 3.5
+				stars = ["fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star-half"]
+			elsif rating <= 4
+				stars = ["fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star"]
+			elsif rating <= 4.5
+				stars = ["fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star-half"]
+			else 
+				stars = ["fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star", "fa fa-star"]
+			end
 
-		return stars
+			return stars
+		end
 	end
 
 end

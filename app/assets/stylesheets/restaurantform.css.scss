@@ -3,17 +3,19 @@
 .restaurant-show {
 }
 
-.restaurant-form-content {
+.rest-form {
 	width: 700px;
 	float: left;
-	margin-bottom: 50px;
 	border-right: 1px solid #c41200;
+	margin-bottom: 50px;
+}
+
+.restaurant-form-content {
 }
 
 .restaurant-form-header {
 	padding: 0 30px;
 	padding-bottom: 5px;
-	float: left;
 }
 
 .restaurant-form > .input {

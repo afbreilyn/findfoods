@@ -1,3 +1,9 @@
-<h1 class="restaurant-form-header">Register Restaurant</h1>
-<%= render "layouts/errors" %>
-<%= render "form", :restaurant => @restaurant %>
+<div class="rest-form">
+
+	<h1 class="restaurant-form-header">Register Restaurant</h1>
+	<%= render "layouts/errors" %>
+	<%= render "form", :restaurant => @restaurant %>
+
+</div>
+
+<%= render partial: "sidebars/sidebar" %>

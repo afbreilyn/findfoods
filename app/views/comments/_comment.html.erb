@@ -9,9 +9,9 @@
           </div>
         </h3>
         <h3 class="review-rating">
-          <% if child_comment.rating %>
+          <% if child_comment.rating && child_comment.rating.rating %>
             <% child_comment.rating.rating_stars.each do |star| %>
-              <i class="<%= star %>"></i>  
+             <i class="<%= star %>"></i>  
             <% end %> 
           <% end %>
         </h3>
