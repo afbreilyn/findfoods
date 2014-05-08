@@ -1,7 +1,42 @@
 <section class="sidebar-featured sidebar-restaurant">
-	<h2>Featured restaurant:</h2>
 
-	<%#= @restaurants.first.name %>
+  <% if @restaurants %>
+
+  <h2>Featured restaurant:</h2>
+
+    <% restaurant = @restaurants.sample %>
+
+    <h3 class="feat-restaurant-rating">
+      <% restaurant.average_rating.each do |star| %>
+        <i class="<%= star %>"></i>  
+      <% end %>
+    </h3>
+
+    <div class="feat-restaurant-tags">
+        <% restaurant.tags.each do |tag| %>
+          <div class="feat-restaurant-tag"><%= tag.body %></div>
+        <% end %>
+    </div>
+
+<br><br>
+
+    <section class="feat-main-info group">
+      <img class="feat-prof-picture" src="<%=  restaurant.avatar.url(:thumb) %>">
+
+      <div class="feat-prof-name">
+        <%= restaurant.name %>
+      </div>
+    </section>
+
+    <ul id="feat-rest-add">
+      <li class="feat-rest-add"><%= restaurant.street1 %> </li>
+      <% if restaurant.street2 != nil %>
+          <li class="feat-rest-add"><%= restaurant.street2 %></li>
+      <% end %>
+      <li class="feat-rest-add"><%= restaurant.city %>,  <%= restaurant.state %></li>
+      <li class="feat-rest-add"><%= restaurant.zip %></li>
+    </ul>
+  <% end %>
 
 </section>
 

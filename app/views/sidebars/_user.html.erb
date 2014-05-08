@@ -1,26 +1,27 @@
 <section class="sidebar-featured sidebar-user">
-	<h2>Featured User:</h2>
+  <h2 id="feat-user-headline">Featured User:</h2>
 
-	<% if @users %>
-		<% user = @users.sample %>
+  <% if @users %>
+    <% user = @users.sample %>
 
-		<section class="feat-main-info group">
-			<img class="feat-prof-picture" src="<%=  user.avatar.url(:thumb) %>">
+    <section class="feat-main-info group">
+      <img class="feat-prof-picture" src="<%=  user.avatar.url(:thumb) %>">
 
-			<div class="feat-prof-name">
-				<%= user.fname %> 
-				<br><%= user.lname %>
-			</div>
-		</section>
+      <div class="feat-prof-name">
+        <%= user.fname %> 
+        <br><%= user.lname %>
+      </div>
+    </section>
 
-		<section>
-			<h3 class="feat-header">Recent Review:</h3>
-				<h3 class="feat-title"><%= user.written_comments.last.commentable.name %></h3>
-				<h3 class="feat-body"><%= user.written_comments.last.body %></h3>
+    <section>
+      <% if user.written_comments.last %>
+      <h3 class="feat-header">Recent Review:</h3>
+        <h3 class="feat-title"><%= user.written_comments.last.commentable.name %></h3>
+        <h3 class="feat-body"><%= user.written_comments.last.body %></h3>
+      <% end %>
+    </section>
 
-		</section>
-
-	<% end %>
+  <% end %>
 
 
 

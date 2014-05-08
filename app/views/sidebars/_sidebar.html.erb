@@ -5,11 +5,13 @@
 <%#= content_for :sidebar do %>
 <% #if sidebar.blank? %>
 <%#= fail %>
-	<% if current_user %>
-		<%= render partial: "users/user2", locals: { user: current_user } %>
-	<% end %>
-		<%= render partial: "sidebars/restaurant" %>
-		<%= render partial: "sidebars/user" %>
+  <% if current_user %>
+    <%= render partial: "users/user2", locals: { user: current_user } %>
+  <% end %>
+    <%= render partial: "sidebars/restaurant" %>
+    <br>
+    <br>
+    <%= render partial: "sidebars/user" %>
 <%# end %>
 
 

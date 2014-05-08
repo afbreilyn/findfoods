@@ -1,49 +1,49 @@
 <content class="sidebar group">
 
 <section class="main-info group">
-	<img class="prof-picture" src="<%= user.avatar.url(:thumb) %>">
+  <img class="prof-picture" src="<%= user.avatar.url(:thumb) %>">
 
-	<div class="prof-name">
-		<%= user.fname %> 
-	</div>
-	<div class="prof-name">
-		<%= user.mname %> 
-	</div>
-	<div class="prof-name">
-		<%= user.lname %> 
-	</div>
+  <div class="prof-name">
+    <%= user.fname %> 
+  </div>
+  <div class="prof-name">
+    <%= user.mname %> 
+  </div>
+  <div class="prof-name">
+    <%= user.lname %> 
+  </div>
 
 </section>
 
 
 <% if current_user == user %>
 
-	<ul class="prof-options">
+  <ul class="prof-options">
 
-		<li><%=  link_to "Edit Your Info", edit_user_url(user) %></li>
+    <li><%=  link_to "Edit Your Info", edit_user_url(user) %></li>
 
-		<%= render partial: "users/avatar", locals: {user: user} %>
+    <%= render partial: "users/avatar", locals: {user: user} %>
 
-		<li><%= button_to "Delete Your Account", user_url(user), method: :delete %></li>
+    <li><%= button_to "Delete Your Account", user_url(user), method: :delete %></li>
 
-	</ul>
+  </ul>
 
-	<a class="notifications-warning" href="<%= notifications_url %>">Notifications
+  <a class="notifications-warning" href="<%= notifications_url %>">Notifications
     <strong class="notification-num">
-    	<%= current_user.notifications.unread.size %>
+      <%= current_user.notifications.unread.size %>
     </strong>
   </a>
 
-	<ul class="user-restaurants">
-			<h3 class="your-restaurants">Your Restaurants:<h3>
-		<% user.restaurants.each do |restaurant| %>
-			<li>
-				<a href="<%= restaurant_url(restaurant) %>">
-					<%= restaurant.name %>
-				</a>
-			</li>
-		<% end %>
-	</ul>
+  <ul class="user-restaurants">
+      <h3 class="your-restaurants">Your Restaurants:<h3>
+    <% user.restaurants.each do |restaurant| %>
+      <li>
+        <a href="<%= restaurant_url(restaurant) %>">
+          <%= restaurant.name %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
 <% end %>
 
 
@@ -51,11 +51,11 @@
 <%##= render "notifications/index" %>
 
 <ul class="user-notifications">
-	<% user.notifications.each do |notification| %>
-				<% unless notification.is_read? %>
-					<li><a href="<%= notification_url(notification) %>"><%= notification.text %></a></li>
-				<% end  %>
-	<% end %>
+  <% user.notifications.each do |notification| %>
+        <% unless notification.is_read? %>
+          <li><a href="<%= notification_url(notification) %>"><%= notification.text %></a></li>
+        <% end  %>
+  <% end %>
 </ul>
 
 <!-- </content> -->

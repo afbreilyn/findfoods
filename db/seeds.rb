@@ -93,15 +93,7 @@
     "I like the meat", "Not that great", "Doesnt live up to the hype", "My girlfriend gained 20lbs eating at this place.", "HELP! I'm trapped in a yelp clone and can't get out!!!!!",
     "My girlfriend gained 20lbs eating at this place.", "HELP! I'm trapped in a yelp clone and can't get out!!!!!",
     "My girlfriend gained 20lbs eating at this place.", "HELP! I'm trapped in a yelp clone and can't get out!!!!!",
-    "My girlfriend gained 20lbs eating at this place.", "HELP! I'm trapped in a yelp clone and can't get out!!!!!",
-    "My girlfriend gained 20lbs eating at this place.", "HELP! I'm trapped in a yelp clone and can't get out!!!!!",
-    "My girlfriend gained 20lbs eating at this place.", "HELP! I'm trapped in a yelp clone and can't get out!!!!!",
-    "My girlfriend gained 20lbs eating at this place.", "HELP! I'm trapped in a yelp clone and can't get out!!!!!",
-    "My girlfriend gained 20lbs eating at this place.", "HELP! I'm trapped in a yelp clone and can't get out!!!!!",
-
-
-
-
+    "My girlfriend gained 20lbs eating at this place.", "HELP! I'm trapped in a yelp clone and can't get out!!!!!"
   ]
 
 
@@ -118,7 +110,7 @@
     )
 
     jonathan.restaurants.create!(
-      name: "Senaccy's Delight",
+      name: "Sennacy's Delight",
       street1: "27 Cooper Square",
       city: "New York City",
       state: "NY",

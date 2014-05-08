@@ -5,7 +5,6 @@
     <h1 class="restaurant-header"> 
       <%= @restaurant.name %>
     </h1>
-    <% @rating = [] %>
     <h3 class="restaurant-rating">
       <% @restaurant.average_rating.each do |star| %>
         <i class="<%= star %>"></i>  

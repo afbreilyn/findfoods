@@ -21,10 +21,8 @@ SEARCHBARS:
 [x] - default in there, which leaves when it is clicked
 
 SIDEBAR:
-[ ] - featured review show
-[ ] - features review generation (random by week)
+[x] - featured user show
 [ ] - featured restaurant show
-[ ] - featured restaurant generateion (random by week)
 [ ] - filter by star thing
 [ ] - make it not look like shit
 
@@ -82,7 +80,8 @@ ONCE EVERYTHING WORKS:
 [ ] - run everything through html validator
 [ ] - user 1 and user 2 buttons
 [ ] - redo logo
-
+[ ] - features user generation (random by week)
+[ ] - featured restaurant generateion (random by week)
 
 
 

@@ -1,9 +1,9 @@
 <form class="load-prof-pic" enctype="multipart/form-data" action="<%= user_url(user) %>" method="post">
-	<input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="_method" value="patch">
 
-	<%= auth_token %>
+  <%= auth_token %>
 
-	<input class="prof-string" type="file" name="user[avatar]" id="avatar-upload">
+  <input class="prof-string" type="file" name="user[avatar]" id="avatar-upload">
 
-	<input type="submit" value="Load">
+  <input type="submit" value="Load">
 </form>
