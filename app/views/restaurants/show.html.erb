@@ -13,6 +13,15 @@
     </h3> 
     <h3 class="rating-num"><%= @restaurant.ratings.count %> reviews</h3>
 
+<!-- TAGS!!! -->
+      <h3 class="restaurant-list-tag group">
+        <ul class="restaurant-tags">
+          <% @restaurant.tags.each do |tag| %>
+            <li class="restaurant-tag"><%= tag.body %></li>
+          <% end %>
+        </ul>
+      </h3> 
+
 
     <section class="restaurant-address-show">
       <%= @restaurant.street1 %> 

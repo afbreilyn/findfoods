@@ -7,7 +7,7 @@ RESTAURANT SHOW PAGE:
 [x] - fix default stars
 [x] - rating is done in stars, not numbers (CSS MAGIC)
 [x] - display tags on index
-[ ] - display tags on show page
+[x] - display tags on show page
 [x] - addresses bump into titles...
 [x] - ability to add tags
 [ ] - map doesn't scroll
