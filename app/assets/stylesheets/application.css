@@ -26,52 +26,52 @@
 header, body, a, h1, h2, h3, h4, div, form, 
 span, form, nav, label, img, li, ul, figure,
 iframe {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 /* --- ELEMENTS --- */
 
 body {
-	font-family: Helvetica;
-	font-size: 16px;
-	line-height: normal;
+  font-family: Helvetica;
+  font-size: 16px;
+  line-height: normal;
 }
 
 #fullContent {
-	/*border: 2px solid green;*/
+  /*border: 2px solid green;*/
 }
 
 a {
-	text-decoration: none;
-	color: black;
+  text-decoration: none;
+  color: black;
 }
 
 ul {
-	list-style: none;
+  list-style: none;
 }
 
 li {
-	list-style: none;
+  list-style: none;
 }
 
 img {
-	display: block;
-	width: 100%;
-	height: auto;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 iframe {
-	display: block;
+  display: block;
 }
 
 strong {
-	font-weight: bold; 
-	/*maybe have this be normal font, and the rest skinny....*/
+  font-weight: bold; 
+  /*maybe have this be normal font, and the rest skinny....*/
 }
 
 input[type="text"],
@@ -93,103 +93,182 @@ textarea {
 }
 
 input[type="submit"] {
-	display: inline;
-	cursor: pointer;
+  display: inline;
+  cursor: pointer;
 }
 
 input[type="text"]{
-	border: 1px solid black;
-	background: white;
+  border: 1px solid black;
+  background: white;
 }
 
 body{
-	width: 1000px;
-	margin: auto;
+  width: 1000px;
+  margin: auto;
 }
 
 h1 {
-	font-size: 36px;
-	font-weight: bold;
+  font-size: 36px;
+  font-weight: bold;
 }
 
 h2 {
-	font-size: 24px;
-	font-weight: bold;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 h3 {
-	font-size: 18px;
+  font-size: 18px;
 }
 
 /* --- CLEAR FIX --- */
 
 .group:after {
-	display: block;
-	clear: both;
-	content: "";
+  display: block;
+  clear: both;
+  content: "";
 }
 
 .colour {
-	background: #fff;
+  background: #fff;
 }
 
 
 /* --- MAIN CONTENT, ie, RESTAURANT LIST --- */
 
 .main-content {
-	width: 702px;
-	float: left;
-	margin-bottom: 50px;
-	/*border-left: 1px solid #c41200;*/
-	border-right: 1px solid #c41200;
-	background: #fff;
+  width: 702px;
+  float: left;
+  margin-bottom: 50px;
+  /*border-left: 1px solid #c41200;*/
+  border-right: 1px solid #c41200;
+  background: #fff;
 }
 
 .restaurant-index-header {
-	padding: 0 15px;
-	padding-bottom: 25px;
-	background: #fff;
+  padding: 0 15px;
+  padding-bottom: 25px;
+  background: #fff;
 }
 
 .restaurant-address {
-	float: right;
-	padding-top: 15px;
-	background: #fff;
+  float: right;
+  padding-top: 15px;
+  background: #fff;
 }
 
 .restaurant-list > li > a > .restaurant-address {
-	width: 220px;
-	text-align: right;
+  width: 220px;
+  text-align: right;
 }
 .restaurant-list{
-	width: 670px;
-	padding: 0 15px;
-	display: block;
-	float: left;
+  width: 670px;
+  padding: 0 15px;
+  display: block;
+  float: left;
 }
 
 .restaurant-list > li {
-	position: relative;
-	font-weight: normal;
-	border-top: 1px solid #ccc;
-	padding-top: 30px;
-	padding-bottom: 75px;
-	/*margin: 55px 0;*/
-	padding-left: 120px;
+  position: relative;
+  font-weight: normal;
+  border-top: 1px solid #ccc;
+  padding-top: 30px;
+  padding-bottom: 75px;
+  margin: 35px 0;
+  padding-left: 120px;
 }
 
 .restaurant-list > li > a > div > .restaurant-prof-pic {
-	width: 90px;
-	position: absolute;
-	left: 15px;
-	top: 20px;
+  width: 90px;
+  position: absolute;
+  left: 15px;
+  top: 20px;
+  margin-bottom: 12px;
+}
+
+#restaurant-index-name {
 }
 
 .restaurant-list-tags > li {
-	color: blue;
+  color: blue;
+}
+
+#restaurant-index-name {
+  margin-top: -13px;
 }
 .restaurant-list > li > a > .restaurant-rating {
+
 }
+
+.restaurant-rating {
+}
+
+.restaurant-list-tags {
+}
+
+.tag {
+  position: relative;
+  left: 133px;
+  top: -75px;
+  font-size: 21px;
+  padding:0 10px 0 12px;
+  margin-bottom: 6px;
+  background:#0089e0;
+  color:#fff;
+  text-decoration:none;
+  -moz-border-radius-bottomright:4px;
+  -webkit-border-bottom-right-radius:4px; 
+  border-bottom-right-radius:4px;
+  -moz-border-radius-topright:4px;
+  -webkit-border-top-right-radius:4px;  
+  border-top-right-radius:4px; 
+}
+
+.tag:before {
+  content:"";
+  /*float:left;*/
+  position:absolute;
+  top:0;
+  left:-12px;
+  width:0;
+  height:0;
+  border-color:transparent #0089e0 transparent transparent;
+  border-style:solid;
+  border-width:12px 12px 12px 0;
+}
+
+.tag:after {
+  content:"";
+  position:absolute;
+  top:10px;
+  left:0;
+  float:left;
+  width:4px;
+  height:4px;
+  -moz-border-radius:2px;
+  -webkit-border-radius:2px;
+  border-radius:2px;
+  background:#fff;
+  -moz-box-shadow:-1px -1px 2px #004977;
+  -webkit-box-shadow:-1px -1px 2px #004977;
+  box-shadow:-1px -1px 2px #004977;
+}
+
+.tags{
+  margin: 0;
+  padding:0;
+  position:absolute;
+  list-style: inline;
+  }
+
+
+
+/*IF I MAKE THE TAGS LINKS::: */
+/*.tags a:hover{background:#555;} 
+
+.tags a:hover:before{border-color:transparent #555 transparent transparent;}*/
+
+
 /* --- SIGN IN --- */
 
 .sign-in-header{

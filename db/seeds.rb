@@ -134,7 +134,7 @@
       state: "VT",
       email: "afb@example.com",
       password: "password",
-      avatar: File.open(Rails.root.join("seeds", "Wheat_Field_with_Crows_(1890).jpg"))
+      avatar: File.open(Rails.root.join("seeds", "pic_for_stuff.jpg"))
     )
 
     afb.restaurants.create!(
@@ -194,8 +194,8 @@
     )
   end
 
-  200.times do 
-    restaurants.sample.tags.create!(
+  restaurants.each do |restaurant|
+    restaurant.tags.create!(
       author_id: users.sample.id,
       body: food_arr.sample
     )
@@ -203,7 +203,7 @@
 
   reviews.each do |review|
     review.create_rating!(
-      rating: rand(7),
+      rating: rand(5),
       user_id: review.user_id,
       restaurant_id: review.commentable_id
     )

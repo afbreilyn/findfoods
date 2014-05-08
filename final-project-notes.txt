@@ -5,8 +5,9 @@ OVERALL:
 
 RESTAURANT SHOW PAGE:
 [x] - fix default stars
-[ ] - rating is done in stars, not numbers (CSS MAGIC)
-[ ] - display tags
+[x] - rating is done in stars, not numbers (CSS MAGIC)
+[ ] - display tags on index
+[ ] - display tags on show page
 [x] - addresses bump into titles...
 
 MAPBOOK:
@@ -76,7 +77,7 @@ ONCE EVERYTHING WORKS:
 [ ] - profile page
 [ ] - run everything through html validator
 [ ] - user 1 and user 2 buttons
-
+[ ] - redo logo
 
 
 

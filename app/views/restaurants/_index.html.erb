@@ -13,21 +13,15 @@
             <img class="restaurant-prof-pic" src="<%= restaurant.avatar.url(:full) %>">
           </div>
 
-          <h2><%= restaurant.name %></h2>
+          <h2 id="restaurant-index-name"><%= restaurant.name %></h2>
 
           <h2 class="restaurant-rating">
-            <% restaurant.average_rating.each do |star| %>
-              <i class="<%= star %>"></i>  
+            <% if restaurant.ratings.count > 0 %>
+              <% restaurant.average_rating.each do |star| %>
+                <i class="<%= star %>"></i>  
+                <% end %>
             <% end %>
-          </h2> 
-
-<!--           <h2 class="restaurant-list-tag">
-            <ul>
-              <% restaurant.tags.each do |tag| %>
-                <li><%#= tag %></li>
-              <% end %>
-            </ul>
-          </h2> -->
+          </h2>
 
           <span class="restaurant-address">
             <h3>
@@ -43,6 +37,14 @@
         </a>
 
       </li>
+
+      <h3 class="restaurant-list-tag group">
+        <ul class="tags">
+          <% restaurant.tags.each do |tag| %>
+            <li class="tag"><%= tag.body %></li>
+          <% end %>
+        </ul>
+      </h3> 
     <% end %>
 
   </ul>
