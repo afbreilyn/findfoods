@@ -45,6 +45,16 @@
 			<input type='hidden' name="restaurant[owner]" value="<%= current_user.id %>">
 		</div>
 
+		<div class="input">
+			<label for="tag1">Tag1</label>
+			<input type='text' name="tag1[body]" value="<%= !restaurant.tags[0].nil? ? restaurant.tags[0].body : "" %>">
+		</div>
+
+		<div class="input">
+			<label for="tag2">Tag2</label>
+			<input type='text' name="tag2[body]" value="<%= !restaurant.tags[1].nil? ? restaurant.tags[1].body : "" %>">
+		</div>
+
 	<input type="submit" value="<%= restaurant.persisted? ? 'Update' : 'Create'%>">
 </form>
 
