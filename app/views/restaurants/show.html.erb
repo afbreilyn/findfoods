@@ -47,6 +47,12 @@
   <script>
   var map = L.mapbox.map('show_map', 'afbresley.i427m2gn').setView(["<%= @restaurant.latitude %>", "<%= @restaurant.longitude %>"], 8);
 
+  map.dragging.disable();
+  map.touchZoom.disable();
+  map.doubleClickZoom.disable();
+  map.scrollWheelZoom.disable();
+
+
   var myLayer = L.mapbox.featureLayer().addTo(map);
 
   // The GeoJSON representing the two point features
@@ -70,6 +76,10 @@
 
   myLayer.setGeoJSON(geoJson);
 
+  myLayer.on('ready', function() {
+    map.fitBounds(featureLayer.getBounds());
+  });
+
   myLayer.on('mouseover', function(e) {
       e.layer.openPopup();
   });
@@ -77,9 +87,7 @@
       e.layer.closePopup();
   });
 
-  myLayer.on('ready', function() {
-    map.fitBounds(featureLayer.getBounds());
-  });
+
 
   </script>
 

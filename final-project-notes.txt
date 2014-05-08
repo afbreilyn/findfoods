@@ -10,10 +10,10 @@ RESTAURANT SHOW PAGE:
 [x] - display tags on show page
 [x] - addresses bump into titles...
 [x] - ability to add tags
-[ ] - map doesn't scroll
+[x] - map doesn't scroll
 
-MAPBOOK:
-[ ] - correct zoom when searching
+MAPBOx:
+[x] - correct zoom when searching
 [x] - hover displays name
 [x] - click brings to restaurant show page
 

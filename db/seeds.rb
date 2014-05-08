@@ -8,8 +8,8 @@
 
   food_arr = %w(chinese japanese itialian thai german french american english indian
       dutch burgers pizza mexican fusion hoiday appetizers breads chocolate 
-      convenience fast meat steak dessert pies puddings stewskosher breakfast, 
-      sandwich icecream noodles best)
+      convenience fast meat steak dessert pies puddings stews kosher breakfast, 
+      sandwich icecream noodles peruvian nomnom )
 
   cities = %w(Shanghai Beijing Lagos Istanbul Karachi Mumbai Moscow São Paulo Guangzhou 
     Delhi Shenzhen Seoul Jakarta Kinshasa Tainjin Tokyo Cairo Chaka Mexico Lima Bangalor 

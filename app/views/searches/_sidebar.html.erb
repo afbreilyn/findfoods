@@ -4,9 +4,9 @@
   <h3>
   	<ul>
   		<label>You searched for:</label>
-  			<li><%= !search.search_params.empty? || "Anything" %></li>
+  			<li><%= !search.search_params.empty? ? search.search_params : "Anything" %></li>
   		<label>Near:</label>
-  			<li><%= !search.start_location.empty? || "Near Me" %></li>
+  			<li><%= !search.start_location.empty? ? search.start_location : "Near Me" %></li>
   	</ul>
   </h3>
 

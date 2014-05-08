@@ -23,8 +23,9 @@
     <div class="topline">
       <form class="header search-form" action="<%= searches_url %>" method="get" data-remote="true">
 
-        <input type="search-text" name="search[search_params]" value="">
-        <input type="search-text" name="search[start_location]" value="">
+        <input id="s_params" type="search-text" name="search[search_params]" value="" placeholder="What kind of food?">
+
+        <input id="s_locat" type="search-text" name="search[start_location]" value="" placeholder="Where?">
 
         <input type="hidden" name="search[user_id]" value="<%= current_user ? current_user.id : nil %>">
 
@@ -45,6 +46,8 @@
 
           $("form.search-form").on("ajax:success", function (event, data) { 
             $fullContent.html(data); 
+            $("#s_params").val("");
+            $("#s_locat").val("");
           });
 
           $("#sign-in").on("ajax:success", function(event, data) {

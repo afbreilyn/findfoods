@@ -20,8 +20,8 @@
 
 
     // Pass features and a custom factory function to the map
-    myLayer.setGeoJSON(geoJson)    
-    map.fitBounds(myLayer.getBounds()); /*.maxzoom(15));*/
+    myLayer.setGeoJSON(geoJson)
+    map.fitBounds(myLayer.getBounds(), { paddingTopLeft: [35, 35] } );
 
     myLayer.on('mouseover', function(e) {
         e.layer.openPopup();
@@ -33,11 +33,7 @@
       map.panTo(e.layer.getLatLng());
     });
     myLayer.on('click', function(e) {
-      // console.log(e.layer);
       window.location.href = e.layer.feature.properties.url
-    });
-    myLayer.on('ready', function() {
-      map.fitBounds(myLayer.getBounds());
     });
 
   </script>
