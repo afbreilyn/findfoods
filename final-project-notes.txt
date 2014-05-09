@@ -22,9 +22,9 @@ SEARCHBARS:
 
 SIDEBAR:
 [x] - featured user show
-[ ] - featured restaurant show
+[x] - featured restaurant show
 [ ] - filter by star thing
-[ ] - make it not look like shit
+[x] - make it not look like shit
 
 SEARCH SHOW PAGE:
 [ ] - populate physical list

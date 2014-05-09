@@ -45,64 +45,11 @@
 
     $("form.refine-search").on("ajax:success", function (event, data) { 
       console.log(data);
-      $fullContent.html(data); /* doesn't work on restaurant show page, cause no main-content */
+      $fullContent.html(data);
     });
 
-    // $("form.refine-search").on("submit", function (event) {
-    //   event.preventDefault();
-    //   var $form = $(this);
-    //   var $currentTarget = $(event.currentTarget);
-    //   var data = $currentTarget.serializeJSON();
-    //   var that = this;
-    //   console.log(data);
-
-    //   $.ajax({
-    //     url: $form.attr("action"),
-    //     type: "GET",
-    //     data: data,
-    //     success: function (resp) {
-    //       console.log("success!"),
-    //       console.log(resp),
-    //       // meow = resp;
-    //       // $fullContent.html(data);
-    //       arr = []
-    //       resp.forEach(function (obj) {
-    //         // console.log("meow");
-    //         if(obj.latitude && obj.longitude){
-
-  		// 				arr.push({'type': 'Feature',
-    //               'geometry': {
-    //                 'type': 'Point',
-    //                 'coordinates': [ obj.longitude, obj.latitude ]
-    //               },
-    //               'properties': {
-    //                 'title': obj.name,
-    //                 'marker-color': '#c41200',
-    //                 'marker-symbol': 'marker',
-    //                 'marker-size': 'medium'
-    //               }
-    //             });
-    //         };
-    //       })
-
-          // geoJson = { 'type' : 'FeatureCollection', 'features': arr };
-          // myLayer.setGeoJSON(geoJson);
-          
-          // if (arr.length > 0 ){
-          //   map.fitBounds(myLayer.getBounds());
-          // } else {
-          //   map.setView(["50", "-50"], 2);
-          // };
-
-          // if (map._zoom > 15) { 
-          //   // console.log(map._zoom)
-          //   // map.setZoom(15) 
-          //   // console.log(map._zoom)
-          // }
-          // $form[0].reset();
-     //    }
-     //  })
-     // });
   </script>
 
 </section>
+
+
