@@ -1,29 +1,29 @@
 <div class="sidebar isShowing">
 
-<%# sidebar = yield :sidebar %>
-
-<%#= content_for :sidebar do %>
-<% #if sidebar.blank? %>
-<%#= fail %>
-	<% if current_user %>
-		<%= render partial: "users/user2", locals: { user: current_user } %>
-	<% end %>
-	<%= button_to "Destroy this restaurant", user_restaurant_url(current_user.id, @restaurant), method: :delete %>
-
-	<form enctype="multipart/form-data" action="<%= user_restaurant_url(current_user, @restaurant) %>" method="post">
-		<input type="hidden" name="_method" value="patch">
-
-		<%= auth_token %>
-
-		<input type="file" name="restaurant[avatar]" id="avatar-upload">
-
-		<input type="submit" value="Upload Photo">
-	</form>
-		<%= render partial: "sidebars/restaurant" %>
-		<%= render partial: "sidebars/user" %>
-<%# end %>
+  <% if current_user %>
+    <%= render partial: "users/user2", locals: { user: current_user } %>
+  <% end %>
 
 
-<%#= fail %>
+  <section class="restaurant-owner-extra">
+
+      <%= button_to "Destroy this restaurant?", user_restaurant_url(current_user.id, @restaurant), method: :delete %>
+      <br>
+    <form class="rest-pic-upload" enctype="multipart/form-data" action="<%= user_restaurant_url(current_user, @restaurant) %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+
+      <%= auth_token %>
+
+      <input class="prof-string" type="file" name="restaurant[avatar]" id="avatar-upload">
+
+      <input type="submit" value="Upload Photo">
+    </form>
+
+      </section>
+      <%= render partial: "sidebars/restaurant" %>
+      <%= render partial: "sidebars/user" %>
+
+
+
 </div>
 

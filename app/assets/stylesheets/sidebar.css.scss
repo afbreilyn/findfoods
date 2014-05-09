@@ -218,7 +218,14 @@
   padding: 1px 0 1px 15px;
 }
 
+.restaurant-owner-extra {
+  margin-left: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #ccc;
+}
 
-
-
-
+.rest-pic-upload > input[type="submit"] {
+  background: #ccc;
+  font-weight: bold;
+  font-size: 12px;
+}

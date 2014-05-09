@@ -4,6 +4,7 @@ class RestaurantsController < ApplicationController
 
   def index
     @users = User.all
+    @restaurants = Restaurant.all
     @restaurants = Restaurant.all.page(params[:page]).per(15)
 
     if request.xhr?
@@ -13,6 +14,8 @@ class RestaurantsController < ApplicationController
 
   def new
     @restaurant = Restaurant.new
+    @restaurants = Restaurant.all
+    @users = User.all
     render :new
   end
 
@@ -41,11 +44,13 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @users = User.all
+    @restaurants = Restaurant.all
   end
 
   def edit
     @restaurant = current_user.restaurants.find(params[:id])
     @users = User.all
+    @restaurants = Restaurant.all
     render :edit
   end
 

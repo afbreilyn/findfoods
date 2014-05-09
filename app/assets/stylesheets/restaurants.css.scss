@@ -40,6 +40,8 @@
 }
 
 .restaurant-address-show {
+  position: relative;
+  top: 25px;
 	float: right;
 	font-size: 24px;
 	margin-top: -10px; 
@@ -49,6 +51,8 @@
 .owner-options {
 	text-align: right;
 	padding-top: 20px;
+  position: relative;
+  top: 25px;
 }
 
 .address-line {
@@ -74,6 +78,7 @@
 	frameBorder: 1;
 	position: relative;
 	top: 15px;
+  margin-bottom: 45px;
 }
 
 .restaurant-tag {

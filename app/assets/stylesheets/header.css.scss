@@ -29,13 +29,13 @@
 	right: 140px;
 }
 
-input[type="search-text"]{
+input[type="text"]{
 	float: left;
-	padding: 5px;
+	padding: 3px 5px;
 	height: 30px;
 	width: 300px;
 	margin: 10px;
-	font-size: 18px;
+	font-size: 24px;
 	font-weight: bold;
 }
 
@@ -61,7 +61,7 @@ input[type="search-text"]{
 }
 
 .header-nav > ul > li > a{
-	font-size: 14px;
+	font-size: 18px;
 	font-weight: bold;
 	display: block;
 	margin-left: 10px;
@@ -91,7 +91,7 @@ input[type="search-text"]{
 }
 
 .sign-out{
-	font-size: 14px;
+	font-size: 18px;
 	font-weight: bold;
 	display: block;
 }
