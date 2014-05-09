@@ -39,8 +39,8 @@ UJS:
 
 FORMATTING:
 [x] - sign up/restaurant form headers are messed up
-[ ] - 50px margin bot on every page
-[ ] - make pagination pretty 
+[x] - 50px margin bot on every page
+[x] - make pagination pretty 
 
 WRITE A REVIEW:
 [ ] - search for restaurant both by caregory and name

@@ -5,7 +5,7 @@ class RestaurantsController < ApplicationController
   def index
     @users = User.all
     @restaurants = Restaurant.all
-    @restaurants = Restaurant.all.page(params[:page]).per(15)
+    @restaurants = Restaurant.all.page(params[:page]).per(10)
 
     if request.xhr?
       render :index, layout: false

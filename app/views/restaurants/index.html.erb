@@ -1,9 +1,9 @@
 <section id="main-content" class="main-content group">
 
-<%= paginate @restaurants %>
-
 <%= render partial: "restaurants/index", locals: {restaurants: @restaurants}
  %>
+
+<%= paginate @restaurants %>
 
 </section>
 
