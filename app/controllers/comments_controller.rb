@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  layout false
 
   def new
     @comment = Comment.new
@@ -20,10 +21,10 @@ class CommentsController < ApplicationController
       comment.save!
       rating.comment_id = comment.id
       rating.save!
-      redirect_to restaurant 
+      render partial: "restaurants/restaurant", locals: {restaurant: restaurant}
       return 
     end
-    redirect_to restaurant
+    render partial: "restaurants/restaurant", locals: {restaurant: restaurant}
   end
 
   def edit

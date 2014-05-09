@@ -36,7 +36,6 @@ BACKBONE:
 
 UJS:
 [ ] - use for adding comments
-[ ] - (if time - nested)
 
 FORMATTING:
 [x] - sign up/restaurant form headers are messed up
@@ -73,6 +72,7 @@ ONCE EVERYTHING WORKS:
 [ ] - omniauth
 [ ] - emailer / texter
 [ ] - error styling
+[ ] - nested comments
 [ ] - search for restaurants with autocomplete
 [ ] - buttons to fill out forms
 [ ] - weekly emails

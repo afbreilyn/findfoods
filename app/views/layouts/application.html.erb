@@ -10,22 +10,20 @@
 <body>
   <header class="header"> 
 
-
     <div class="header-wrap group">
  
-
     <div class="logo">
       <a href="<%= root_url %>" data-remote="true">
-        <img src="http://i.imgur.com/QFwam36.png">
+        <img src="http://i.imgur.com/QFwam36.png" alt="find-foods-logo">
       </a>
     </div>
 
     <div class="topline">
       <form class="header search-form" action="<%= searches_url %>" method="get" data-remote="true">
 
-        <input id="s_params" type="search-text" name="search[search_params]" value="" placeholder="What kind of food?">
+        <input id="s_params" type="text" name="search[search_params]" value="" placeholder="What kind of food?">
 
-        <input id="s_locat" type="search-text" name="search[start_location]" value="" placeholder="Where?">
+        <input id="s_locat" type="text" name="search[start_location]" value="" placeholder="Where?">
 
         <input type="hidden" name="search[user_id]" value="<%= current_user ? current_user.id : nil %>">
 
@@ -58,88 +56,50 @@
           $("#sign-up").on("ajax:success", function(event, data) {
             event.preventDefault();
             $fullContent.html(data);
-            // console.log("i did it!!! :D");
           });
 
           $("#home-button").on("ajax:success", "a", function(event, data) {
             event.preventDefault();
-            // console.log(event)
-            // console.log("hello there");
-            // $fullContent.html(data);
             $fullContent.html(data);
           });
 
           $(".logo").on("ajax:success", "a", function(event, data) {
             event.preventDefault();
-            // console.log(event)
-            // console.log("hello there");
-            // $fullContent.html(data);
             $fullContent.html(data);
           });
-  
 
-    //<<<<<<THIS IS THE MODAL STUFF>>>>>w
-            // window.openModal = function(event){
-            //   $("#modal").addClass("is-active");
-            // }
+          $("form.new-comment").on("ajax:success", function(event, data) {
+            event.preventDefault();
+            $fullContent.html(data);
+            console.log("sadklsdflksdfalkj")
+          });
 
-            // window.closeModal = function(event){
-            //   $("#modal").removeClass("is-active");
-            // }
+          function showLocation(position) {
+            $("#search-lat").val(position.coords.latitude);
+            $("#search-long").val(position.coords.longitude);
+          }
 
-            // $("body").on("click", ".open-modal", window.openModal);
-            // $("body").on("click", ".close-modal", window.closeModal);
-
-    //<<<<<<<<<<<<
-
-
-                // insert the data where i want it
-            //   console.log(window.collection)
-
-            //   var that = this;
-            //   var $form = $(this);
-            //   data = $form.serializeJSON();
-
-            //   // console.log(Findfood.restaurants);
-              
-            //   $.ajax({
-            //     url: $form.attr("action"),
-            //     type: "GET",
-            //     data: data,
-            //     success: function (resp) {
-            //       resp.forEach(function(restaurantJSON) {
-            //         console.log(restaurantJSON)
-            //       })
-            //     }
-            //   });
-
-
-            function showLocation(position) {
-              $("#search-lat").val(position.coords.latitude);
-              $("#search-long").val(position.coords.longitude);
+          function errorHandler(err) {
+            if(err.code == 1) {
+              alert("Error: Access is denied!");
+            }else if( err.code == 2) {
+              alert("Error: Position is unavailable!");
             }
+          }
 
-            function errorHandler(err) {
-              if(err.code == 1) {
-                alert("Error: Access is denied!");
-              }else if( err.code == 2) {
-                alert("Error: Position is unavailable!");
-              }
-            }
+          function getLocation(){
+             if(navigator.geolocation){
+                // timeout at 60000 milliseconds (60 seconds)
+                var options = {timeout:60000};
+                navigator.geolocation.getCurrentPosition(showLocation, 
+                                                         errorHandler,
+                                                         options);
+             }else{
+                alert("Sorry, browser does not support geolocation!");
+             }
+          }
 
-            function getLocation(){
-               if(navigator.geolocation){
-                  // timeout at 60000 milliseconds (60 seconds)
-                  var options = {timeout:60000};
-                  navigator.geolocation.getCurrentPosition(showLocation, 
-                                                           errorHandler,
-                                                           options);
-               }else{
-                  alert("Sorry, browser does not support geolocation!");
-               }
-            }
-
-            getLocation();
+          getLocation();
         });
 
       </script>
@@ -147,7 +107,7 @@
 
       <% if signed_in? %>
         <div class="prof-pic"> 
-          <a href="<%= root_url %>"><img src="<%=  current_user.avatar.url(:micro) %>"></a>
+          <a href="<%= root_url %>"><img src="<%=  current_user.avatar.url(:micro) %>" alt="prof-pic"></a>
         </div>
       <% end %>
     </div>
@@ -177,11 +137,7 @@
 
   </header>
 
-  <section id="modal" class="modal">
-  <article class="modal-content">
-    <span class="modal-map close-modal">&times;</span>
-
-      <div id='silly_map'></div>
+  <div id='silly_map'></div>
 
   <script>
 
@@ -193,8 +149,7 @@
       'features': [<%= feature_helper(@restaurants) %>]
     };
 
-    myLayer.setGeoJSON(geoJson)    
-    // map.fitBounds(myLayer.getBounds()); /*.maxzoom(15));*/
+    myLayer.setGeoJSON(geoJson)
 
     myLayer.on('mouseover', function(e) {
         e.layer.openPopup();
@@ -213,9 +168,7 @@
 
   </script>
 
-  </article>
   <div class="modal-screen close-modal"></div>
-</section>
   
 <section class="group" id="fullContent">
   <%= yield %>

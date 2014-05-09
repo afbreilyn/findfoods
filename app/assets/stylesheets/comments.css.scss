@@ -76,13 +76,14 @@
 	padding: 25px 30px;
 	position: relative;
 	padding-left: 165px;
-	margin-bottom: 15px;
+	margin-bottom: 35px;
 }
 
 .reviewer-name {
 	font-weight: bold;
 	// position: absolute;
 	padding-bottom: 3px;
+	// margin-top: 5px;
 }
 
 .review-rating {
@@ -98,16 +99,6 @@
 	padding-bottom: 10px;
 }
 
-#picture-comment {
-	width: 120px;
-	height: 100px;
-	// position: relative;
-	// float: left;
-	// left: 10px;
-
-}
-
-
 .reviewer-pic {
 	// left: 35px;
 	// top: 30px;
@@ -116,6 +107,7 @@
 	position: relative;
 	left: -130px;
 	top: -19px;
+	// margin-bottom: 15px;
 }
 
 .delete-button > div {
@@ -131,11 +123,17 @@
 	background: blue;
 }
 
-#picture-comment { /*trying to contrain the picture on the */
-	height: 80px;
-	width: 80px;
+#picture-comment { 
+	height: 75px;
+	width: 75px;
 }
 
+
+// #picture-comment {
+// 	width: 120px;
+// 	height: 100px;
+
+// }
 
 // #rating {
 // 	font-weight: bold;
