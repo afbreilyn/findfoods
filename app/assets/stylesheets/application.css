@@ -264,30 +264,9 @@ h3 {
   padding-bottom: 50px;
 }
 
-/*#s_params, #s_locat {
-  width: 300px;
-  height: 30px;
-  font-size: 24px;
-  padding: 3px 8px;
-  margin-left: 6px;
-  left: -7px;
-  top: 3px;
-  position: relative;
-}*/
-
-/*IF I MAKE THE TAGS LINKS::: */
-/*.tags a:hover{background:#555;} 
-
-.tags a:hover:before{border-color:transparent #555 transparent transparent;}*/
-
-
-/* --- SIGN IN --- */
-
-.sign-in-header{
+.sign-in-password, #u-password {
+  margin-left: 10px;
 }
-
-
-
 
 
 
