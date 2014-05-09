@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @users = User.all
+    @restaurants = Restaurant.all
     render :new
   end
 

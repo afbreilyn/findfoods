@@ -79,7 +79,7 @@ class SearchesController < ApplicationController
         @restaurants = ranked_rest
       end
     end
-    
+
     render partial: "searches/mapply", locals: {restaurants: @restaurants}
   end
 

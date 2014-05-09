@@ -5,25 +5,8 @@
 </article>
 
 
-<section class="search-restaurant-list" id="title-list">
-	<ul>
-    <% if @restaurants.empty? %>
-      <li> Sorry, no results found </li>
-    <% end %>
-    
-		<% @restaurants.each do |restaurant| %>
-			<li>
-				<a href="<%= restaurant_url(restaurant) %>">	
-					<%= restaurant.name %> 
-					<% restaurant.average_rating.each do |star| %>
-						<i class="<%= star %>"></i>  
-					<% end %>
-				</a>
-			</li>
-		<% end %>
-	</ul>
-</section>
-
+<%= render partial: "restaurants/index", locals: {restaurants: @restaurants}
+ %>
 
 <%#= content_for :sidebar do %>
 
@@ -130,7 +113,24 @@
 	</section>
 		<%# end %>
 
-		
+		  <section class="search-restaurant-list" id="title-list">
+    <ul>
+      <% if @restaurants.empty? %>
+        <li> Sorry, no results found </li>
+      <% end %>
+      
+      <% @restaurants.each do |restaurant| %>
+        <li>
+          <a href="<%= restaurant_url(restaurant) %>">  
+            <%= restaurant.name %> 
+            <% restaurant.average_rating.each do |star| %>
+              <i class="<%= star %>"></i>  
+            <% end %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </section>
 
 
 

@@ -38,24 +38,56 @@
 
   </script>
 
-  <section class="search-restaurant-list" id="title-list">
-    <ul>
-      <% if @restaurants.empty? %>
-        <li> Sorry, no results found </li>
-      <% end %>
-      
-      <% @restaurants.each do |restaurant| %>
-        <li>
-          <a href="<%= restaurant_url(restaurant) %>">  
-            <%= restaurant.name %> 
-            <% restaurant.average_rating.each do |star| %>
-              <i class="<%= star %>"></i>  
+  <ul class="restaurant-list group result-list-text">
+
+   <% @restaurants.each do |restaurant| %>
+      <li>
+        <a href="<%= restaurant_url(restaurant.id) %>">
+
+          <div class="index-pic">
+            <img class="restaurant-prof-pic" src="<%= restaurant.avatar.url(:full) %>">
+          </div>
+
+          <h2 id="restaurant-index-name"><%= restaurant.name %></h2>
+
+          <h2 class="restaurant-rating">
+            <% if restaurant.ratings.count > 0 %>
+              <% restaurant.average_rating.each do |star| %>
+                <i class="<%= star %>"></i>  
+                <% end %>
             <% end %>
-          </a>
-        </li>
-      <% end %>
-    </ul>
-  </section>
+          </h2>
+
+          <span class="restaurant-address">
+            <h3>
+              <%= restaurant.street1 %> 
+              <% if restaurant.street2 != nil %>
+                <%= restaurant.street2 %>
+              <% end  %>
+              <%= restaurant.city %>, <%= restaurant.state %>
+              <%= restaurant.zip %>
+            </h3>
+          </span>
+
+        </a>
+
+      </li>
+
+      <h3 class="restaurant-list-tag group">
+        <ul class="tags">
+          <% restaurant.tags.each do |tag| %>
+            <li class="tag"><%= tag.body %></li>
+          <% end %>
+        </ul>
+      </h3> 
+    <% end %>
+
+    <% if @restaurants.empty? %>
+      <h3 class="sorry"><li> Sorry, no results found </li></h3>
+    <% end %>
+
+  </ul>
+
 </div>
 
 <%= render partial: "searches/sidebar", locals: { search: @search } %>

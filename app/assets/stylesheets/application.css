@@ -40,6 +40,7 @@ body {
   font-family: Helvetica;
   font-size: 16px;
   line-height: normal;
+  margin-bottom: 50px;
 }
 
 #fullContent {
@@ -139,8 +140,6 @@ h3 {
 .main-content {
   width: 702px;
   float: left;
-  margin-bottom: 50px;
-  /*border-left: 1px solid #c41200;*/
   border-right: 1px solid #c41200;
   background: #fff;
 }
@@ -261,7 +260,9 @@ h3 {
   list-style: inline;
   }
 
-
+#fullContent {
+  padding-bottom: 50px;
+}
 
 /*IF I MAKE THE TAGS LINKS::: */
 /*.tags a:hover{background:#555;} 

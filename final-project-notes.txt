@@ -23,11 +23,11 @@ SEARCHBARS:
 SIDEBAR:
 [x] - featured user show
 [x] - featured restaurant show
-[ ] - filter by star thing
+[x] - filter by star thing
 [x] - make it not look like shit
 
 SEARCH SHOW PAGE:
-[ ] - populate physical list
+[x] - populate physical list
 
 BACKBONE:
 [ ] - use for search queries sorting
