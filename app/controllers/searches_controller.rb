@@ -69,11 +69,18 @@ class SearchesController < ApplicationController
       @restaurants = near_restaurants
     end
 
-    # render partial: "restaurants/index", locals: {restaurants: @restaurants}
-
+    if params["min-star"]
+      ranked_rest = []
+      req_rank = params["min-star"].to_i
+      unless req_rank == nil || req_rank == 0
+        @restaurants.each do |rest|
+          ranked_rest << rest if rest.average_rating_num >= req_rank
+        end
+        @restaurants = ranked_rest
+      end
+    end
+    
     render partial: "searches/mapply", locals: {restaurants: @restaurants}
-    #  :layout => false
-    # redirect_to search_url(@search)
   end
 
   private

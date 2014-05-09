@@ -3,25 +3,25 @@
 <section class="search-sidebar">
   <h3>
   	<ul>
-  		<label>You searched for:</label>
-  			<li><%= !search.search_params.empty? ? search.search_params : "Anything" %></li>
-  		<label>Near:</label>
-  			<li><%= !search.start_location.empty? ? search.start_location : "Near Me" %></li>
+  		<label class="refine-header">You searched for:</label>
+  			<li class="old-params"><%= !search.search_params.empty? ? search.search_params : "Anything" %></li>
+  		<label class="refine-header">Near:</label>
+  			<li class="old-params"><%= !search.start_location.empty? ? search.start_location : "Near Me" %></li>
   	</ul>
   </h3>
 
 
-  Parameters: 
+  <h3 class="refine-header">Refine your search:</h3>
   <form class="refine-search" id="thisthing" action="<%= searches_url %>" method="get" data-remote="true">
   	<%= auth_token %>
   	<label>New Category:</label>
-  		<input type="text" name="search[search_params]" value="">
+  		<input type="text" name="search[search_params]" placeholder="what?" value="">
 
   	<label>New Location:</label>
-      <input type="text" name="search[start_location]" value="">
+      <input type="text" name="search[start_location]" placeholder="where?" value="">
 
   	<label id="star-label">Select Stars</label>
-      <input type="text" id="textInput" class="starval" value="">
+      <input type="text" id="textInput" class="starval" name="min-star" value="0">
   		<input type="range" min="0" max="5" value="1" onchange="updateTextInput(this.value);">
 
 
@@ -29,7 +29,7 @@
     <input type="hidden" name="search[current_lat]" value="<%= search.current_lat %>">
     <input type="hidden" name="search[current_long]" value="<%= search.current_long %>">
 
-    <input type="submit" value="Refine Search"> 
+    <input type="submit" id="refine-submit" value="Refine Search"> 
   </form>
 
   <script>

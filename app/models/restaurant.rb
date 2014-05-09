@@ -37,6 +37,20 @@ class Restaurant < ActiveRecord::Base
     comments_by_parent
   end
 
+  def average_rating_num
+    average_rating = 0.0
+    tot_rating = 0.0
+
+    ratings.each do |rate|
+      unless rate.rating.nil?
+        average_rating += rate.rating.to_f
+        tot_rating += 1
+      end
+    end
+
+    return average_rating/tot_rating
+  end
+
   def average_rating
     average_rating = 0.0
     tot_rating = 0.0

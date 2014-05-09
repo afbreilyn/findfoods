@@ -195,7 +195,7 @@
 
   reviews.each do |review|
     review.create_rating!(
-      rating: rand(5),
+      rating: rand(4) + 1,
       user_id: review.user_id,
       restaurant_id: review.commentable_id
     )
