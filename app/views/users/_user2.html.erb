@@ -40,7 +40,7 @@
 
   <ul class="user-restaurants">
       <h3 class="your-restaurants">Your Restaurants:</h3>
-    <% user.restaurants.each do |restaurant| %>
+    <% user.restaurants.order(created_at: :asc).each do |restaurant| %>
       <li class="restaurant-unit">
         <a href="<%= restaurant_url(restaurant) %>">
           <%= restaurant.name %>

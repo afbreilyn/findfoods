@@ -1,6 +1,16 @@
-<li class="notification-list">
-  <% unless notification.is_read? %>
+<!-- <li class="notification-list">
+  <%# unless notification.is_read? %>
     <strong>New</strong>
-  <% end %>
-  <a href="<%= notification_url(notification) %>"><%= notification.text %></a>
+  <%# end %>
+  <a href="<%= notification_url(notification) %>" class="notice"><%#= notification.text %></a>
+</li> -->
+
+<li>
+<% if notification.is_read? %>
+  <a href="<%= notification_url(notification) %>" class="read-notice notice"><%= notification.text %></a>
+<% else %>
+    <strong>New</strong>  
+    <a href="<%= notification_url(notification) %>" class="notice"><%= notification.text %></a>
+<% end %>
 </li>
+

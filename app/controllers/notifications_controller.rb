@@ -5,4 +5,10 @@ class NotificationsController < ApplicationController
     notification.update(is_read: true)
     redirect_to notification.url
   end
+
+  def index 
+    @notifications = Notification.all.order(created_at: :asc)
+    @users = User.all
+    @restaurants = Restaurant.all
+  end
 end

@@ -4,8 +4,8 @@ class RestaurantsController < ApplicationController
 
   def index
     @users = User.all
-    @restaurants = Restaurant.all
-    @restaurants = Restaurant.all.page(params[:page]).per(10)
+    # @restaurants = Restaurant.all
+    @restaurants = Restaurant.all.page(params[:page]).per(10).order(created_at: :asc)
 
     if request.xhr?
       render :index, layout: false

@@ -36,7 +36,6 @@
 }
 
 .search-sidebar {
-
   width: 222px;
   // float: right;
   margin-left: 700px;
@@ -49,7 +48,6 @@
 .search-sidebar > h3 {
   font-weight: bold;
   clear: right;
-
 }
 
 .search-sidebar > h3 > ul {
@@ -85,6 +83,7 @@
   font-weight: bold;
   padding-top: 10px;
   padding-left: 10px;
+  // position: absolute;s
 }
 
 #star-select {
@@ -121,6 +120,8 @@
 #refine-submit {
   position: absolute;
   // top: -315px;
+  top: 600px;
+  left: 1130px;
   font-weight: bold;
   font-size: 22px;
 }

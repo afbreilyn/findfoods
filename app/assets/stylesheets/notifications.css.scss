@@ -1,3 +1,24 @@
 // Place all the styles related to the notifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.notifications {
+  border-right: 1px solid #c41200;
+  width: 702px;
+  min-height: 600px;
+}
+
+.notice-header {
+  font-size: 36px;
+  margin-bottom: 5px;
+}
+
+.notice {
+  font-size: 20px;
+  margin-left: 15px;
+}
+
+.read-notice {
+  color: grey;
+}

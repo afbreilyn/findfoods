@@ -36,6 +36,7 @@ BACKBONE:
 
 UJS:
 [ ] - use for adding comments
+[ ] - use for deleteing comments
 
 FORMATTING:
 [x] - sign up/restaurant form headers are messed up
@@ -43,7 +44,7 @@ FORMATTING:
 [x] - make pagination pretty 
 
 WRITE A REVIEW:
-[ ] - search for restaurant both by caregory and name
+[ ] - search for restaurant both by category and name
 [ ] - leads you to their show page
 
 COMMENTS: 
@@ -54,7 +55,7 @@ USER SHOW PAGE:
 [ ] - their info on the side
 
 NOTIFICATIONS:
-[ ] - index page
+[x] - index page
 
 SEED:
 [ ] - pictures
