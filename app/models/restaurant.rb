@@ -37,6 +37,10 @@ class Restaurant < ActiveRecord::Base
     comments_by_parent
   end
 
+  def full_address
+    address = "#{street1} #{city} #{zip}"
+  end
+
   def average_rating_num
     average_rating = 0.0
     tot_rating = 0.0

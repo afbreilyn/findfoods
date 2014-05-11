@@ -1,5 +1,42 @@
-<%#= render "users/user" %>
+<div id="user-show">
+  <section class="prof-page-info">
+    <img id="show-prof-pic" src="<%= @user.avatar.url(:thumb) %>">
 
-show! 
+    <h2><%= @user.fname %></h2><h2> <%= @user.mname %></h2><h2> <%= @user.lname %></h2>
+
+    <h3><%= @user.city %></h3>
+  </section>
+
+
+
+  <% if @user.restaurants %>
+    <h2>Restaurants</h2>
+
+    <ul>
+      <% @user.restaurants.each do |rest| %>
+        <li>
+          <a href="<%= restaurant_url(rest) %>"> 
+            <%= rest.name %> -- <%= rest.full_address %>
+          </a> 
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+
+  <% if @user.written_comments %>
+    <h2>Reviews</h2>
+
+    <ul>
+      <% @user.written_comments.each do |comm| %>
+        <li><%= comm.commentable.name %>
+        <%= comm.body %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    No reviews as of yet!
+  <% end %>
+
+</div>
 
 <%= render partial: "sidebars/sidebar" %>

@@ -3,7 +3,7 @@
 
   <% if @users %>
     <% user = @users.sample %>
-    <a href="<%= user_url(user) %>"> 
+    <a href="<%= user_url(user) %>" data-remote="true" class="user-show-link"> 
     <section class="feat-main-info group">
       <img class="feat-prof-picture" src="<%=  user.avatar.url(:thumb) %>">
 
