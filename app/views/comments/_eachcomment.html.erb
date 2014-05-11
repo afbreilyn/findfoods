@@ -1,11 +1,13 @@
 <li class="each-comment group">
-  <h3 class="reviewer-name">
-    <%= User.find(child_comment.user_id).fname %> 
-    <div id="picture-comment">
-      <img class="reviewer-pic" src="<%=  User.find(child_comment.user_id).avatar %>">
-    </div>
-  </h3>
-  
+  <a href="<%= user_url(child_comment.user_id) %>" data-remote="true" class="user-show-link">
+    <h3 class="reviewer-name">
+      <%= User.find(child_comment.user_id).fname %> 
+      <div id="picture-comment">
+        <img class="reviewer-pic" src="<%=  User.find(child_comment.user_id).avatar %>">
+      </div>
+    </h3>
+  </a>
+
   <h3 class="review-rating">
     <% if child_comment.rating && child_comment.rating.rating %>
       <% child_comment.rating.rating_stars.each do |star| %>

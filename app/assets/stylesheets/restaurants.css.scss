@@ -1,83 +1,94 @@
 /* --- RESTAURANT SHOW --- */
 
 .restaurant-show {
-	padding: 0 15px;
+  padding: 0 15px;
 }
 
 .restaurant-info {
-	height: 100px;
-	position: relative;
+  height: 100px;
+  position: relative;
 }
 
 .restaurant-header{
-	padding-bottom: 10px;
-	margin-top: -5px;
+  padding-bottom: 10px;
+  margin-top: -5px;
 }
 
 .restaurant-rating {
-	color: gold;
-	font-size: 22px;
-	float: left;
-	text-shadow:1px 1px #C52C1E, .1em .1em .2em rgba(0,0,0,.5);
+  color: gold;
+  font-size: 22px;
+  float: left;
+  text-shadow:1px 1px #C52C1E, .1em .1em .2em rgba(0,0,0,.5);
 }
 
 .rating-num {
-	font-size: 22px;
-	padding-left: 8px;
-	float: left;
+  font-size: 22px;
+  padding-left: 8px;
+  float: left;
 }
 
 .restaurant-prof-pic {
-	width: 250px;
-	float: left;
+  width: 250px;
+  // height: 250px;
+  float: left;
+}
+
+.restaurant-show-prof-pic {
+  width: 250px;
+  height: 250px;
+  float: left;
 }
 
 .restaurant-address {
-	float: right;
-	font-size: 24px;
-	margin-top: -18px; 
-	font-weight: bold;
+  float: right;
+  font-size: 24px;
+  margin-top: -18px; 
+  font-weight: bold;
 }
 
 .restaurant-address-show {
   position: relative;
-  top: 25px;
-	float: right;
-	font-size: 24px;
-	margin-top: -10px; 
-	font-weight: bold;
+  top: -20px;
+  float: right;
+  font-size: 24px;
+  margin-top: -10px; 
+  font-weight: bold;
 }
 
 .owner-options {
-	text-align: right;
-	padding-top: 20px;
-  position: relative;
-  top: 25px;
+  text-align: right;
+  // padding-top: 20px;
+  position: absolute;
+  // top: 80px;
+  left: 810px;
+  padding: 0;
+  float: right;
+  font-weight: bold;
 }
 
 .address-line {
 }
 
 .restaurant-show-map {
-	float: right;
-	display: block;	
-	padding-top: 18px;
+  float: right;
+  display: block; 
+  padding-top: 18px;
 }
 
 .graphics {
-	// padding-bottom: 40px;
-	// border: 1px solid blue;
-	display: block;
-	padding-bottom: 20px;
+  // padding-bottom: 40px;
+  // border: 1px solid blue;
+  display: block;
+  padding-bottom: 20px;
 }
 
 #show_map {
-	// width:100%;
-	width: 720px;
-	height: 220px;
-	frameBorder: 1;
-	position: relative;
-	top: 15px;
+  // width:100%;
+  width: 720px;
+  height: 220px;
+  frameBorder: 1;
+  position: relative;
+  top: 15px;
   margin-bottom: 45px;
 }
 

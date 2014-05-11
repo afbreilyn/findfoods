@@ -71,20 +71,26 @@
 
           $commentForm.on("ajax:success", function(event, data) {
             event.preventDefault();
-            console.log(event.target);
-            // console.log("sadklsdflksdfalkj");
             $comments.append(data);
             $commentForm[0].reset();
           });
 
-// $("input#delete-review").parents('form[data-remote]').bind("ajax:success", function(event, data){
-//   console.log(event)
-//   c le.log("data is: ", data)
+          $("input.delete-review").on("ajax:error", function(event, data) {
+            console.log(event);
+            event.preventDefault();
+          })
+
+// $("input.delete-review").parents('form[data-remote]').bind("ajax:success", function(event, data){
+//   console.log("meow!!!")
 //   event.preventDefault();
 //   $fullContent.html(data);
 // });
 
-
+          $(".user-show-link").on("ajax:success", function(event,data) {
+            event.preventDefault();
+            console.log("yay")
+            $fullContent.html(data);
+          })
 
           function showLocation(position) {
             $("#search-lat").val(position.coords.latitude);

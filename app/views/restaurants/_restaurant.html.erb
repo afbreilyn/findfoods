@@ -13,14 +13,13 @@
     <h3 class="rating-num"><%= restaurant.ratings.count %> reviews</h3>
 
 <!-- TAGS!!! -->
-        <ul class="restaurant-tags">
-          <% restaurant.tags.each do |tag| %>
-            <h3 class="restaurant-list-tag group">
-              <li class="restaurant-tag"><%= tag.body %></li>
-            </h3> 
-          <% end %>
-        </ul>
-
+  <h3 class="restaurant-list-tag group">
+    <ul class="restaurant-tags">
+      <% restaurant.tags.each do |tag| %>
+          <li class="restaurant-tag"><%= tag.body %></li>
+      <% end %>
+    </ul>
+  </h3>
 
 
     <section class="restaurant-address-show">
@@ -40,7 +39,7 @@
   </section>
 
   <section class="graphics group">
-      <img class="restaurant-prof-pic" src="<%= restaurant.avatar.url(:full) %>" alt="restaurant-pic">
+      <img class="restaurant-show-prof-pic" src="<%= restaurant.avatar.url(:full) %>" alt="restaurant-pic">
 
   <div id='show_map'></div>
 
@@ -96,13 +95,9 @@
 <section class="restaurant-comments main-content">
 <h3 class="new-review-invitation">Write a review!</h3>
 
-
-  <%#= render partial: "tags/new", locals: { restaurant: @restaurant }%>
-  <%#= render partial: "tags/show", locals: { restaurant: @restaurant }%>
-
   <%= render partial: "comments/form", locals: {
                               parent_comment_id: nil,
-                              commentable_id: restaurant.id, 
+                              commentable_id: restaurant.id,
                               commentable_type: "Restaurant" } %>
 
   <section class="all-comments">

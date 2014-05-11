@@ -3,7 +3,7 @@
 
   <% if @users %>
     <% user = @users.sample %>
-
+    <a href="<%= user_url(user) %>"> 
     <section class="feat-main-info group">
       <img class="feat-prof-picture" src="<%=  user.avatar.url(:thumb) %>">
 
@@ -20,7 +20,7 @@
         <h3 class="feat-body"><%= user.written_comments.last.body %></h3>
       <% end %>
     </section>
-
+  </a>
   <% end %>
 
 </section>
