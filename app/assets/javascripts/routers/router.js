@@ -1,11 +1,14 @@
 Findfood.Routers.Router = Backbone.Router.extend({
-	initialize: function (options) {
-		this.$rootEl = options.$rootEl,
+  initialize: function (options) {
+    this.$rootEl = options.$rootEl,
     this.$header = options.$header,
     this.$sidebar = options.$sidebar,
     this.restaurants = options.restaurants
-	},
+  },
 
+  routes: {
+    "" : "index"
+  },
 
   _swapView: function (view) {
     this._currentView && this._currentView.remove();

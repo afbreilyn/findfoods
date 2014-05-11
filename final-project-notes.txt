@@ -35,7 +35,7 @@ BACKBONE:
 [ ] - keep the top bar statis on all pages
 
 UJS:
-[ ] - use for adding comments
+[x] - use for adding comments
 [ ] - use for deleteing comments
 
 FORMATTING:
@@ -48,7 +48,7 @@ WRITE A REVIEW:
 [ ] - leads you to their show page
 
 COMMENTS: 
-[ ] - fix picture size on comments
+[x] - fix picture size on comments
 
 USER SHOW PAGE:
 [ ] - list of their reviews

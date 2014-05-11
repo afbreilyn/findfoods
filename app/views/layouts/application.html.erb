@@ -40,7 +40,8 @@
           var $header = $(".header");
           // var $sidebar = $(".sidebar");
           var $fullContent = $("#fullContent");
-
+          var $comments = $("#dem-comments");
+          var $commentForm = $("form.new-comment");
 
           $("form.search-form").on("ajax:success", function (event, data) { 
             $fullContent.html(data); 
@@ -68,10 +69,12 @@
             $fullContent.html(data);
           });
 
-          $("form.new-comment").on("ajax:success", function(event, data) {
+          $commentForm.on("ajax:success", function(event, data) {
             event.preventDefault();
-            $fullContent.html(data);
-            console.log("sadklsdflksdfalkj")
+            console.log(event.target);
+            // console.log("sadklsdflksdfalkj");
+            $comments.append(data);
+            $commentForm[0].reset();
           });
 
 // $("input#delete-review").parents('form[data-remote]').bind("ajax:success", function(event, data){
@@ -80,11 +83,6 @@
 //   event.preventDefault();
 //   $fullContent.html(data);
 // });
-
-
-
-
-
 
 
 

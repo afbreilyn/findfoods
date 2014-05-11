@@ -21,10 +21,25 @@ class CommentsController < ApplicationController
       comment.save!
       rating.comment_id = comment.id
       rating.save!
-      render partial: "restaurants/restaurant", locals: {restaurant: restaurant}
-      return 
+      # render partial: "restaurants/restaurant", locals: {restaurant: restaurant}
+      # redirect_to restaurant 
+      # return 
     end
-    render partial: "restaurants/restaurant", locals: {restaurant: restaurant}
+    # render partial: "restaurants/restaurant", locals: {restaurant: restaurant}
+    # redirect_to restaurant 
+
+    # if request.xhr?
+
+      # render partial: "comments/form", locals: {
+      #                         parent_comment_id: nil,
+      #                         commentable_id: restaurant.id, 
+      #                         commentable_type: "Restaurant" }
+
+      render partial: "comments/eachcomment", locals: { child_comment: comment }
+
+    # else
+    #   redirect_to cats_url
+    # end
   end
 
   def edit
