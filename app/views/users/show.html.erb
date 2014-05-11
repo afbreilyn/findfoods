@@ -5,37 +5,59 @@
     <h2><%= @user.fname %></h2><h2> <%= @user.mname %></h2><h2> <%= @user.lname %></h2>
 
     <h3><%= @user.city %></h3>
+
+    <% if @user.ratings %>
+      <ul>
+        <li>
+          5 star ratings: <%= @user.ratings.where(rating: 5).count %>
+        </li>
+        <li>
+          4 star ratings: <%= @user.ratings.where(rating: 4).count %>
+        </li>
+        <li>
+          3 star ratings: <%= @user.ratings.where(rating: 3).count %>
+        </li>
+        <li>
+          2 star ratings: <%= @user.ratings.where(rating: 2).count %>
+        </li>
+        <li>
+          1 star ratings: <%= @user.ratings.where(rating: 1).count %>
+        </li>
+      </ul>
+    <% end %>
   </section>
 
+  <section class="user-activity">
+    <% if @user.restaurants %>
+      <h2>Restaurants</h2>
 
+      <ul>
+        <% @user.restaurants.each do |rest| %>
+          <li>
+            <a href="<%= restaurant_url(rest) %>"> 
+              <%= rest.name %> -- <%= rest.full_address %>
+            </a> 
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
 
-  <% if @user.restaurants %>
-    <h2>Restaurants</h2>
+    <% if @user.written_comments %>
+      <h2>Reviews</h2>
 
-    <ul>
-      <% @user.restaurants.each do |rest| %>
-        <li>
-          <a href="<%= restaurant_url(rest) %>"> 
-            <%= rest.name %> -- <%= rest.full_address %>
-          </a> 
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
-
-
-  <% if @user.written_comments %>
-    <h2>Reviews</h2>
-
-    <ul>
-      <% @user.written_comments.each do |comm| %>
-        <li><%= comm.commentable.name %>
-        <%= comm.body %></li>
-      <% end %>
-    </ul>
-  <% else %>
-    No reviews as of yet!
-  <% end %>
+      <ul>
+        <% @user.written_comments.each do |comm| %>
+          <li>
+            <a href="<%= restaurant_url(comm.commentable) %>">
+              <%= comm.commentable.name %> -- <%= comm.body %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      No reviews as of yet!
+    <% end %>
+  </section>
 
 </div>
 

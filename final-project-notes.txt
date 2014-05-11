@@ -89,5 +89,8 @@ ONCE EVERYTHING WORKS:
 
 
 
+HELP!!!!:
 
+[ ] - delete comments ajax request
+[ ] - edit profile ajax request
 

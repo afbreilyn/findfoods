@@ -21,7 +21,7 @@
   <ul class="prof-options">
 
     <li>
-      <%=  link_to "Edit Your Info", edit_user_url(user) %>
+      <%= link_to "Edit Your Info", edit_user_url(user), remote: true, class: "edit-info"%>
     </li>
 
     <li>

@@ -28,6 +28,8 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @users = User.all
+    @restaurants = Restaurant.all
   end
 
   def update
