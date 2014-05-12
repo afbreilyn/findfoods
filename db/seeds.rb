@@ -9,7 +9,7 @@
   food_arr = %w(chinese japanese itialian thai german french american english indian
       dutch burgers pizza mexican fusion hoiday appetizers breads chocolate 
       convenience fast meat steak dessert pies puddings stews kosher breakfast, 
-      sandwich icecream noodles peruvian nomnom )
+      sandwich icecream noodles peruvian nomnom)
 
   cities = %w(Shanghai Beijing Lagos Istanbul Karachi Mumbai Moscow São Paulo Guangzhou 
     Delhi Shenzhen Seoul Jakarta Kinshasa Tainjin Tokyo Cairo Chaka Mexico Lima Bangalor 
@@ -23,7 +23,7 @@
      Amsterdam Amsterdam London Paris Paris Paris Paris Paris Paris Tokyo Tripoli
     Windhoek Yaren Zagreb Windhoek Vaduz Rome Florence Venice Hamburg Berlin Cairo Tokyo Tripoli
     Windhoek Yaren Zagreb Windhoek Vaduz Rome Florence Venice Hamburg Berlin Cairo Amerstdam 
-    Venice Amerstdam Venice Amerstdam Venice Amerstdam Venice Amerstdam Venice Amerstdam Venice )
+    Venice Amerstdam Venice Amerstdam Venice Amerstdam Venice Amerstdam Venice Amerstdam Venice)
 
   cities.concat(["Saint Petersburg", "Mexico City", "Hong Kong", 
                   "Xi'an", "Los Angeles", "San Antonio", "Salt Lake City"])
@@ -31,17 +31,11 @@
   reviews_samples = [
     "Great, fun place to walk around, shop and eat! Kid friendly, highly recommend going to 
     the artist's flea next door.",
-
     "it is easy to imagine the worst if you walk by Glaser's Bake Shop without going inside.",
-
     "The sign is easily 112 years old.  The vast majority of the store's numerous display cases are empty and there appeared to be only 2 varieties of layer cakes.  But wait, step inside the shop.  Talk to the women who work the counter, try their baked goods and be prepared to be transported to a wonderful and simpler time. Simply put: wonderful.",
-
     "The layer cake and pound cake were moist and delicious.",
-
     "This is by far the best Italian deli I have ever been to.",
-
     "Awesome!", "Thoroughly okay.", "Would go again", "Meh", "Wonderful!", "Simply the best food ever.", "They were alright, but the had the best cat ever there, named Sennacy!",
-
     "Truly an amazing dining experience", "Definitely not your traditional Japanese meal, but a wonderful balance between traditional flavors and modern creative techniques. The only disappointment was desert and the fact that they don't allow personal wine.",
     "This is not a place for those that experience sticker shock when paying for a meal, but overall was an excellent experience. The service was also amazing and the staff were extremely friendly and helpful in providing some recommendations for the rest of our trip.",
     "Simply fantastic. Second time here - 1st time at a table, this time at the bar. Very good service and great food both times. Very fresh, inovative sushi. You will not find anything elese like this. Equal to, and arguably better than, those 'name' places in Manhattan without the hyps. ",
@@ -90,33 +84,34 @@
     "'truejamacan' didn't even know how to spell 'Sorrel.'",
     "If you don't love this place, then your tastebuds are ignorant.",
     "Bad", "3 stars cause the guac tasted good", "I didn't even eat here", "HELP! I'm trapped in a yelp clone and can't get out!!!!!",
-    "I like the meat", "Not that great", "Doesnt live up to the hype", "My girlfriend gained 20lbs eating at this place.", "HELP! I'm trapped in a yelp clone and can't get out!!!!!",
-    "My girlfriend gained 20lbs eating at this place.", "HELP! I'm trapped in a yelp clone and can't get out!!!!!",
-    "My girlfriend gained 20lbs eating at this place.", "HELP! I'm trapped in a yelp clone and can't get out!!!!!",
-    "My girlfriend gained 20lbs eating at this place.", "HELP! I'm trapped in a yelp clone and can't get out!!!!!"
+    "I like the meat", "Not that great", "Doesnt live up to the hype", "My girlfriend gained 20lbs eating at this place."
   ]
 
-
-
-
-    jonathan = User.create!(
-      fname: "Jonathan",
-      lname: "Tamboer",
-      city: "Amsterdam",
-      state: "NH",
-      email: "jt@example.com",
-      password: "password",
-      avatar: File.open(Rails.root.join("seeds", "jonathan.jpeg"))
+  les_pics = %w(
+    images-1.jpg images-10.jpg images-11.jpg 
+    images-12.jpg images-13.jpg images-14.jpg 
+    images-2.jpg images-3.jpg images-4.jpg
+    images-5.jpg images-6.jpg images-7.jpg
+    images-8.jpg images-9.jpg images.jpg
+    imgres-1.jpg imgres-2.jpg imgres-3.jpg
+    imgres-4.jpg imgres-5.jpg imgres-6.jpg
+    imgres-7.jpg imgres-8.jpg imgres-9.jpg
+    imgres.jpg
     )
 
-    jonathan.restaurants.create!(
-      name: "Sennacy's Delight",
-      street1: "27 Cooper Square",
-      city: "New York City",
-      state: "NY",
-      zip: 10003,
-      avatar: File.open(Rails.root.join("seeds", "happy-cat.jpg"))
+  les_rest_pics = %w(
+    rest-1.jpg rest-11.jpeg rest-21.jpeg
+    rest-2.jpg rest-12.jpg rest-22.jpeg
+    rest-3.jpg rest-13.jpeg rest-23.jpeg
+    rest-4.jpeg rest-14.jpeg rest-24.jpeg
+    rest-5.jpg rest-15.jpeg rest-25.jpeg
+    rest-6.jpeg rest-16.jpeg rest-26.jpeg
+    rest-7.jpeg rest-17.jpeg rest-27.jpeg
+    rest-8.jpeg rest-18.jpeg rest-28.jpg
+    rest-9.jpg rest-19.jpeg rest-29.jpg
+    rest-10.jpg rest-20.jpeg rest-30.jpg
     )
+
 
     afb = User.create!(
       fname: "Aaron",
@@ -129,24 +124,6 @@
       avatar: File.open(Rails.root.join("seeds", "pic_for_stuff.jpg"))
     )
 
-    afb.restaurants.create!(
-      name: "Aaron's Awesome Chinese 1",
-      street1: "200 Broadway",
-      city: "New York City",
-      state: "NY",
-      zip: 10003,
-      avatar: File.open(Rails.root.join("seeds", "nom_noodles.jpg"))
-    )
-
-    afb.restaurants.create!(
-      name: "Aaron's Awesome Chinese 2",
-      street1: "2 5th Street",
-      city: "New York City",
-      state: "NY",
-      zip: 10003,
-      avatar: File.open(Rails.root.join("seeds", "nom_noodles.jpg"))
-    )
-
   users = []
   50.times do 
     users << User.create!(
@@ -155,7 +132,8 @@
       city: Faker::Address.city,
       state: Faker::Address.state_abbr,
       email: Faker::Internet.safe_email,
-      password: "password"
+      password: "password",
+      avatar: File.open(Rails.root.join("seeds", les_pics.sample))
     )
   end
 
@@ -167,7 +145,8 @@
       city: cities.sample,
       state: Faker::Address.state_abbr,
       zip: Faker::Address.zip,
-      owner_id: users.sample.id
+      owner_id: users.sample.id,
+      avatar: File.open(Rails.root.join("seeds", les_rest_pics.sample))
     )
   end
 
