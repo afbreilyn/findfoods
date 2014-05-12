@@ -6,6 +6,7 @@
 
 .show-user-name {
   display: block;
+  float: right;
 }
 
 #show-prof-pic {
@@ -14,45 +15,66 @@
 }
 
 .prof-page-info {
-
+  float: left;
 }
 
 .prof-page-info > img {
+  float: left;
+  margin: 0 15px 15px 15px;
+}
 
+.prof-page-info > h2 {
+  display: block;
+  float: left;
+  font-size: 36px;
 }
 
 .prof-page-info > h3 {
-
+  font-weight: bold;
+  font-size: 24px;
+  margin: 8px 0;
 }
 
 .prof-page-info > ul {
-
 }
 
 .prof-page-info > ul > li {
+  margin: 2px 0;
+  font-weight: bold;
+}
 
+.prof-page-info > ul > li > .num {
+  color: gold;
+  font-weight: bold;
+  display: block;
+}
+
+.user-list-title {
+  font-weight: bold;
+}
+.user-activity {
+  margin: 15px;
 }
 
 .user-activity {
-
-}
-
-.user-activity {
-
+  float: left;
 }
 
 .user-activity > h2 {
-
+  border-top: 1px solid #ccc;
+  margin-top: 15px;
+  padding-top: 15px;
 }
 
 .user-activity > ul {
-
+  // font-size: 24px;
+  margin-bottom: 15px;
 }
 
 .user-activity > ul > li {
-
+  margin: 3px 0 0 15px;
 }
 
 .user-activity > ul > li > a {
-
+  text-indent: 15px;
 }

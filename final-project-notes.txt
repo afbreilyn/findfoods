@@ -37,22 +37,20 @@ BACKBONE:
 UJS:
 [x] - use for adding comments
 [ ] - use for deleteing comments
+[ ] - user edit page
 
 FORMATTING:
 [x] - sign up/restaurant form headers are messed up
 [x] - 50px margin bot on every page
 [x] - make pagination pretty 
 
-WRITE A REVIEW:
-[ ] - search for restaurant both by category and name
-[ ] - leads you to their show page
-
 COMMENTS: 
 [x] - fix picture size on comments
 
 USER SHOW PAGE:
-[ ] - list of their reviews
-[ ] - their info on the side
+[x] - list of their reviews
+[x] - their info on the side
+[ ] - format
 
 NOTIFICATIONS:
 [x] - index page
@@ -62,35 +60,31 @@ SEED:
 
 CSS:
 [ ] - get rid of single use classes
+[ ] - all content white background, else grey
+
+
+ONCE EVERYTHING WORKS:
+[ ] - user show page
+[ ] - redo logo
+[ ] - user 1 and user 2 buttons
+[ ] - search for restaurant both by category and name, leads you to their show page
+[ ] - omniauth
+[ ] - emailer / texter
+[ ] - error styling
+[ ] - nested comments
+[ ] - search for restaurants with autocomplete
+[ ] - weekly emails
+[ ] - profile page
+[ ] - run everything through html validator
+[ ] - features user generation (random by week)
+[ ] - featured restaurant generateion (random by week)
 
 VALIDATIONS:
 [ ] - change rspecs to test for class, not id
 [ ] - fix all of the breaks
 [ ] - remove validations for search_params and start_location
 
-ONCE EVERYTHING WORKS:
-[ ] - user show page
-[ ] - omniauth
-[ ] - emailer / texter
-[ ] - error styling
-[ ] - nested comments
-[ ] - search for restaurants with autocomplete
-[ ] - buttons to fill out forms
-[ ] - weekly emails
-[ ] - profile page
-[ ] - run everything through html validator
-[ ] - user 1 and user 2 buttons
-[ ] - redo logo
-[ ] - features user generation (random by week)
-[ ] - featured restaurant generateion (random by week)
-
-
-
-
-
-
 HELP!!!!:
-
 [ ] - delete comments ajax request
 [ ] - edit profile ajax request
-
+[ ] - go to user profile only working once. wat?

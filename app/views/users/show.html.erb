@@ -2,7 +2,7 @@
   <section class="prof-page-info">
     <img id="show-prof-pic" src="<%= @user.avatar.url(:thumb) %>">
 
-    <h2><%= @user.fname %></h2><h2> <%= @user.mname %></h2><h2> <%= @user.lname %></h2>
+    <h2><%= @user.fname %></h2><h2>&nbsp;<%= @user.mname %></h2><h2>&nbsp;<%= @user.lname %></h2>
 
     <h3><%= @user.city %></h3>
 
@@ -29,27 +29,33 @@
 
   <section class="user-activity">
     <% if @user.restaurants %>
-      <h2>Restaurants</h2>
+      <h2>Restaurants:</h2>
 
       <ul>
         <% @user.restaurants.each do |rest| %>
           <li>
-            <a href="<%= restaurant_url(rest) %>"> 
-              <%= rest.name %> -- <%= rest.full_address %>
-            </a> 
+            <a class="user-list-title" href="<%= restaurant_url(rest) %>"> 
+              <%= rest.name %> 
+            </a>
+            <a href="<%= restaurant_url(rest) %>">
+              -- <%= rest.full_address %>
+            </a>
           </li>
         <% end %>
       </ul>
     <% end %>
 
     <% if @user.written_comments %>
-      <h2>Reviews</h2>
+      <h2>Reviews:</h2>
 
       <ul>
         <% @user.written_comments.each do |comm| %>
           <li>
+            <a class="user-list-title" href="<%= restaurant_url(comm.commentable) %>">
+              <%= comm.commentable.name %>
+            </a>
             <a href="<%= restaurant_url(comm.commentable) %>">
-              <%= comm.commentable.name %> -- <%= comm.body %>
+              -- <%= comm.body %>
             </a>
           </li>
         <% end %>
