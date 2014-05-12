@@ -14,7 +14,7 @@
  
     <div class="logo">
       <a href="<%= root_url %>" data-remote="true">
-        <img src="http://i.imgur.com/QFwam36.png" alt="find-foods-logo">
+        <img src="http://i.imgur.com/NuQNitg.png" id="header-logo" alt="find-foods-logo">
       </a>
     </div>
 
@@ -43,33 +43,33 @@
           var $comments = $("#dem-comments");
           var $commentForm = $("form.new-comment");
 
-          $("form.search-form").on("ajax:success", function (event, data) { 
+          $("body").on("ajax:success", "form.search-form", function (event, data) { 
             $fullContent.html(data); 
             $("#s_params").val("");
             $("#s_locat").val("");
           });
 
-          $("#sign-in").on("ajax:success", function(event, data) {
+          $("body").on("ajax:success", "#sign-in", function(event, data) {
             event.preventDefault();
             $fullContent.html(data);
           });
 
-          $("#sign-up").on("ajax:success", function(event, data) {
+          $("body").on("ajax:success", "#sign-up", function(event, data) {
             event.preventDefault();
             $fullContent.html(data);
           });
 
-          $("#home-button").on("ajax:success", "a", function(event, data) {
+          $("body").on("ajax:success", "#home-button", function(event, data) {
             event.preventDefault();
             $fullContent.html(data);
           });
 
-          $(".logo").on("ajax:success", "a", function(event, data) {
+          $("body").on("ajax:success", ".logo", function(event, data) {
             event.preventDefault();
             $fullContent.html(data);
           });
 
-          $(".edit-info").on("ajax:success", function(event, data) {
+          $("body").on("ajax:success", ".edit-info", function(event, data) {
             event.preventDefault();
             console.log("meow")
             $fullContent.html(data);
@@ -81,7 +81,10 @@
             $commentForm[0].reset();
           });
 
-          $("input.delete-review").on("ajax:success", function(event, data) {
+          //ajax:success
+          //ajax:error
+
+          $("body").on("ajax:success", ".delete-review", function(event, data) {
             console.log(event);
             event.preventDefault();
           })
@@ -89,10 +92,10 @@
 // $("input.delete-review").parents('form[data-remote]').bind("ajax:success", function(event, data){
 //   console.log("meow!!!")
 //   event.preventDefault();
-//   $fullContent.html(data);
+//   // $fullContent.html(data);
 // });
 
-          $(".user-show-link").on("ajax:success", function(event,data) {
+          $("body").on("ajax:success", ".user-show-link", function(event,data) {
             event.preventDefault();
             $fullContent.html(data);
           })

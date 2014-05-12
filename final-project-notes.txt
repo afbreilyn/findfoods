@@ -10,60 +10,14 @@ resume - [ ]
 
 todo: 
 
-OVERALL: 
-[x] - make it one page
-
-RESTAURANT SHOW PAGE:
-[x] - fix default stars
-[x] - rating is done in stars, not numbers (CSS MAGIC)
-[x] - display tags on index
-[x] - display tags on show page
-[x] - addresses bump into titles...
-[x] - ability to add tags
-[x] - map doesn't scroll
-
-MAPBOx:
-[x] - correct zoom when searching
-[x] - hover displays name
-[x] - click brings to restaurant show page
-
-SEARCHBARS: 
-[x] - default in there, which leaves when it is clicked
-
-SIDEBAR:
-[x] - featured user show
-[x] - featured restaurant show
-[x] - filter by star thing
-[x] - make it not look like shit
-
-SEARCH SHOW PAGE:
-[x] - populate physical list
-
 BACKBONE:
 [ ] - use for search queries sorting
 [ ] - signing in users
 [ ] - keep the top bar statis on all pages
 
 UJS:
-[x] - use for adding comments
 [ ] - use for deleteing comments
 [ ] - user edit page
-
-FORMATTING:
-[x] - sign up/restaurant form headers are messed up
-[x] - 50px margin bot on every page
-[x] - make pagination pretty 
-
-COMMENTS: 
-[x] - fix picture size on comments
-
-USER SHOW PAGE:
-[x] - list of their reviews
-[x] - their info on the side
-[ ] - format
-
-NOTIFICATIONS:
-[x] - index page
 
 SEED:
 [ ] - pictures
@@ -88,6 +42,7 @@ ONCE EVERYTHING WORKS:
 [ ] - run everything through html validator
 [ ] - features user generation (random by week)
 [ ] - featured restaurant generateion (random by week)
+[ ] - user page format
 
 VALIDATIONS:
 [ ] - change rspecs to test for class, not id
@@ -96,5 +51,12 @@ VALIDATIONS:
 
 HELP!!!!:
 [ ] - delete comments ajax request
-[ ] - edit profile ajax request
-[ ] - go to user profile only working once. wat?
+[x] - edit profile ajax request
+[x] - go to user profile only working once. wat?
+
+
+
+for resetting database: 
+-- heroku pg:reset DATABASE
+-- heroku run rake db:schema:load
+-- heroku run rake db:seed

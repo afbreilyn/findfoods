@@ -2,6 +2,7 @@
 
 .header {
 	padding-bottom: 25px;
+	background: white;
 }
 
 .logo{
@@ -98,5 +99,10 @@ input[type="text"]{
 
 .sign-out:hover {
 	color: white;
+}
+
+#header-logo {
+	width: 150px;
+	height: auto;
 }
 
