@@ -1,6 +1,6 @@
 <div id="user-show">
   <section class="prof-page-info">
-    <img id="show-prof-pic" src="<%= @user.avatar.url(:thumb) %>">
+    <img id="show-prof-pic" src="<%= image_path @user.avatar.url(:thumb) %>">
 
     <h2><%= @user.fname %></h2><h2>&nbsp;<%= @user.mname %></h2><h2>&nbsp;<%= @user.lname %></h2>
 

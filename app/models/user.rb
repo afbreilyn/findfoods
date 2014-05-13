@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
     primary_key: :id
   )
 
-  has_attached_file :avatar, styles: {thumb: "100x100>", micro: "50x50>"}, :default_url => ActionController::Base.helpers.asset_path("sloth.jpeg")
+  has_attached_file :avatar, styles: {thumb: "100x100>", micro: "50x50>"}, :default_url => "sloth.jpeg"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   include PgSearch
