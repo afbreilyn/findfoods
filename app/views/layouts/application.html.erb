@@ -84,9 +84,10 @@
           //ajax:success
           //ajax:error
 
-          $("body").on("ajax:success", ".delete-review", function(event, data) {
+          $("body").on("ajax:error", "form.delete-review", function(event, data) {
             console.log(event);
             event.preventDefault();
+            $fullContent.html(data);
           })
 
 // $("input.delete-review").parents('form[data-remote]').bind("ajax:success", function(event, data){
@@ -133,7 +134,7 @@
 
       <% if signed_in? %>
         <div class="prof-pic"> 
-          <a href="<%= user_url(current_user.id) %>" data-remote="true" class="user-show-link"><img src="<%=  current_user.avatar.url(:micro) %>" alt="prof-pic"></a>
+          <a href="<%= user_url(current_user.id) %>" data-remote="true" class="user-show-link"><img src="<%= image_path current_user.avatar.url(:micro) %>" alt="prof-pic"></a>
         </div>
       <% end %>
     </div>

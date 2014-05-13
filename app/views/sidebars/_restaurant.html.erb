@@ -22,7 +22,7 @@
 
     <a href="<%= restaurant_url(restaurant.id) %>">
       <section class="feat-main-info group">
-        <img class="feat-prof-picture" src="<%=  restaurant.avatar.url(:thumb) %>">
+        <img class="feat-prof-picture" src="<%= image_path restaurant.avatar.url(:thumb) %>">
 
         <div class="feat-prof-name">
           <%= restaurant.name %>

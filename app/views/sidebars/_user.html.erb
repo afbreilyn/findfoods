@@ -5,7 +5,7 @@
     <% user = @users.sample %>
     <a href="<%= user_url(user) %>" data-remote="true" class="user-show-link"> 
     <section class="feat-main-info group">
-      <img class="feat-prof-picture" src="<%=  user.avatar.url(:thumb) %>">
+      <img class="feat-prof-picture" src="<%= image_path user.avatar.url(:thumb) %>">
 
       <div class="feat-prof-name">
         <%= user.fname %> 

@@ -3,7 +3,7 @@
     <h3 class="reviewer-name">
       <%= User.find(child_comment.user_id).fname %> 
       <div id="picture-comment">
-        <img class="reviewer-pic" src="<%=  User.find(child_comment.user_id).avatar %>">
+        <img class="reviewer-pic" src="<%= image_path User.find(child_comment.user_id).avatar %>">
       </div>
     </h3>
   </a>
@@ -21,13 +21,20 @@
   </div>
   <%#= render partial: "comments/delete", locals: { comment_type: child_comment } %>
 
-  <div class="delete-buton">
-    <% if current_user %>
-      <% if current_user.id == child_comment.user_id %>
-        <%= button_to "Delete", comment_url(child_comment.id), method: :delete, class: "delete-review"%>
-      <% end %>
+<div class="delete-buton"> 
+  <% if current_user %>
+    <% if current_user.id == child_comment.user_id %>
+
+      <form action="<%= comment_url(child_comment) %>" method="post" data-remote="true" id="delete-review">
+        <%= auth_token %>
+        <input type="hidden" name="_method" value="delete">
+        <input type="Submit" value="Delete">
+      </form>
+
     <% end %>
-  </div>
+  <% end %>
+
+</div>
 
   <%#= render partial: "comments/form", locals: {
                         parent_comment_id: child_comment.id, 

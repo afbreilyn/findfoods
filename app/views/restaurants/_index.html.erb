@@ -8,7 +8,7 @@
         <a href="<%= restaurant_url(restaurant.id) %>">
 
           <div class="index-pic">
-            <img class="restaurant-prof-pic" src="<%= restaurant.avatar.url(:full) %>">
+            <img class="restaurant-prof-pic" src="<%= image_path restaurant.avatar.url(:full) %>">
           </div>
 
           <h2 id="restaurant-index-name"><%= restaurant.name %></h2>
