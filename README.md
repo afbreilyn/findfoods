@@ -1,6 +1,6 @@
 # FINDFOODS: 
 
-[FindFoods](http://www.findfoods.org) is a clone of [yelp](http://www.yelp.com), the popular note-taking app.  It was built by me, [Aaron Foster Bresley](https://www.linkedin.com/pub/aaron-foster-bresley/37/54a/146/), in Spring 2014.  Go check it out: http://www.findfoods.org!
+[FindFoods](http://www.findfoods.org) is a clone of [yelp](http://www.yelp.com). It was built by me, [Aaron Foster Bresley](https://www.linkedin.com/pub/aaron-foster-bresley/37/54a/146/), in Spring 2014.  Go check it out: http://www.findfoods.org!
 
 
 ## Features
