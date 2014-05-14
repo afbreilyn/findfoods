@@ -71,7 +71,6 @@
 
           $("body").on("ajax:success", ".edit-info", function(event, data) {
             event.preventDefault();
-            console.log("meow")
             $fullContent.html(data);
           });
 
@@ -81,20 +80,11 @@
             $commentForm[0].reset();
           });
 
-          //ajax:success
-          //ajax:error
 
           $("body").on("ajax:success", "form.delete-review", function(event, data) {
-            console.log(data);
             event.preventDefault();
-            $comments.append(data);
+            $(event.currentTarget).closest(".each-comment").hide();
           })
-
-// $("input.delete-review").parents('form[data-remote]').bind("ajax:success", function(event, data){
-//   console.log("meow!!!")
-//   event.preventDefault();
-//   // $fullContent.html(data);
-// });
 
           $("body").on("ajax:success", ".user-show-link", function(event,data) {
             event.preventDefault();

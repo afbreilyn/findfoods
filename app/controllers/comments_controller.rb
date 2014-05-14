@@ -60,7 +60,8 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     restaurant = Restaurant.find(@comment.commentable_id)
     @comment.destroy
-    redirect_to restaurant 
+    # redirect_to restaurant 
+    render nothing: true
   end
 
 
