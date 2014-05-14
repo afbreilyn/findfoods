@@ -84,10 +84,10 @@
           //ajax:success
           //ajax:error
 
-          $("body").on("ajax:error", "form.delete-review", function(event, data) {
-            console.log(event);
+          $("body").on("ajax:success", "form.delete-review", function(event, data) {
+            console.log(data);
             event.preventDefault();
-            $fullContent.html(data);
+            $comments.append(data);
           })
 
 // $("input.delete-review").parents('form[data-remote]').bind("ajax:success", function(event, data){

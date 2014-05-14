@@ -80,6 +80,8 @@
 
 .refine-search {
   // background: blue;
+  padding-top: 100px;
+
   font-weight: bold;
   padding-top: 10px;
   padding-left: 10px;
@@ -118,12 +120,14 @@
 }
 
 #refine-submit {
-  position: absolute;
+  position: relative;
   // top: -315px;
-  top: 600px;
-  left: 1130px;
+  // top: 600px;
+  // left: 1130px;
+  top: -40px;
   font-weight: bold;
   font-size: 22px;
+  width: 190px
 }
 
 

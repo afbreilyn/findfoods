@@ -21,11 +21,11 @@
   </div>
   <%#= render partial: "comments/delete", locals: { comment_type: child_comment } %>
 
-<div class="delete-buton"> 
+<div class="delete-button"> 
   <% if current_user %>
     <% if current_user.id == child_comment.user_id %>
 
-      <form action="<%= comment_url(child_comment) %>" method="post" data-remote="true" id="delete-review">
+      <form action="<%= comment_url(child_comment) %>" method="post" data-remote="true" class="delete-review">
         <%= auth_token %>
         <input type="hidden" name="_method" value="delete">
         <input type="Submit" value="Delete">
