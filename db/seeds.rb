@@ -6,7 +6,7 @@
   #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
   #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-  food_arr = %w(chinese japanese itialian thai german french american english indian
+  food_arr = %w(chinese japanese italian thai german french american english indian
       dutch burgers pizza mexican fusion hoiday appetizers breads chocolate 
       convenience fast meat steak dessert pies puddings stews kosher breakfast, 
       sandwich icecream noodles peruvian nomnom)
@@ -179,3 +179,5 @@
       restaurant_id: review.commentable_id
     )
   end
+
+  

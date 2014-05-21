@@ -211,8 +211,8 @@ h3 {
   position: relative;
   left: 133px;
   top: -75px;
-  font-size: 21px;
-  padding:0 10px 0 12px;
+  font-size: 13px;
+  padding:1px 10px 3px 12px;
   margin-bottom: 6px;
   background:#0089e0;
   color:#fff;
@@ -235,17 +235,17 @@ h3 {
   height:0;
   border-color:transparent #0089e0 transparent transparent;
   border-style:solid;
-  border-width:12px 12px 12px 0;
+  border-width:7px 12px 12px 0;
 }
 
 .tag:after {
   content:"";
   position:absolute;
-  top:10px;
+  top: 8px;
   left:0;
   float:left;
   width:4px;
-  height:4px;
+  height:3px;
   -moz-border-radius:2px;
   -webkit-border-radius:2px;
   border-radius:2px;
