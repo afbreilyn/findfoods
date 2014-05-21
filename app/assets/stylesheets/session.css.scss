@@ -3,63 +3,71 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .sign-in-header {
-	padding: 0 15px;
-	padding-bottom: 25px;
+  padding: 0 15px;
+  padding-bottom: 25px;
 }
 
 .welcome-message {
-	float: right;
-	font-size: 24px;
-	margin-top: -45px;
-	font-weight: bold;
-	padding-right: 25px;
+  float: right;
+  font-size: 24px;
+  margin-top: -45px;
+  font-weight: bold;
+  padding-right: 25px;
 }
 
 .sign-in > .input {
-	margin: 20px 0;
+  margin: 20px 0;
+}
+
+#sign-in-text {
+  margin: 10px 0;
+}
+
+#sign-in-password {
+  margin: 10px 0;
 }
 
 .sign-in {
-	width: 300px;
-	margin: auto;
-	padding: 80px 100px;
-	padding-right: 120px;
-	margin-top: 25px;
-	border: 1px solid #c41200;
+  width: 300px;
+  margin: auto;
+  padding: 80px 100px;
+  padding-right: 120px;
+  margin-top: 25px;
+  border: 1px solid #c41200;
 }
 
 .sign-in > div > label {
-	font-weight: bold;
-	font-size: 24px;
-	padding-bottom: 10px;
+  font-weight: bold;
+  font-size: 24px;
+  padding-bottom: 10px;
 }
 
 .sign-in > li {
-	padding: 50px;
-	margin: auto;
+  padding: 50px;
+  margin: auto;
 }
 
 .sign-in > div > input {
-	padding: 5px 10px;
-	border: 1px solid black;
-	height: 24px;
-	width: 300px;
-	display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid black;
+  height: 24px;
+  width: 300px;
+  display: inline-block;
 }
 
 .sign-in > input[type="submit"] {
-	// background: black;
-	border: 1px solid black;
-	font-size: 18px;
-	padding: 10px 15px;
+  // background: black;
+  border: 1px solid black;
+  font-size: 18px;
+  padding: 10px 15px;
 }
 
 .sign-in-content {
-	width: 702px;
-	float: left;
-	margin-bottom: 50px;
-	border-right: 1px solid #c41200;
-	background: #fff;
+  width: 702px;
+  float: left;
+  margin-bottom: 50px;
+  border-right: 1px solid #c41200;
+  background: #fff;
 
 }
 

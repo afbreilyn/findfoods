@@ -4,56 +4,61 @@
 
 
 .user-form-body {
-	width: 702px;
-	float: left;
-	margin-bottom: 50px;
-	border-right: 1px solid #c41200;
-	overflow: hidden;
+  width: 702px;
+  float: left;
+  margin-bottom: 50px;
+  border-right: 1px solid #c41200;
+  overflow: hidden;
 }
 
 .user-form-content {
 }
 
 .user-form-header {
-	padding: 0 15px;
-	padding-bottom: 5px;
+  padding: 0 15px;
+  padding-bottom: 5px;
 }
 
 .user-form > .input {
-	margin: 20px 0;
+  margin: 20px 0;
 }
 
 .user-form {
-	width: 300px;
-	margin: auto;
-	padding: 80px 100px;
-	padding-right: 120px;
-	margin-top: 25px;
-	border: 1px solid #c41200;
+  width: 300px;
+  margin: auto;
+  padding: 80px 100px;
+  padding-right: 120px;
+  margin-top: 25px;
+  border: 1px solid #c41200;
 }
 
 .user-form > div > label {
-	font-weight: bold;
-	font-size: 24px;
-	padding-bottom: 10px;
+  font-weight: bold;
+  font-size: 24px;
+  padding-bottom: 10px;
 }
 
 .user-form > li {
-	padding: 50px;
-	margin: auto;
+  padding: 50px;
+  margin: auto;
 }
 
 .user-form > div > input {
-	padding: 5px 10px;
-	border: 1px solid black;
-	height: 24px;
-	width: 300px;
-	display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid black;
+  height: 24px;
+  width: 300px;
+  display: inline-block;
+  margin: 10px 0;
+}
+
+#u-password {
+  margin: 10px 0;
 }
 
 .user-form > input[type="submit"] {
-	// background: black;
-	border: 1px solid black;
-	font-size: 18px;
-	padding: 10px 15px;
+  // background: black;
+  border: 1px solid black;
+  font-size: 18px;
+  padding: 10px 15px;
 }
