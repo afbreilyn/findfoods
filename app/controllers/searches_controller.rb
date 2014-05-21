@@ -12,8 +12,6 @@ class SearchesController < ApplicationController
       @search = Search.new(search_params)
     end
       @search.save!
-      
-    puts params
 
     if @search.search_params.present?
       category_results = PgSearch.multisearch(@search.search_params).map(&:searchable)

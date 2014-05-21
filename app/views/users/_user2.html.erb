@@ -38,16 +38,22 @@
     </strong>
   </a>
 
-  <ul class="user-restaurants">
+    <ul class="user-restaurants">
       <h3 class="your-restaurants">Your Restaurants:</h3>
-    <% user.restaurants.order(created_at: :asc).each do |restaurant| %>
-      <li class="restaurant-unit">
-        <a href="<%= restaurant_url(restaurant) %>">
-          <%= restaurant.name %>
-        </a>
-      </li>
-    <% end %>
-  </ul>
+
+      <% if user.restaurants %>
+        <% user.restaurants.order(created_at: :asc).each do |restaurant| %>
+          <li class="restaurant-unit">
+            <a href="<%= restaurant_url(restaurant) %>">
+              <%= restaurant.name %>
+            </a>
+          </li>
+        <% end %>
+      <% else %>
+        <h1>No restaurants!</h1>
+      <% end %>
+    </ul>
+
 <% end %>
 
 </section>

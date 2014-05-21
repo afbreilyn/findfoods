@@ -38,7 +38,7 @@
 }
 
 .prof-options {
-  margin: 15px 0;
+  margin: 15px 0 3px 0;
   top: 10px;
   font-size: 16px;
   // font-weight: bold;
@@ -52,9 +52,13 @@
 }
 
 .load-prof-pic > input[type="submit"] {
-  background: #ccc;
-  font-weight: bold;
+  // color: white;
+  font-weight: thin;
+  font-size: 14px;
+  // background: #c41200;
   /*margin-top: 15px;*/
+  padding: 1px 3px;
+  border: 1px solid black;
 }
 
 .prof-string {
