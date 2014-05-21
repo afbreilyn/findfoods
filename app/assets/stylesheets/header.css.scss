@@ -1,108 +1,119 @@
 /* --- HEADER/NAVBAR --- */
 
 .header {
-	padding-bottom: 25px;
-	background: white;
+  padding-bottom: 25px;
+  background: white;
 }
 
 .logo{
-	margin-bottom: -5px; 
-	display: block;
-	float: left;
-	margin-left: 20px;
+  margin-bottom: -5px; 
+  display: block;
+  float: left;
+  margin-left: 20px;
 }
 
 .header-topline{
-	float: right;
+  float: right;
 }
 
 .header-wrap{
-	margin: auto;
-	width: 1000px;
-	height: 90px;
-	position: relative;
-	border-bottom: 1px solid #c41200;
+  margin: auto;
+  width: 1000px;
+  height: 90px;
+  position: relative;
+  border-bottom: 1px solid #c41200;
 }
 
 .search-form {
-	float: right;
-	position: absolute;
-	right: 140px;
+  float: right;
+  position: absolute;
+  right: 140px;
 }
 
 input[type="text"]{
-	float: left;
-	padding: 3px 5px;
-	height: 30px;
-	width: 300px;
-	margin: 10px;
-	font-size: 24px;
-	font-weight: bold;
+  float: left;
+  padding: 3px 5px;
+  height: 30px;
+  width: 300px;
+  margin: 10px;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .header > input[type="submit"]{
-	background: #ccc;
-	height: 30px;
-	width: 30px;
-	font-weight: bold;
-	margin-top: 15px;
+  background: #c41200;
+  height: 30px;
+  width: 80px;
+  color: white;
+  margin-top: 15px;
+  margin-left: 10px;
+  box-shadow: 3px 3px 3px 1px #bbb;
+  -moz-box-shadow: 3px 3px 3px 1px #bbb;
+  -webkit-box-shadow: 3px 3px 3px 1px #bbb;
+}
+
+#s_params {
+  width: 270px;
+}
+
+#s_locat {
+  width: 270px;
 }
 
 .header-nav {
-	position: absolute;
-	top: 65px;
-	left: 162px;
+  position: absolute;
+  top: 65px;
+  left: 162px;
 }
 
 .header-nav > ul {
 }
 
 .header-nav > ul > li {
-	display: inline-block;
+  display: inline-block;
 }
 
-.header-nav > ul > li > a{
-	font-size: 18px;
-	font-weight: bold;
-	display: block;
-	margin-left: 10px;
-	margin-right: 65px;
+.header-nav > ul > li > a {
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+  margin-left: 10px;
+  margin-right: 65px;
 }
 
 .header-nav > ul > li > a:hover {
-	color: #bbb;
+  color: #bbb;
 }
 
 .notification-num{
-	display: inline-block;
-	background: black;
-	color: white;
-	padding: 2px 7px;
-	border-radius: 10px;
-	font-size: 10px
+  display: inline-block;
+  background: black;
+  color: white;
+  padding: 2px 7px;
+  border-radius: 10px;
+  font-size: 10px
 }
 
 .prof-pic {
-	float: right;
-	position: relative;
-	background: black;
-	top: 20px;
-	right: 45px;
-	width: 50px;
+  float: right;
+  position: relative;
+  background: black;
+  top: 20px;
+  right: 45px;
+  width: 50px;
 }
 
 .sign-out{
-	font-size: 18px;
-	font-weight: bold;
-	display: block;
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
 }
 
 .sign-out:hover {
-	color: white;
+  color: white;
 }
 
 #header-logo {
-	width: 150px;
-	height: auto;
+  width: 150px;
+  height: auto;
 }
-
