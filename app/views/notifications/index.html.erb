@@ -1,10 +1,11 @@
 
 <ul class="notifications main-content">
   <h1 class="notice-header">Notifications:</h1>
-  <% if current_user.notifications %>
+  <% if !current_user.notifications.empty? %>
+
   	<%= render partial: "notifications/notification", collection: current_user.notifications %>
   <% else %>
-  	You have no current notifications!
+  	<p class="no-notes">You have no current notifications!</p>
   <% end %>
 </ul>
 
