@@ -24,8 +24,9 @@ class Notification < ActiveRecord::Base
 			restaurant = comment.commentable
 			restaurant_url(restaurant.id)
 		when :were_tagged
-			tag = self.notifiable
-			restaurant_url(tag.restaurant.id)
+			# tag = self.notifiable
+			# restaurant_url(tag.restaurant.id)
+			# add back in when users can tag restaurant
 		end
 	end
 
