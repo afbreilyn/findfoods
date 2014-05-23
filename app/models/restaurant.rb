@@ -22,7 +22,12 @@ class Restaurant < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   geocoded_by :address
-  after_validation :geocode, :if => :address?
+
+  def address
+    [street1, city, state].compact.join(', ')
+  end
+
+  after_validation :geocode #, :if => :address_changed?
 
   include PgSearch
 

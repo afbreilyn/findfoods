@@ -8,8 +8,8 @@
 
   food_arr = %w(chinese japanese italian thai german french american english indian
       dutch burgers pizza mexican fusion hoiday appetizers breads chocolate 
-      convenience fast meat steak dessert pies puddings stews kosher breakfast, 
-      sandwich icecream noodles peruvian nomnom)
+      meat steak dessert pies puddings stews kosher breakfast beer wine 
+      sandwich icecream noodles peruvian)
 
   # cities = ["New York City", "Boston", "Los Angeles" ]
 
@@ -157,13 +157,37 @@
   end
 
   restaurants = []
-  30.times do 
+  3.times do 
     restaurants << Restaurant.create!(
       name: Faker::Company.name,
       street1: rand(1000).to_s + " " + ny_roads[rand(ny_roads.length-1)],
       city: "New York",
       state: "NY",
       zip: 10016,
+      owner_id: users.sample.id,
+      avatar: File.open(Rails.root.join("seeds", les_rest_pics.sample))
+    )
+  end
+
+  3.times do 
+    restaurants << Restaurant.create!(
+      name: Faker::Company.name,
+      street1: rand(1000).to_s + " " + la_roads[rand(la_roads.length-1)],
+      city: "Los Angeles",
+      state: "CA",
+      zip: 91355,
+      owner_id: users.sample.id,
+      avatar: File.open(Rails.root.join("seeds", les_rest_pics.sample))
+    )
+  end
+
+  3.times do 
+    restaurants << Restaurant.create!(
+      name: Faker::Company.name,
+      street1: rand(1000).to_s + " " + bo_roads[rand(bo_roads.length-1)],
+      city: "Boston",
+      state: "MA",
+      zip: 02201,
       owner_id: users.sample.id,
       avatar: File.open(Rails.root.join("seeds", les_rest_pics.sample))
     )
@@ -176,7 +200,7 @@
   # end
 
   reviews = []
-  150.times do 
+  15.times do 
     reviews << users.sample.written_comments.create!(
       commentable_type: "Restaurant",
       commentable_id: restaurants.sample.id,
