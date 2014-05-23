@@ -148,8 +148,14 @@ h3 {
 
 .restaurant-index-header {
   padding: 0 15px;
-  padding-bottom: 25px;
+  padding-bottom: 10px;
   background: #fff;
+  text-indent: 53px;
+}
+
+.index-subheader {
+  padding: 0 15px;
+  text-indent: 88px;
 }
 
 .restaurant-address {

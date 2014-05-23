@@ -120,7 +120,7 @@
       <% @restaurants.each do |restaurant| %>
         <li>
           <a href="<%= restaurant_url(restaurant) %>">  
-            <%= restaurant.name %> 
+            <%= restaurant.name %>
             <% restaurant.average_rating.each do |star| %>
               <i class="<%= star %>"></i>  
             <% end %>
