@@ -6,6 +6,9 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <meta charset="utf-8"> 
+
+  <%= favicon_link_tag 'favicon.ico' %>
+
 </head>
 <body>
   <header class="header"> 
@@ -134,7 +137,7 @@
 
       <li class="signed-out" id="home-button"><a href="<%= root_url %>" data-remote="true">Home</a></li>
 
-      <li><a href="#">Write a Review</a></li>
+      <!-- <li><a href="#">Write a Review</a></li> -->
 
       <% if signed_in? %>
       

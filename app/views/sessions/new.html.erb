@@ -22,8 +22,36 @@
   </div>
 
     <input type="submit" value="Sign In">
+
+    <input type="submit" id="demo-sing-in" value="Sign in as demo user">
+
+
   </form>
 
 </section>
+
+<script>
+
+  function demoData(position) {
+    $("#sign-in-text").val("demoUser@example.com");
+    $("#sign-in-password").val("password");
+  }
+
+  $("#demo-sing-in").on("click", function (event) {
+    event.preventDefault();
+    demoData();
+
+    // var $form = $(this);
+    // var $currentTarget = $(event.currentTarget);
+    // var data = $currentTarget.serializeJSON();
+
+    // other_data = this.getLocation();
+
+  // console.log($currentTarget);
+
+  });
+
+</script>
+
 
 <%= render partial: "sidebars/sidebar" %>

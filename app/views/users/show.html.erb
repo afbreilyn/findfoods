@@ -28,7 +28,7 @@
   </section>
 
   <section class="user-activity">
-    <% if @user.restaurants %>
+    <% if !@user.restaurants.empty? %>
       <h2>Restaurants:</h2>
 
       <ul>
@@ -43,10 +43,12 @@
           </li>
         <% end %>
       </ul>
+      <% else %>
+        <h2>No restaurants as of yet!</h2>
     <% end %>
 
-    <% if @user.written_comments %>
-      <h2>Reviews:</h2>
+    <% if !@user.written_comments.empty? %>
+      <h2 class="na">Reviews:</h2>
 
       <ul>
         <% @user.written_comments.each do |comm| %>
@@ -61,7 +63,7 @@
         <% end %>
       </ul>
     <% else %>
-      No reviews as of yet!
+      <h2 class="na">No reviews as of yet!</h2>
     <% end %>
   </section>
 
