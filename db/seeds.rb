@@ -11,22 +11,41 @@
       convenience fast meat steak dessert pies puddings stews kosher breakfast, 
       sandwich icecream noodles peruvian nomnom)
 
-  cities = %w(Shanghai Beijing Lagos Istanbul Karachi Mumbai Moscow São Paulo Guangzhou 
-    Delhi Shenzhen Seoul Jakarta Kinshasa Tainjin Tokyo Cairo Chaka Mexico Lima Bangalor 
-    NYC London Bangkok Dongguan Tehran Bogotá Baghdad Wuhan Hanoi Hyderabad Lahore Foshan
-    Santiago Riyadh Ahmedabad Singapore Shantou Luanda Abidjan Chengdu Chennai 
-    Alexandria Chongqing Kolkata Surat Johannesburg Nanjing Boston Montreal Newark Dallas 
-    Austin Charlette Atlanta Columbus Houston Lexinton Fayetteville Asheville Cambridge
-    Louisville Boise Knoxville Perth Tallinn Tashkent Tehran Tirana Tirana Tokyo Tripoli
-    Windhoek Yaren Zagreb Windhoek Vaduz Rome Florence Venice Hamburg Berlin Cairo Jerusalem
-    Saipan Rabat Quito Prague Getinje Paris Dijon Panama Oslo Nicosia Nuuk Monaco Milan Amsterdam
-     Amsterdam Amsterdam London Paris Paris Paris Paris Paris Paris Tokyo Tripoli
-    Windhoek Yaren Zagreb Windhoek Vaduz Rome Florence Venice Hamburg Berlin Cairo Tokyo Tripoli
-    Windhoek Yaren Zagreb Windhoek Vaduz Rome Florence Venice Hamburg Berlin Cairo Amerstdam 
-    Venice Amerstdam Venice Amerstdam Venice Amerstdam Venice Amerstdam Venice Amerstdam Venice)
+  # cities = ["New York City", "Boston", "Los Angeles" ]
 
-  cities.concat(["Saint Petersburg", "Mexico City", "Hong Kong", 
-                  "Xi'an", "Los Angeles", "San Antonio", "Salt Lake City"])
+  ny_roads = %w(1st 2nd 3rd 4th 5th 6th 7th 8th 9th 10th 11th Madison Park Lexington Ave).map! { |ave| ave = ave += " Ave"}.concat(["Avenue of the Americas", "Broadway"])
+
+  la_roads = [
+    "Beethover Street",
+    "Palms Blvd",
+    "Culver Blvd",
+    "Wilshire Blvd",
+    "Cashio St",
+    "Pico Blvd",
+    "Venice Blvd",
+    "39th Street",
+    "Vernon Ave",
+    "Florence Ave",
+    "8th Street",
+    "Los Angeles Street",
+    "San Pedro Street"
+  ]
+
+  bo_roads = [
+    "Columbia Road",
+    "Blue Hill Avenue",
+    "Geneva Ave",
+    "Blue Hill Ave",
+    "Warren Street",
+    "Dudley Street",
+    "Dorcester Avenue",
+    "Glenway Street",
+    "Norfolk Ave",
+    "Boston St",
+    "Cedar St",
+    "1st Street",
+    "Stoughton St"
+  ]
 
   reviews_samples = [
     "Great, fun place to walk around, shop and eat! Kid friendly, highly recommend going to 
@@ -138,23 +157,23 @@
   end
 
   restaurants = []
-  100.times do 
+  30.times do 
     restaurants << Restaurant.create!(
       name: Faker::Company.name,
-      street1: Faker::Address.street_address,
-      city: cities.sample,
-      state: Faker::Address.state_abbr,
-      zip: Faker::Address.zip,
+      street1: rand(1000).to_s + " " + ny_roads[rand(ny_roads.length-1)],
+      city: "New York",
+      state: "NY",
+      zip: 10016,
       owner_id: users.sample.id,
       avatar: File.open(Rails.root.join("seeds", les_rest_pics.sample))
     )
   end
 
-  restaurants.each do |restaurant|
-    unless restaurant.latitude
-      restaurant.zip = Faker::Address.zip
-    end
-  end
+  # restaurants.each do |restaurant|
+  #   unless restaurant.latitude
+  #     restaurant.zip = Faker::Address.zip
+  #   end
+  # end
 
   reviews = []
   150.times do 

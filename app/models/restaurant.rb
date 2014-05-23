@@ -21,8 +21,8 @@ class Restaurant < ActiveRecord::Base
   has_attached_file :avatar, styles: { :thumb => "100x100>", :full => "200x200>" }, :default_url => ActionController::Base.helpers.asset_path("restaurant.png")
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
-  geocoded_by :city
-  after_validation :geocode, :if => :city_changed?
+  geocoded_by :address
+  after_validation :geocode, :if => :address?
 
   include PgSearch
 
