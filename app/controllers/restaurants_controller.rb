@@ -37,7 +37,8 @@ class RestaurantsController < ApplicationController
       redirect_to restaurant_url(@restaurant)
     else
       flash.now[:errors] = @restaurant.errors.full_messages
-      render :new
+      redirect_to root_url
+      # render :new
     end
   end
 

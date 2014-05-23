@@ -141,16 +141,16 @@
       avatar: File.open(Rails.root.join("seeds", "pic_for_stuff.jpg"))
     )
 
-    demo_user = User.create!(
-      fname: "Demo",
-      mname: "T",
-      lname: "User",
-      city: "Somethere",
-      state: "NA",
-      email: "demoUser@example.com",
-      password: "password",
-      avatar: File.open(Rails.root.join("seeds", les_pics.sample))
-    )
+    # demo_user = User.create!(
+    #   fname: "Demo",
+    #   mname: "T",
+    #   lname: "User",
+    #   city: "Somethere",
+    #   state: "NA",
+    #   email: "demoUser@example.com",
+    #   password: "password",
+    #   avatar: File.open(Rails.root.join("seeds", les_pics.sample))
+    # )
 
   users = []
   50.times do 
