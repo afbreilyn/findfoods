@@ -283,3 +283,13 @@ h3 {
   float: right;
   margin-right: 215px;
 }
+
+footer {
+  text-align: right;
+  margin: 12px 0;
+}
+
+footer > h3 {
+  font-size: 14px;
+  margin-right: 15px;
+}

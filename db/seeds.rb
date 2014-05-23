@@ -9,9 +9,7 @@
   food_arr = %w(chinese japanese italian thai german french american english indian
       dutch burgers pizza mexican fusion hoiday appetizers breads chocolate 
       meat steak dessert pies puddings stews kosher breakfast beer wine 
-      sandwich icecream noodles peruvian)
-
-  # cities = ["New York City", "Boston", "Los Angeles" ]
+      sandwich icecream noodles peruvian lunch coffee cafe dinner deli)
 
   ny_roads = %w(1st 2nd 3rd 4th 5th 6th 7th 8th 9th 10th 11th Madison Park Lexington Ave).map! { |ave| ave = ave += " Ave"}.concat(["Avenue of the Americas", "Broadway"])
 
@@ -168,7 +166,7 @@
   end
 
   restaurants = []
-  3.times do 
+  50.times do 
     restaurants << Restaurant.create!(
       name: Faker::Company.name,
       street1: rand(1000).to_s + " " + ny_roads[rand(ny_roads.length-1)],
@@ -180,7 +178,7 @@
     )
   end
 
-  3.times do 
+  50.times do 
     restaurants << Restaurant.create!(
       name: Faker::Company.name,
       street1: rand(1000).to_s + " " + la_roads[rand(la_roads.length-1)],
@@ -192,7 +190,7 @@
     )
   end
 
-  3.times do 
+  50.times do 
     restaurants << Restaurant.create!(
       name: Faker::Company.name,
       street1: rand(1000).to_s + " " + bo_roads[rand(bo_roads.length-1)],
@@ -204,14 +202,8 @@
     )
   end
 
-  # restaurants.each do |restaurant|
-  #   unless restaurant.latitude
-  #     restaurant.zip = Faker::Address.zip
-  #   end
-  # end
-
   reviews = []
-  15.times do 
+  150.times do 
     reviews << users.sample.written_comments.create!(
       commentable_type: "Restaurant",
       commentable_id: restaurants.sample.id,
