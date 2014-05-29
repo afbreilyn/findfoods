@@ -3,7 +3,7 @@ class NotificationsController < ApplicationController
   def show
     notification = current_user.notifications.find(params[:id])
     notification.update(is_read: true)
-    redirect_to notifications_url
+    redirect_to restaurant_url(notification.notifiable.commentable)
   end
 
   def index 

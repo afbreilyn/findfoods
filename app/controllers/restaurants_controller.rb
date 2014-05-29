@@ -91,7 +91,7 @@ class RestaurantsController < ApplicationController
   def destroy
     @restaurant = current_user.restaurants.find(params[:id])
     @restaurant.destroy
-    redirect_to user_url(current_user)
+    redirect_to root_url
   end
 
 

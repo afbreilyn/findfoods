@@ -14,7 +14,7 @@ class Restaurant < ActiveRecord::Base
   has_many :tags
   
   has_many :comments, as: :commentable, dependent: :destroy
-  has_many :notifications, as: :notifiable
+  has_many :notifications, as: :notifiable, dependent: :destroy
   
   has_many :ratings, dependent: :destroy
 
